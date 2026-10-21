@@ -185,17 +185,20 @@ The system evaluates a 5-tier experimental progression to empirically isolate ea
 | **Exp E: LLM-Assisted** | `llm_assisted` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ### Benchmark Results on Authentic FEVER Held-Out Test Split ($N=60$)
-Evaluated on 60 held-out balanced claims from the official FEVER development release grounded in an authentic 100-document Wikipedia corpus (zero synthetic passages, independent entity construction):
+Evaluated on 60 held-out balanced claims from the official FEVER development release grounded in an authentic 100-document Wikipedia corpus (zero synthetic passages, independent entity construction, zero selection bias):
 
 | Experiment | Accuracy | Macro-F1 | Recall@5 | MRR | ECE | Brier (MC) | Coverage | Selective Acc |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **A: Baseline (Claim-Only)** | 0.3333 | 0.1667 | 0.0000 | 0.0000 | 0.3333 | 1.3333 | 0.0000 | 0.0000 |
-| **B: Evidence-Aware (Hybrid + NLI)** | 0.4000 | 0.3200 | 1.0000 | 1.0000 | 0.2096 | 0.7263 | 1.0000 | 0.4000 |
-| **C: Conflict- & Temporal-Aware** | 0.4000 | 0.3200 | 1.0000 | 1.0000 | 0.2001 | 0.7732 | 1.0000 | 0.4000 |
-| **D: Full Proposed System** | **0.5167** | **0.4951** | 1.0000 | 1.0000 | 0.5737 | 0.7732 | 0.3667 | **0.6364** |
-| **E: LLM-Assisted [NOT EVALUATED]** | 0.5167 | 0.4951 | 1.0000 | 1.0000 | 0.5737 | 0.7732 | 0.3667 | 0.6364 |
+| **B: Evidence-Aware (Hybrid + NLI)** | 0.4333 | 0.3341 | 0.2250 | 0.2250 | 0.3514 | 1.2377 | 1.0000 | 0.4333 |
+| **C: Conflict- & Temporal-Aware** | 0.4333 | 0.3341 | 0.2250 | 0.2250 | 0.3560 | 1.2544 | 1.0000 | 0.4333 |
+| **D: Full Proposed System** | 0.3667 | 0.2780 | 0.2250 | 0.2250 | 0.3481 | 1.2544 | 0.1333 | **0.5000** |
+| **E: LLM-Assisted [NOT EVALUATED]** | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 
-*Key Scientific Takeaway:* Enabling multi-signal calibrated uncertainty abstention (Exp D) increases selective verification accuracy by **+23.64 percentage points** (from 40.00% to 63.64%), while overall accuracy rises from 40.00% to 51.67%.
+*Benchmark Integrity Notes:*
+- **Corpus Coverage & Unbiased Sampling:** The 60 held-out test claims were sampled strictly independently of whether their gold evidence exists in the 100-document corpus. Among the 40 verifiable claims (`SUPPORTED` and `CONTRADICTED`), exactly 9 claims (22.5%) have their gold evidence documents in the 100-doc corpus. The hybrid retriever achieves 100% recall on those 9 claims at rank 1, yielding a realistic and unbiased Recall@5 of **0.2250** and MRR of **0.2250**. The remaining 31 verifiable claims correctly register 0.0 retrieval recall because their gold articles are absent from the 100-doc corpus.
+- **NOT ENOUGH INFO Claims:** All 20 `INSUFFICIENT_EVIDENCE` claims have empty gold evidence sets (`evidence_sets: []`). They participate fully in 3-class classification, calibration, and abstention evaluations, but are excluded from retrieval recall calculations to avoid skewing metrics.
+- **Experiment E Status:** Experiment E remains completely unevaluated due to the absence of external LLM API credentials. All its metrics are explicitly recorded as `N/A` (or `null` in JSON) to prevent inheriting fallback values from Experiment D.
 
 To execute benchmarks:
 ```bash
@@ -203,7 +206,7 @@ To execute benchmarks:
 python scripts/run_experiments.py --dataset data/processed/test.jsonl --results_dir results
 
 # Benchmark on controlled scenarios test split
-python scripts/run_experiments.py --dataset data/controlled/test.jsonl --results_dir results/controlled
+python scripts/run_experiments.py --config configs/controlled.yaml --dataset data/controlled/test.jsonl --results_dir results/controlled
 ```
 
 ---

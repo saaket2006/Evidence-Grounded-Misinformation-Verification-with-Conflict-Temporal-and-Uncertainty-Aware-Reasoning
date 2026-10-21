@@ -24,8 +24,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_build_index",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": "build_index.py"
     },
     {
@@ -35,8 +35,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "scripts_build_index_build_indexes",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": "build_indexes()"
     },
     {
@@ -46,8 +46,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "scripts_build_index_main",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": "main()"
     },
     {
@@ -57,8 +57,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_build_index_rationale_1",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": "build and save bm25 and dense retrieval indexes from processed corpus."
     },
     {
@@ -68,8 +68,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_download_data",
-      "community": 17,
-      "community_name": "download_data.py",
+      "community": 44,
+      "community_name": "logging.py",
       "norm_label": "download_data.py"
     },
     {
@@ -79,8 +79,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "scripts_download_data_download_file",
-      "community": 17,
-      "community_name": "download_data.py",
+      "community": 44,
+      "community_name": "logging.py",
       "norm_label": "download_file()"
     },
     {
@@ -90,8 +90,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "scripts_download_data_py_path",
-      "community": 17,
-      "community_name": "download_data.py",
+      "community": 44,
+      "community_name": "logging.py",
       "norm_label": "path"
     },
     {
@@ -101,8 +101,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "scripts_download_data_main",
-      "community": 17,
-      "community_name": "download_data.py",
+      "community": 44,
+      "community_name": "logging.py",
       "norm_label": "main()"
     },
     {
@@ -112,8 +112,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_download_data_rationale_1",
-      "community": 17,
-      "community_name": "download_data.py",
+      "community": 44,
+      "community_name": "logging.py",
       "norm_label": "download fever dataset files or create verified benchmark subsets. supports..."
     },
     {
@@ -123,8 +123,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "scripts_download_data_rationale_24",
-      "community": 17,
-      "community_name": "download_data.py",
+      "community": 44,
+      "community_name": "logging.py",
       "norm_label": "download a file with fallback handling."
     },
     {
@@ -223,52 +223,41 @@
       "_origin": "ast",
       "id": "scripts_prepare_data",
       "community": 44,
-      "community_name": "prepare_data.py",
+      "community_name": "logging.py",
       "norm_label": "prepare_data.py"
     },
     {
       "label": "decode_fever_title()",
       "file_type": "code",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L213",
+      "source_location": "L354",
       "_origin": "ast",
       "id": "scripts_prepare_data_decode_fever_title",
       "community": 44,
-      "community_name": "prepare_data.py",
+      "community_name": "logging.py",
       "norm_label": "decode_fever_title()"
     },
     {
       "label": "slugify_title()",
       "file_type": "code",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L225",
+      "source_location": "L366",
       "_origin": "ast",
       "id": "scripts_prepare_data_slugify_title",
       "community": 44,
-      "community_name": "prepare_data.py",
+      "community_name": "logging.py",
       "norm_label": "slugify_title()"
     },
     {
       "label": "fetch_wikipedia_articles()",
       "file_type": "code",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L231",
+      "source_location": "L372",
       "_origin": "ast",
       "id": "scripts_prepare_data_fetch_wikipedia_articles",
       "community": 44,
-      "community_name": "prepare_data.py",
+      "community_name": "logging.py",
       "norm_label": "fetch_wikipedia_articles()"
-    },
-    {
-      "label": "prepare_controlled_suite()",
-      "file_type": "code",
-      "source_file": "scripts/prepare_data.py",
-      "source_location": "L272",
-      "_origin": "ast",
-      "id": "scripts_prepare_data_prepare_controlled_suite",
-      "community": 44,
-      "community_name": "prepare_data.py",
-      "norm_label": "prepare_controlled_suite()"
     },
     {
       "label": "Path",
@@ -278,29 +267,40 @@
       "_origin": "ast",
       "id": "scripts_prepare_data_py_path",
       "community": 44,
-      "community_name": "prepare_data.py",
+      "community_name": "logging.py",
       "norm_label": "path"
+    },
+    {
+      "label": "prepare_controlled_suite()",
+      "file_type": "code",
+      "source_file": "scripts/prepare_data.py",
+      "source_location": "L434",
+      "_origin": "ast",
+      "id": "scripts_prepare_data_prepare_controlled_suite",
+      "community": 44,
+      "community_name": "logging.py",
+      "norm_label": "prepare_controlled_suite()"
     },
     {
       "label": "prepare_fever_benchmark()",
       "file_type": "code",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L296",
+      "source_location": "L458",
       "_origin": "ast",
       "id": "scripts_prepare_data_prepare_fever_benchmark",
       "community": 44,
-      "community_name": "prepare_data.py",
+      "community_name": "logging.py",
       "norm_label": "prepare_fever_benchmark()"
     },
     {
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L467",
+      "source_location": "L699",
       "_origin": "ast",
       "id": "scripts_prepare_data_main",
       "community": 44,
-      "community_name": "prepare_data.py",
+      "community_name": "logging.py",
       "norm_label": "main()"
     },
     {
@@ -311,63 +311,63 @@
       "_origin": "ast",
       "id": "scripts_prepare_data_rationale_1",
       "community": 44,
-      "community_name": "prepare_data.py",
+      "community_name": "logging.py",
       "norm_label": "preprocess datasets and construct reproducible benchmark and controlled suites...."
     },
     {
-      "label": "Decode FEVER title encoding (-LRB-, -RRB-, underscores).",
+      "label": "Decode FEVER specific escaped characters in Wikipedia titles.",
       "file_type": "rationale",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L214",
+      "source_location": "L355",
       "_origin": "ast",
-      "id": "scripts_prepare_data_rationale_214",
+      "id": "scripts_prepare_data_rationale_355",
       "community": 44,
-      "community_name": "prepare_data.py",
-      "norm_label": "decode fever title encoding (-lrb-, -rrb-, underscores)."
+      "community_name": "logging.py",
+      "norm_label": "decode fever specific escaped characters in wikipedia titles."
     },
     {
       "label": "Generate safe document ID slug.",
       "file_type": "rationale",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L226",
+      "source_location": "L367",
       "_origin": "ast",
-      "id": "scripts_prepare_data_rationale_226",
+      "id": "scripts_prepare_data_rationale_367",
       "community": 44,
-      "community_name": "prepare_data.py",
+      "community_name": "logging.py",
       "norm_label": "generate safe document id slug."
     },
     {
-      "label": "Fetch introductory text for Wikipedia articles in batches.",
+      "label": "Fetch introductory text for Wikipedia articles in batches, using local cache\u2026",
       "file_type": "rationale",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L232",
+      "source_location": "L373",
       "_origin": "ast",
-      "id": "scripts_prepare_data_rationale_232",
+      "id": "scripts_prepare_data_rationale_373",
       "community": 44,
-      "community_name": "prepare_data.py",
-      "norm_label": "fetch introductory text for wikipedia articles in batches."
+      "community_name": "logging.py",
+      "norm_label": "fetch introductory text for wikipedia articles in batches, using local cache..."
     },
     {
-      "label": "Save the controlled scenario suite to data/controlled/.",
+      "label": "Save the controlled scenario suite strictly to data/controlled/.",
       "file_type": "rationale",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L273",
+      "source_location": "L435",
       "_origin": "ast",
-      "id": "scripts_prepare_data_rationale_273",
+      "id": "scripts_prepare_data_rationale_435",
       "community": 44,
-      "community_name": "prepare_data.py",
-      "norm_label": "save the controlled scenario suite to data/controlled/."
+      "community_name": "logging.py",
+      "norm_label": "save the controlled scenario suite strictly to data/controlled/."
     },
     {
-      "label": "Build authentic FEVER benchmark from official paper_dev split.",
+      "label": "Construct an authentic FEVER benchmark independently of held-out test\u2026",
       "file_type": "rationale",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L302",
+      "source_location": "L465",
       "_origin": "ast",
-      "id": "scripts_prepare_data_rationale_302",
+      "id": "scripts_prepare_data_rationale_465",
       "community": 44,
-      "community_name": "prepare_data.py",
-      "norm_label": "build authentic fever benchmark from official paper_dev split."
+      "community_name": "logging.py",
+      "norm_label": "construct an authentic fever benchmark independently of held-out test..."
     },
     {
       "label": "run_experiments.py",
@@ -428,7 +428,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L222",
+      "source_location": "L227",
       "_origin": "ast",
       "id": "scripts_run_experiments_main",
       "community": 1,
@@ -465,7 +465,7 @@
       "_origin": "ast",
       "id": "scripts_run_pipeline",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "run_pipeline.py"
     },
     {
@@ -476,7 +476,7 @@
       "_origin": "ast",
       "id": "scripts_run_pipeline_main",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "main()"
     },
     {
@@ -487,7 +487,7 @@
       "_origin": "ast",
       "id": "scripts_run_pipeline_rationale_1",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "cli entry point to verify a single claim using the verification pipeline."
     },
     {
@@ -498,7 +498,7 @@
       "_origin": "ast",
       "id": "scripts_verify_representative_claims",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "verify_representative_claims.py"
     },
     {
@@ -509,7 +509,7 @@
       "_origin": "ast",
       "id": "scripts_verify_representative_claims_run_representative_inspections",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "run_representative_inspections()"
     },
     {
@@ -520,7 +520,7 @@
       "_origin": "ast",
       "id": "scripts_verify_representative_claims_rationale_1",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "script to verify and inspect representative end-to-end claims across all..."
     },
     {
@@ -607,7 +607,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_aggregation_aggregator_evidenceaggregator",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": "evidenceaggregator"
     },
@@ -618,7 +618,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_aggregation_aggregator_evidenceaggregator_init",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": ".__init__()"
     },
@@ -629,7 +629,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_aggregation_aggregator_evidenceaggregator_aggregate",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": ".aggregate()"
     },
@@ -651,7 +651,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "src_aggregation_aggregator_rationale_23",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": "synthesizes passage-level nli classifications into a coherent claim-level..."
     },
@@ -805,8 +805,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_conflict_init",
-      "community": 0,
-      "community_name": "ConflictReport",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "conflict/__init__.py"
     },
     {
@@ -816,8 +816,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_conflict_init_rationale_1",
-      "community": 0,
-      "community_name": "ConflictReport",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "conflict analysis module."
     },
     {
@@ -827,8 +827,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_conflict_detector",
-      "community": 0,
-      "community_name": "ConflictReport",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "detector.py"
     },
     {
@@ -860,7 +860,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_conflict_detector_conflictdetector",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": "conflictdetector"
     },
@@ -871,7 +871,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_conflict_detector_conflictdetector_init",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": ".__init__()"
     },
@@ -882,7 +882,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_conflict_detector_conflictdetector_analyze",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": ".analyze()"
     },
@@ -893,8 +893,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_conflict_detector_rationale_1",
-      "community": 0,
-      "community_name": "ConflictReport",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "conflict detection and consensus analysis across evidence passages."
     },
     {
@@ -904,7 +904,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_conflict_detector_rationale_22",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": "analyzes evidence pool for contradictory and opposing claims."
     },
@@ -915,7 +915,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_conflict_detector_rationale_25",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": "args: balance_threshold: minimum ratio of minority-to-majority mass to declare..."
     },
@@ -1158,7 +1158,7 @@
       "_origin": "ast",
       "id": "src_nli_init",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "nli/__init__.py"
     },
     {
@@ -1169,7 +1169,7 @@
       "_origin": "ast",
       "id": "src_nli_base",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "nli/base.py"
     },
     {
@@ -1180,7 +1180,7 @@
       "_origin": "ast",
       "id": "src_nli_base_basenliclassifier",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "basenliclassifier"
     },
     {
@@ -1191,7 +1191,7 @@
       "_origin": "ast",
       "id": "src_nli_base_py_abc",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "abc"
     },
     {
@@ -1202,7 +1202,7 @@
       "_origin": "ast",
       "id": "src_nli_base_basenliclassifier_classify_pairs",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": ".classify_pairs()"
     },
     {
@@ -1213,7 +1213,7 @@
       "_origin": "ast",
       "id": "src_nli_base_basenliclassifier_evaluate_passages",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": ".evaluate_passages()"
     },
     {
@@ -1224,7 +1224,7 @@
       "_origin": "ast",
       "id": "src_nli_base_rationale_1",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "base interface for natural language inference (nli) classifiers."
     },
     {
@@ -1235,7 +1235,7 @@
       "_origin": "ast",
       "id": "src_nli_base_rationale_9",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "abstract interface for claim-evidence nli classification."
     },
     {
@@ -1246,7 +1246,7 @@
       "_origin": "ast",
       "id": "src_nli_base_rationale_16",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "classify a list of (claim, evidence) pairs into nli distributions. returns list..."
     },
     {
@@ -1257,7 +1257,7 @@
       "_origin": "ast",
       "id": "src_nli_base_rationale_33",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "evaluate evidence passages against a claim and update passage nli fields in-..."
     },
     {
@@ -1268,7 +1268,7 @@
       "_origin": "ast",
       "id": "src_nli_classifier",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "classifier.py"
     },
     {
@@ -1279,7 +1279,7 @@
       "_origin": "ast",
       "id": "src_nli_classifier_transformernliclassifier",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "transformernliclassifier"
     },
     {
@@ -1290,7 +1290,7 @@
       "_origin": "ast",
       "id": "src_nli_classifier_transformernliclassifier_init",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": ".__init__()"
     },
     {
@@ -1301,7 +1301,7 @@
       "_origin": "ast",
       "id": "src_nli_classifier_transformernliclassifier_ensure_model",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "._ensure_model()"
     },
     {
@@ -1312,18 +1312,18 @@
       "_origin": "ast",
       "id": "src_nli_classifier_transformernliclassifier_classify_pairs",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": ".classify_pairs()"
     },
     {
       "label": ".evaluate_passages()",
       "file_type": "code",
       "source_file": "src/nli/classifier.py",
-      "source_location": "L192",
+      "source_location": "L194",
       "_origin": "ast",
       "id": "src_nli_classifier_transformernliclassifier_evaluate_passages",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": ".evaluate_passages()"
     },
     {
@@ -1334,7 +1334,7 @@
       "_origin": "ast",
       "id": "src_nli_classifier_rationale_1",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "claim-evidence nli classifier using pretrained transformer models."
     },
     {
@@ -1345,7 +1345,7 @@
       "_origin": "ast",
       "id": "src_nli_classifier_rationale_18",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "nli classifier using pretrained bert/roberta/deberta models."
     },
     {
@@ -1356,7 +1356,7 @@
       "_origin": "ast",
       "id": "src_nli_classifier_rationale_38",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "lazy load tokenizer and model and infer label index mapping."
     },
     {
@@ -1367,18 +1367,18 @@
       "_origin": "ast",
       "id": "src_nli_classifier_rationale_74",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "classify pairs of (premise/evidence, hypothesis/claim). note: standard nli..."
     },
     {
       "label": "Classify each evidence passage relative to the claim.",
       "file_type": "rationale",
       "source_file": "src/nli/classifier.py",
-      "source_location": "L197",
+      "source_location": "L199",
       "_origin": "ast",
-      "id": "src_nli_classifier_rationale_197",
+      "id": "src_nli_classifier_rationale_199",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "classify each evidence passage relative to the claim."
     },
     {
@@ -1388,8 +1388,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pipeline_init",
-      "community": 19,
-      "community_name": "verifier.py",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "pipeline/__init__.py"
     },
     {
@@ -1399,8 +1399,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_pipeline_init_getattr",
-      "community": 19,
-      "community_name": "verifier.py",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "__getattr__()"
     },
     {
@@ -1410,8 +1410,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pipeline_schema",
-      "community": 19,
-      "community_name": "verifier.py",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "schema.py"
     },
     {
@@ -1443,8 +1443,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "enum",
-      "community": 0,
-      "community_name": "ConflictReport",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "enum"
     },
     {
@@ -1454,8 +1454,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pipeline_schema_nlilabel",
-      "community": 0,
-      "community_name": "ConflictReport",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "nlilabel"
     },
     {
@@ -1465,7 +1465,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_pipeline_schema_evidencepassage",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": "evidencepassage"
     },
@@ -1476,8 +1476,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_pipeline_schema_py_basemodel",
-      "community": 19,
-      "community_name": "verifier.py",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "basemodel"
     },
     {
@@ -1487,8 +1487,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_pipeline_schema_subclaim",
-      "community": 19,
-      "community_name": "verifier.py",
+      "community": 12,
+      "community_name": "RuleBasedClaimDecomposer",
       "norm_label": "subclaim"
     },
     {
@@ -1498,8 +1498,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "src_pipeline_schema_verificationresult",
-      "community": 19,
-      "community_name": "verifier.py",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "verificationresult"
     },
     {
@@ -1509,8 +1509,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pipeline_schema_rationale_1",
-      "community": 19,
-      "community_name": "verifier.py",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "structured data models for the verification pipeline."
     },
     {
@@ -1520,8 +1520,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pipeline_verifier",
-      "community": 19,
-      "community_name": "verifier.py",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "verifier.py"
     },
     {
@@ -1532,7 +1532,7 @@
       "_origin": "ast",
       "id": "src_pipeline_verifier_misinformationverifier",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "misinformationverifier"
     },
     {
@@ -1554,7 +1554,7 @@
       "_origin": "ast",
       "id": "src_pipeline_verifier_py_any",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "any"
     },
     {
@@ -1576,7 +1576,7 @@
       "_origin": "ast",
       "id": "src_pipeline_verifier_misinformationverifier_retrieve_candidates",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "._retrieve_candidates()"
     },
     {
@@ -1587,7 +1587,7 @@
       "_origin": "ast",
       "id": "src_pipeline_verifier_misinformationverifier_verify_single_proposition",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": ".verify_single_proposition()"
     },
     {
@@ -1598,7 +1598,7 @@
       "_origin": "ast",
       "id": "src_pipeline_verifier_misinformationverifier_verify",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": ".verify()"
     },
     {
@@ -1608,8 +1608,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pipeline_verifier_rationale_1",
-      "community": 19,
-      "community_name": "verifier.py",
+      "community": 17,
+      "community_name": "EvidencePassage",
       "norm_label": "end-to-end evidence-grounded misinformation verification pipeline."
     },
     {
@@ -1620,7 +1620,7 @@
       "_origin": "ast",
       "id": "src_pipeline_verifier_rationale_26",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "core evidence-grounded misinformation verification system."
     },
     {
@@ -1631,7 +1631,7 @@
       "_origin": "ast",
       "id": "src_pipeline_verifier_rationale_144",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "retrieve candidate passages using the active retrieval strategy."
     },
     {
@@ -1642,7 +1642,7 @@
       "_origin": "ast",
       "id": "src_pipeline_verifier_rationale_157",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "execute verification pipeline on a single atomic claim proposition."
     },
     {
@@ -1653,7 +1653,7 @@
       "_origin": "ast",
       "id": "src_pipeline_verifier_rationale_229",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "main verification entrypoint for any textual claim."
     },
     {
@@ -2191,8 +2191,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_retrieval_base_baseretriever_search",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 32,
+      "community_name": ".search",
       "norm_label": ".search()"
     },
     {
@@ -2224,8 +2224,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_retrieval_base_rationale_13",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 32,
+      "community_name": ".search",
       "norm_label": "search the evidence corpus for passages relevant to the query. args: query: the..."
     },
     {
@@ -2411,8 +2411,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_retrieval_corpus",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": "corpus.py"
     },
     {
@@ -2466,8 +2466,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_retrieval_corpus_corpusmanager_get_document",
-      "community": 32,
-      "community_name": ".get_document",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": ".get_document()"
     },
     {
@@ -2477,8 +2477,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_retrieval_corpus_py_any",
-      "community": 32,
-      "community_name": ".get_document",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": "any"
     },
     {
@@ -2488,8 +2488,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "src_retrieval_corpus_corpusmanager_to_evidence_passage",
-      "community": 32,
-      "community_name": ".get_document",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": ".to_evidence_passage()"
     },
     {
@@ -2510,8 +2510,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_retrieval_corpus_rationale_1",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": "corpus management and document loading."
     },
     {
@@ -2543,8 +2543,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "src_retrieval_corpus_rationale_33",
-      "community": 32,
-      "community_name": ".get_document",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": "retrieve document by id."
     },
     {
@@ -2554,8 +2554,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "src_retrieval_corpus_rationale_37",
-      "community": 32,
-      "community_name": ".get_document",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": "convert a document into a pipeline evidencepassage object."
     },
     {
@@ -2565,8 +2565,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_retrieval_dense",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": "dense.py"
     },
     {
@@ -2576,8 +2576,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 18,
+      "community_name": "DenseRetriever",
       "norm_label": "denseretriever"
     },
     {
@@ -2587,8 +2587,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever_init",
-      "community": 48,
-      "community_name": ".__init__",
+      "community": 18,
+      "community_name": "DenseRetriever",
       "norm_label": ".__init__()"
     },
     {
@@ -2598,8 +2598,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_retrieval_dense_py_path",
-      "community": 48,
-      "community_name": ".__init__",
+      "community": 18,
+      "community_name": "DenseRetriever",
       "norm_label": "path"
     },
     {
@@ -2610,7 +2610,7 @@
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever_ensure_model",
       "community": 18,
-      "community_name": "._ensure_model",
+      "community_name": "DenseRetriever",
       "norm_label": "._ensure_model()"
     },
     {
@@ -2621,7 +2621,7 @@
       "_origin": "ast",
       "id": "sentencetransformer",
       "community": 18,
-      "community_name": "._ensure_model",
+      "community_name": "DenseRetriever",
       "norm_label": "sentencetransformer"
     },
     {
@@ -2632,7 +2632,7 @@
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever_build_index",
       "community": 18,
-      "community_name": "._ensure_model",
+      "community_name": "DenseRetriever",
       "norm_label": ".build_index()"
     },
     {
@@ -2642,8 +2642,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever_save_index",
-      "community": 48,
-      "community_name": ".__init__",
+      "community": 18,
+      "community_name": "DenseRetriever",
       "norm_label": ".save_index()"
     },
     {
@@ -2653,8 +2653,8 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever_load_index",
-      "community": 48,
-      "community_name": ".__init__",
+      "community": 18,
+      "community_name": "DenseRetriever",
       "norm_label": ".load_index()"
     },
     {
@@ -2665,7 +2665,7 @@
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever_search",
       "community": 18,
-      "community_name": "._ensure_model",
+      "community_name": "DenseRetriever",
       "norm_label": ".search()"
     },
     {
@@ -2675,8 +2675,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_1",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 26,
+      "community_name": "CorpusManager",
       "norm_label": "dense semantic retrieval engine using sentence transformers."
     },
     {
@@ -2686,8 +2686,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_14",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 18,
+      "community_name": "DenseRetriever",
       "norm_label": "dense retriever using bi-encoder sentence embeddings."
     },
     {
@@ -2698,7 +2698,7 @@
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_40",
       "community": 18,
-      "community_name": "._ensure_model",
+      "community_name": "DenseRetriever",
       "norm_label": "lazy load the sentence transformer model."
     },
     {
@@ -2709,7 +2709,7 @@
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_50",
       "community": 18,
-      "community_name": "._ensure_model",
+      "community_name": "DenseRetriever",
       "norm_label": "encode all documents in the corpus and build dense tensor index."
     },
     {
@@ -2719,8 +2719,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_73",
-      "community": 48,
-      "community_name": ".__init__",
+      "community": 18,
+      "community_name": "DenseRetriever",
       "norm_label": "save embeddings and document ids to disk."
     },
     {
@@ -2730,8 +2730,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_88",
-      "community": 48,
-      "community_name": ".__init__",
+      "community": 18,
+      "community_name": "DenseRetriever",
       "norm_label": "load embeddings and document ids from disk."
     },
     {
@@ -2742,7 +2742,7 @@
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_95",
       "community": 18,
-      "community_name": "._ensure_model",
+      "community_name": "DenseRetriever",
       "norm_label": "search dense embeddings using cosine similarity."
     },
     {
@@ -2785,8 +2785,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_retrieval_hybrid_hybridretriever_search",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 47,
+      "community_name": ".search",
       "norm_label": ".search()"
     },
     {
@@ -2818,8 +2818,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "src_retrieval_hybrid_rationale_30",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 47,
+      "community_name": ".search",
       "norm_label": "execute hybrid search using configured fusion strategy."
     },
     {
@@ -2884,8 +2884,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_temporal_analyzer_temporalanalyzer",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "temporalanalyzer"
     },
     {
@@ -2895,8 +2895,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "src_temporal_analyzer_temporalanalyzer_init",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": ".__init__()"
     },
     {
@@ -2906,8 +2906,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "src_temporal_analyzer_temporalanalyzer_extract_years",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": ".extract_years()"
     },
     {
@@ -2917,8 +2917,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "src_temporal_analyzer_temporalanalyzer_extract_date",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": ".extract_date()"
     },
     {
@@ -2928,8 +2928,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "src_temporal_analyzer_temporalanalyzer_analyze",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": ".analyze()"
     },
     {
@@ -2950,8 +2950,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_temporal_analyzer_rationale_19",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "analyzes temporal context, publication dates, and chronological validity."
     },
     {
@@ -2961,8 +2961,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_temporal_analyzer_rationale_31",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "extract explicit 4-digit calendar years from text."
     },
     {
@@ -2972,8 +2972,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "src_temporal_analyzer_rationale_36",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "extract year from an iso date string or year string."
     },
     {
@@ -2983,8 +2983,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "src_temporal_analyzer_rationale_45",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "assess temporal alignment between claim and retrieved evidence."
     },
     {
@@ -3126,8 +3126,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_utils_config",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 1,
+      "community_name": "test_metrics.py",
       "norm_label": "config.py"
     },
     {
@@ -3137,8 +3137,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_utils_config_load_config",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 1,
+      "community_name": "test_metrics.py",
       "norm_label": "load_config()"
     },
     {
@@ -3148,8 +3148,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_utils_config_py_path",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 1,
+      "community_name": "test_metrics.py",
       "norm_label": "path"
     },
     {
@@ -3181,8 +3181,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_utils_config_rationale_1",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 1,
+      "community_name": "test_metrics.py",
       "norm_label": "configuration management module."
     },
     {
@@ -3192,8 +3192,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_utils_config_rationale_9",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 1,
+      "community_name": "test_metrics.py",
       "norm_label": "load configuration from a yaml file. args: config_path: path to the yaml..."
     },
     {
@@ -3214,8 +3214,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_utils_logging",
-      "community": 19,
-      "community_name": "verifier.py",
+      "community": 44,
+      "community_name": "logging.py",
       "norm_label": "logging.py"
     },
     {
@@ -3225,8 +3225,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_utils_logging_setup_logger",
-      "community": 49,
-      "community_name": "setup_logger",
+      "community": 44,
+      "community_name": "logging.py",
       "norm_label": "setup_logger()"
     },
     {
@@ -3236,8 +3236,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "logger",
-      "community": 49,
-      "community_name": "setup_logger",
+      "community": 44,
+      "community_name": "logging.py",
       "norm_label": "logger"
     },
     {
@@ -3248,7 +3248,7 @@
       "_origin": "ast",
       "id": "src_utils_logging_log_stage",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "log_stage()"
     },
     {
@@ -3258,8 +3258,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_utils_logging_rationale_1",
-      "community": 19,
-      "community_name": "verifier.py",
+      "community": 44,
+      "community_name": "logging.py",
       "norm_label": "pipeline stage logger."
     },
     {
@@ -3269,8 +3269,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_utils_logging_rationale_8",
-      "community": 49,
-      "community_name": "setup_logger",
+      "community": 44,
+      "community_name": "logging.py",
       "norm_label": "configure and return a structured logger."
     },
     {
@@ -3281,7 +3281,7 @@
       "_origin": "ast",
       "id": "src_utils_logging_rationale_27",
       "community": 19,
-      "community_name": "verifier.py",
+      "community_name": "MisinformationVerifier",
       "norm_label": "log a specific stage in the verification pipeline."
     },
     {
@@ -3346,7 +3346,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_conflict",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": "test_conflict.py"
     },
@@ -3357,7 +3357,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_test_conflict_test_only_supporting_evidence",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": "test_only_supporting_evidence()"
     },
@@ -3368,7 +3368,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "tests_test_conflict_test_only_contradicting_evidence",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": "test_only_contradicting_evidence()"
     },
@@ -3379,7 +3379,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "tests_test_conflict_test_mixed_conflicting_evidence",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": "test_mixed_conflicting_evidence()"
     },
@@ -3390,9 +3390,119 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_conflict_rationale_1",
-      "community": 6,
+      "community": 17,
       "community_name": "EvidencePassage",
       "norm_label": "unit tests for conflict analysis module."
+    },
+    {
+      "label": "test_controlled_scenarios.py",
+      "file_type": "code",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_controlled_scenarios",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
+      "norm_label": "test_controlled_scenarios.py"
+    },
+    {
+      "label": "fixture",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "tests_test_controlled_scenarios_py_fixture",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
+      "norm_label": "fixture"
+    },
+    {
+      "label": "controlled_verifier()",
+      "file_type": "code",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "tests_test_controlled_scenarios_controlled_verifier",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
+      "norm_label": "controlled_verifier()"
+    },
+    {
+      "label": "test_controlled_conflict_detection()",
+      "file_type": "code",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "tests_test_controlled_scenarios_test_controlled_conflict_detection",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
+      "norm_label": "test_controlled_conflict_detection()"
+    },
+    {
+      "label": "test_controlled_temporal_evolution()",
+      "file_type": "code",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "tests_test_controlled_scenarios_test_controlled_temporal_evolution",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
+      "norm_label": "test_controlled_temporal_evolution()"
+    },
+    {
+      "label": "test_controlled_ungrounded_claim()",
+      "file_type": "code",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "tests_test_controlled_scenarios_test_controlled_ungrounded_claim",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
+      "norm_label": "test_controlled_ungrounded_claim()"
+    },
+    {
+      "label": "Functional tests for controlled synthetic scenarios (temporal evolution,\u2026",
+      "file_type": "rationale",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_controlled_scenarios_rationale_1",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
+      "norm_label": "functional tests for controlled synthetic scenarios (temporal evolution,..."
+    },
+    {
+      "label": "NovaTech claim has contradictory press release vs audit report.",
+      "file_type": "rationale",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "tests_test_controlled_scenarios_rationale_14",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
+      "norm_label": "novatech claim has contradictory press release vs audit report."
+    },
+    {
+      "label": "Acme Corporation dominance superseded by 2024 market shift.",
+      "file_type": "rationale",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "tests_test_controlled_scenarios_rationale_23",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
+      "norm_label": "acme corporation dominance superseded by 2024 market shift."
+    },
+    {
+      "label": "Unfounded Martian hallucination should trigger abstention / insufficient\u2026",
+      "file_type": "rationale",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "tests_test_controlled_scenarios_rationale_31",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
+      "norm_label": "unfounded martian hallucination should trigger abstention / insufficient..."
     },
     {
       "label": "test_decision.py",
@@ -3489,8 +3599,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_end_to_end",
-      "community": 47,
-      "community_name": "test_end_to_end.py",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
       "norm_label": "test_end_to_end.py"
     },
     {
@@ -3500,8 +3610,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "tests_test_end_to_end_py_fixture",
-      "community": 47,
-      "community_name": "test_end_to_end.py",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
       "norm_label": "fixture"
     },
     {
@@ -3511,8 +3621,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tests_test_end_to_end_verifier",
-      "community": 47,
-      "community_name": "test_end_to_end.py",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
       "norm_label": "verifier()"
     },
     {
@@ -3522,8 +3632,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "tests_test_end_to_end_test_verify_supported_claim",
-      "community": 47,
-      "community_name": "test_end_to_end.py",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
       "norm_label": "test_verify_supported_claim()"
     },
     {
@@ -3533,8 +3643,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "tests_test_end_to_end_test_verify_contradicted_claim",
-      "community": 47,
-      "community_name": "test_end_to_end.py",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
       "norm_label": "test_verify_contradicted_claim()"
     },
     {
@@ -3544,8 +3654,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "tests_test_end_to_end_test_verify_insufficient_claim",
-      "community": 47,
-      "community_name": "test_end_to_end.py",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
       "norm_label": "test_verify_insufficient_claim()"
     },
     {
@@ -3555,8 +3665,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "tests_test_end_to_end_test_verify_compound_claim",
-      "community": 47,
-      "community_name": "test_end_to_end.py",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
       "norm_label": "test_verify_compound_claim()"
     },
     {
@@ -3566,8 +3676,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_end_to_end_rationale_1",
-      "community": 47,
-      "community_name": "test_end_to_end.py",
+      "community": 19,
+      "community_name": "MisinformationVerifier",
       "norm_label": "end-to-end integration tests for the full verification pipeline."
     },
     {
@@ -3732,7 +3842,7 @@
       "_origin": "ast",
       "id": "tests_test_nli",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "test_nli.py"
     },
     {
@@ -3743,7 +3853,7 @@
       "_origin": "ast",
       "id": "tests_test_nli_py_fixture",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "fixture"
     },
     {
@@ -3754,7 +3864,7 @@
       "_origin": "ast",
       "id": "tests_test_nli_nli_classifier",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "nli_classifier()"
     },
     {
@@ -3765,7 +3875,7 @@
       "_origin": "ast",
       "id": "tests_test_nli_test_nli_support",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "test_nli_support()"
     },
     {
@@ -3776,7 +3886,7 @@
       "_origin": "ast",
       "id": "tests_test_nli_test_nli_contradiction",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "test_nli_contradiction()"
     },
     {
@@ -3787,7 +3897,7 @@
       "_origin": "ast",
       "id": "tests_test_nli_test_nli_neutral",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "test_nli_neutral()"
     },
     {
@@ -3798,7 +3908,7 @@
       "_origin": "ast",
       "id": "tests_test_nli_rationale_1",
       "community": 6,
-      "community_name": "EvidencePassage",
+      "community_name": "TransformerNLIClassifier",
       "norm_label": "unit tests for claim-evidence nli classification."
     },
     {
@@ -4017,8 +4127,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_temporal",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "test_temporal.py"
     },
     {
@@ -4028,8 +4138,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_test_temporal_test_matching_dates",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "test_matching_dates()"
     },
     {
@@ -4039,8 +4149,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "tests_test_temporal_test_outdated_evidence",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "test_outdated_evidence()"
     },
     {
@@ -4050,8 +4160,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "tests_test_temporal_test_conflicting_temporal_evidence",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "test_conflicting_temporal_evidence()"
     },
     {
@@ -4061,8 +4171,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "tests_test_temporal_test_missing_dates",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "test_missing_dates()"
     },
     {
@@ -4072,8 +4182,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_temporal_rationale_1",
-      "community": 6,
-      "community_name": "EvidencePassage",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "unit tests for temporal reasoning module."
     },
     {
@@ -4171,8 +4281,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_app",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 1,
+      "community_name": "test_metrics.py",
       "norm_label": "app.py"
     },
     {
@@ -4182,8 +4292,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "cache_resource",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 1,
+      "community_name": "test_metrics.py",
       "norm_label": "cache_resource"
     },
     {
@@ -4193,8 +4303,8 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "ui_app_get_verifier",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 1,
+      "community_name": "test_metrics.py",
       "norm_label": "get_verifier()"
     },
     {
@@ -4204,8 +4314,8 @@
       "source_location": "L171",
       "_origin": "ast",
       "id": "ui_app_render_passage",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 1,
+      "community_name": "test_metrics.py",
       "norm_label": "render_passage()"
     },
     {
@@ -4215,8 +4325,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_app_rationale_1",
-      "community": 23,
-      "community_name": "build_index.py",
+      "community": 1,
+      "community_name": "test_metrics.py",
       "norm_label": "interactive research ui for evidence-grounded misinformation verification. run..."
     },
     {
@@ -6508,7 +6618,7 @@
       "norm_label": "readme.md"
     },
     {
-      "label": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "label": "Evidence-Grounded Misinformation Verification with Conflict, Temporal and Uncertainty-Aware Reasoning",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L1",
@@ -6516,7 +6626,7 @@
       "id": "readme_evidence_grounded_misinformation_verification_with_conflict_temporal_and_uncertainty_aware_reasoning",
       "community": 15,
       "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
-      "norm_label": "evidence-grounded misinformation verification with conflict-, temporal-, and uncertainty-aware reasoning"
+      "norm_label": "evidence-grounded misinformation verification with conflict, temporal and uncertainty-aware reasoning"
     },
     {
       "label": "1. Problem Statement",
@@ -8286,7 +8396,7 @@
       "_origin": "ast",
       "id": "docs_audit_dataset_audit",
       "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
       "norm_label": "dataset_audit.md"
     },
     {
@@ -8297,7 +8407,7 @@
       "_origin": "ast",
       "id": "docs_audit_dataset_audit_dataset_audit_and_provenance_report",
       "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
       "norm_label": "dataset audit and provenance report"
     },
     {
@@ -8308,129 +8418,107 @@
       "_origin": "ast",
       "id": "docs_audit_dataset_audit_1_executive_summary",
       "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
       "norm_label": "1. executive summary"
-    },
-    {
-      "label": "Corrective Action Implemented:",
-      "file_type": "document",
-      "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "docs_audit_dataset_audit_corrective_action_implemented",
-      "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
-      "norm_label": "corrective action implemented:"
     },
     {
       "label": "2. Dataset Suite Overview",
       "file_type": "document",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L25",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "docs_audit_dataset_audit_2_dataset_suite_overview",
       "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
       "norm_label": "2. dataset suite overview"
     },
     {
       "label": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
       "file_type": "document",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L50",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "docs_audit_dataset_audit_3_dataset_suite_a_authentic_fever_benchmark_data_processed",
       "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
       "norm_label": "3. dataset suite a: authentic fever benchmark (`data/processed/`)"
     },
     {
       "label": "3.1 Provenance and Source",
       "file_type": "document",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L52",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "docs_audit_dataset_audit_3_1_provenance_and_source",
       "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
       "norm_label": "3.1 provenance and source"
     },
     {
       "label": "3.2 Label Schema & Canonical Mapping",
       "file_type": "document",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L59",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "docs_audit_dataset_audit_3_2_label_schema_canonical_mapping",
       "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
       "norm_label": "3.2 label schema & canonical mapping"
     },
     {
-      "label": "3.3 Gold Evidence Annotation",
+      "label": "3.3 Corpus Construction Methodology & Zero Test-Peeking",
       "file_type": "document",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L68",
+      "source_location": "L66",
       "_origin": "ast",
-      "id": "docs_audit_dataset_audit_3_3_gold_evidence_annotation",
+      "id": "docs_audit_dataset_audit_3_3_corpus_construction_methodology_zero_test_peeking",
       "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
-      "norm_label": "3.3 gold evidence annotation"
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
+      "norm_label": "3.3 corpus construction methodology & zero test-peeking"
     },
     {
-      "label": "3.4 Split Statistics",
+      "label": "3.4 Evidence Structure and Retrieval Evaluation Protocol",
       "file_type": "document",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L75",
+      "source_location": "L71",
       "_origin": "ast",
-      "id": "docs_audit_dataset_audit_3_4_split_statistics",
+      "id": "docs_audit_dataset_audit_3_4_evidence_structure_and_retrieval_evaluation_protocol",
       "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
-      "norm_label": "3.4 split statistics"
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
+      "norm_label": "3.4 evidence structure and retrieval evaluation protocol"
     },
     {
-      "label": "4. Dataset Suite B: Controlled Scenario & Smoke-Test Suite (`data/controlled/`)",
+      "label": "3.5 Limitations of Restricted Sample Scope",
       "file_type": "document",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L85",
+      "source_location": "L81",
       "_origin": "ast",
-      "id": "docs_audit_dataset_audit_4_dataset_suite_b_controlled_scenario_smoke_test_suite_data_controlled",
+      "id": "docs_audit_dataset_audit_3_5_limitations_of_restricted_sample_scope",
       "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
-      "norm_label": "4. dataset suite b: controlled scenario & smoke-test suite (`data/controlled/`)"
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
+      "norm_label": "3.5 limitations of restricted sample scope"
     },
     {
-      "label": "4.1 Provenance and Character",
+      "label": "4. Dataset Suite B: Controlled Scenarios (`data/controlled/`)",
       "file_type": "document",
       "source_file": "docs/audit/dataset_audit.md",
       "source_location": "L87",
       "_origin": "ast",
-      "id": "docs_audit_dataset_audit_4_1_provenance_and_character",
+      "id": "docs_audit_dataset_audit_4_dataset_suite_b_controlled_scenarios_data_controlled",
       "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
-      "norm_label": "4.1 provenance and character"
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
+      "norm_label": "4. dataset suite b: controlled scenarios (`data/controlled/`)"
     },
     {
-      "label": "4.2 Utility & Research Purpose",
+      "label": "4.1 Purpose & Role",
       "file_type": "document",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L92",
+      "source_location": "L89",
       "_origin": "ast",
-      "id": "docs_audit_dataset_audit_4_2_utility_research_purpose",
+      "id": "docs_audit_dataset_audit_4_1_purpose_role",
       "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
-      "norm_label": "4.2 utility & research purpose"
-    },
-    {
-      "label": "5. Preprocessing & Indexing Pipeline",
-      "file_type": "document",
-      "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L100",
-      "_origin": "ast",
-      "id": "docs_audit_dataset_audit_5_preprocessing_indexing_pipeline",
-      "community": 40,
-      "community_name": "Dataset Audit and Provenance Report",
-      "norm_label": "5. preprocessing & indexing pipeline"
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
+      "norm_label": "4.1 purpose & role"
     },
     {
       "label": "experimental_validation.md",
@@ -8554,37 +8642,26 @@
       "norm_label": "4.2 impact of conflict and temporal logic (b vs. c)"
     },
     {
-      "label": "4.3 Proven Efficacy of Uncertainty-Aware Abstention (C vs. D)",
+      "label": "4.3 Efficacy of Uncertainty-Aware Abstention (C vs. D)",
       "file_type": "document",
       "source_file": "docs/audit/experimental_validation.md",
       "source_location": "L83",
       "_origin": "ast",
-      "id": "docs_audit_experimental_validation_4_3_proven_efficacy_of_uncertainty_aware_abstention_c_vs_d",
+      "id": "docs_audit_experimental_validation_4_3_efficacy_of_uncertainty_aware_abstention_c_vs_d",
       "community": 43,
       "community_name": "Experimental Validation Report",
-      "norm_label": "4.3 proven efficacy of uncertainty-aware abstention (c vs. d)"
+      "norm_label": "4.3 efficacy of uncertainty-aware abstention (c vs. d)"
     },
     {
-      "label": "4.4 Calibration Analysis",
+      "label": "5. Distinction Between Functional Tests and Benchmark Evaluations",
       "file_type": "document",
       "source_file": "docs/audit/experimental_validation.md",
-      "source_location": "L89",
+      "source_location": "L91",
       "_origin": "ast",
-      "id": "docs_audit_experimental_validation_4_4_calibration_analysis",
+      "id": "docs_audit_experimental_validation_5_distinction_between_functional_tests_and_benchmark_evaluations",
       "community": 43,
       "community_name": "Experimental Validation Report",
-      "norm_label": "4.4 calibration analysis"
-    },
-    {
-      "label": "5. End-to-End Representative Traces",
-      "file_type": "document",
-      "source_file": "docs/audit/experimental_validation.md",
-      "source_location": "L95",
-      "_origin": "ast",
-      "id": "docs_audit_experimental_validation_5_end_to_end_representative_traces",
-      "community": 43,
-      "community_name": "Experimental Validation Report",
-      "norm_label": "5. end-to-end representative traces"
+      "norm_label": "5. distinction between functional tests and benchmark evaluations"
     },
     {
       "label": "implementation_audit.md",
@@ -9571,7 +9648,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L18",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data",
@@ -9582,7 +9659,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L213",
+      "source_location": "L354",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data",
@@ -9593,7 +9670,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L231",
+      "source_location": "L372",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data",
@@ -9604,7 +9681,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L467",
+      "source_location": "L699",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data",
@@ -9615,7 +9692,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L272",
+      "source_location": "L434",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data",
@@ -9626,7 +9703,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L296",
+      "source_location": "L458",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data",
@@ -9637,7 +9714,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L225",
+      "source_location": "L366",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data",
@@ -9660,7 +9737,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L352",
+      "source_location": "L509",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data_prepare_fever_benchmark",
@@ -9671,10 +9748,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L214",
+      "source_location": "L355",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "scripts_prepare_data_rationale_214",
+      "source": "scripts_prepare_data_rationale_355",
       "target": "scripts_prepare_data_decode_fever_title",
       "confidence_score": 1.0
     },
@@ -9683,7 +9760,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L363",
+      "source_location": "L519",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data_prepare_fever_benchmark",
@@ -9694,46 +9771,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L226",
+      "source_location": "L367",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "scripts_prepare_data_rationale_226",
+      "source": "scripts_prepare_data_rationale_367",
       "target": "scripts_prepare_data_slugify_title",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prepare_data.py",
-      "source_location": "L356",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "scripts_prepare_data_prepare_fever_benchmark",
-      "target": "scripts_prepare_data_fetch_wikipedia_articles",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prepare_data.py",
-      "source_location": "L232",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "scripts_prepare_data_rationale_232",
-      "target": "scripts_prepare_data_fetch_wikipedia_articles",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prepare_data.py",
-      "source_location": "L477",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "scripts_prepare_data_main",
-      "target": "scripts_prepare_data_prepare_controlled_suite",
       "confidence_score": 1.0
     },
     {
@@ -9741,7 +9783,54 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L272",
+      "source_location": "L372",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_prepare_data_fetch_wikipedia_articles",
+      "target": "scripts_prepare_data_py_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prepare_data.py",
+      "source_location": "L512",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_prepare_data_prepare_fever_benchmark",
+      "target": "scripts_prepare_data_fetch_wikipedia_articles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prepare_data.py",
+      "source_location": "L373",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_prepare_data_rationale_373",
+      "target": "scripts_prepare_data_fetch_wikipedia_articles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prepare_data.py",
+      "source_location": "L710",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_prepare_data_main",
+      "target": "scripts_prepare_data_py_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prepare_data.py",
+      "source_location": "L434",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data_prepare_controlled_suite",
@@ -9749,34 +9838,11 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prepare_data.py",
-      "source_location": "L273",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "scripts_prepare_data_rationale_273",
-      "target": "scripts_prepare_data_prepare_controlled_suite",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prepare_data.py",
-      "source_location": "L477",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "scripts_prepare_data_main",
-      "target": "scripts_prepare_data_py_path",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L296",
+      "source_location": "L458",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data_prepare_fever_benchmark",
@@ -9788,7 +9854,30 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L484",
+      "source_location": "L710",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_prepare_data_main",
+      "target": "scripts_prepare_data_prepare_controlled_suite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prepare_data.py",
+      "source_location": "L435",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_prepare_data_rationale_435",
+      "target": "scripts_prepare_data_prepare_controlled_suite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prepare_data.py",
+      "source_location": "L717",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data_main",
@@ -9799,10 +9888,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L302",
+      "source_location": "L465",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "scripts_prepare_data_rationale_302",
+      "source": "scripts_prepare_data_rationale_465",
       "target": "scripts_prepare_data_prepare_fever_benchmark",
       "confidence_score": 1.0
     },
@@ -9833,7 +9922,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L222",
+      "source_location": "L227",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments",
@@ -10011,7 +10100,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L234",
+      "source_location": "L239",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_main",
@@ -10034,7 +10123,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L230",
+      "source_location": "L235",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_main",
@@ -10070,7 +10159,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L242",
+      "source_location": "L247",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_main",
@@ -10082,7 +10171,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L195",
+      "source_location": "L200",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_run_experiment",
@@ -10094,7 +10183,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L189",
+      "source_location": "L194",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_run_experiment",
@@ -10106,7 +10195,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L188",
+      "source_location": "L193",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_run_experiment",
@@ -10118,7 +10207,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L187",
+      "source_location": "L192",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_run_experiment",
@@ -10154,7 +10243,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L233",
+      "source_location": "L238",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_main",
@@ -13141,7 +13230,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/nli/classifier.py",
-      "source_location": "L192",
+      "source_location": "L194",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_nli_classifier_transformernliclassifier",
@@ -13280,7 +13369,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/nli/classifier.py",
-      "source_location": "L181",
+      "source_location": "L183",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_nli_classifier_transformernliclassifier_classify_pairs",
@@ -13291,7 +13380,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/nli/classifier.py",
-      "source_location": "L202",
+      "source_location": "L204",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_nli_classifier_transformernliclassifier_evaluate_passages",
@@ -13302,10 +13391,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/nli/classifier.py",
-      "source_location": "L197",
+      "source_location": "L199",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "src_nli_classifier_rationale_197",
+      "source": "src_nli_classifier_rationale_199",
       "target": "src_nli_classifier_transformernliclassifier_evaluate_passages",
       "confidence_score": 1.0
     },
@@ -13314,7 +13403,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "src/nli/classifier.py",
-      "source_location": "L192",
+      "source_location": "L194",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_nli_classifier_transformernliclassifier_evaluate_passages",
@@ -13654,6 +13743,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios",
+      "target": "src_pipeline_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "tests/test_decision.py",
       "source_location": "L7",
       "weight": 1.0,
@@ -13894,6 +13995,18 @@
       "source": "src_reasoning_engine_reasoningadvice",
       "target": "src_pipeline_schema_verdict",
       "confidence_score": 0.5
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios",
+      "target": "src_pipeline_schema_verdict",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -15110,6 +15223,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios",
+      "target": "src_pipeline_verifier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "tests/test_end_to_end.py",
       "source_location": "L5",
       "weight": 1.0,
@@ -15272,6 +15397,30 @@
       "source": "src_pipeline_verifier_rationale_26",
       "target": "src_pipeline_verifier_misinformationverifier",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios",
+      "target": "src_pipeline_verifier_misinformationverifier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios_controlled_verifier",
+      "target": "src_pipeline_verifier_misinformationverifier"
     },
     {
       "relation": "imports",
@@ -19011,6 +19160,106 @@
       "_origin": "ast",
       "source": "tests_test_conflict_rationale_1",
       "target": "tests_test_conflict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios",
+      "target": "tests_test_controlled_scenarios_controlled_verifier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios",
+      "target": "tests_test_controlled_scenarios_test_controlled_conflict_detection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios",
+      "target": "tests_test_controlled_scenarios_test_controlled_temporal_evolution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios",
+      "target": "tests_test_controlled_scenarios_test_controlled_ungrounded_claim",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios_rationale_1",
+      "target": "tests_test_controlled_scenarios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios_controlled_verifier",
+      "target": "tests_test_controlled_scenarios_py_fixture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios_rationale_14",
+      "target": "tests_test_controlled_scenarios_test_controlled_conflict_detection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios_rationale_23",
+      "target": "tests_test_controlled_scenarios_test_controlled_temporal_evolution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_controlled_scenarios.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_controlled_scenarios_rationale_31",
+      "target": "tests_test_controlled_scenarios_test_controlled_ungrounded_claim",
       "confidence_score": 1.0
     },
     {
@@ -23633,7 +23882,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L25",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_dataset_audit_dataset_audit_and_provenance_report",
@@ -23644,7 +23893,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L50",
+      "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_dataset_audit_dataset_audit_and_provenance_report",
@@ -23655,40 +23904,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L85",
+      "source_location": "L87",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_dataset_audit_dataset_audit_and_provenance_report",
-      "target": "docs_audit_dataset_audit_4_dataset_suite_b_controlled_scenario_smoke_test_suite_data_controlled",
+      "target": "docs_audit_dataset_audit_4_dataset_suite_b_controlled_scenarios_data_controlled",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L100",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_audit_dataset_audit_dataset_audit_and_provenance_report",
-      "target": "docs_audit_dataset_audit_5_preprocessing_indexing_pipeline",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_audit_dataset_audit_1_executive_summary",
-      "target": "docs_audit_dataset_audit_corrective_action_implemented",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L52",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_dataset_audit_3_dataset_suite_a_authentic_fever_benchmark_data_processed",
@@ -23699,7 +23926,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L59",
+      "source_location": "L57",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_dataset_audit_3_dataset_suite_a_authentic_fever_benchmark_data_processed",
@@ -23710,44 +23937,44 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L68",
+      "source_location": "L66",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_dataset_audit_3_dataset_suite_a_authentic_fever_benchmark_data_processed",
-      "target": "docs_audit_dataset_audit_3_3_gold_evidence_annotation",
+      "target": "docs_audit_dataset_audit_3_3_corpus_construction_methodology_zero_test_peeking",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L75",
+      "source_location": "L71",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_dataset_audit_3_dataset_suite_a_authentic_fever_benchmark_data_processed",
-      "target": "docs_audit_dataset_audit_3_4_split_statistics",
+      "target": "docs_audit_dataset_audit_3_4_evidence_structure_and_retrieval_evaluation_protocol",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L87",
+      "source_location": "L81",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "docs_audit_dataset_audit_4_dataset_suite_b_controlled_scenario_smoke_test_suite_data_controlled",
-      "target": "docs_audit_dataset_audit_4_1_provenance_and_character",
+      "source": "docs_audit_dataset_audit_3_dataset_suite_a_authentic_fever_benchmark_data_processed",
+      "target": "docs_audit_dataset_audit_3_5_limitations_of_restricted_sample_scope",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L92",
+      "source_location": "L89",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "docs_audit_dataset_audit_4_dataset_suite_b_controlled_scenario_smoke_test_suite_data_controlled",
-      "target": "docs_audit_dataset_audit_4_2_utility_research_purpose",
+      "source": "docs_audit_dataset_audit_4_dataset_suite_b_controlled_scenarios_data_controlled",
+      "target": "docs_audit_dataset_audit_4_1_purpose_role",
       "confidence_score": 1.0
     },
     {
@@ -23809,11 +24036,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/experimental_validation.md",
-      "source_location": "L95",
+      "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_experimental_validation_experimental_validation_report",
-      "target": "docs_audit_experimental_validation_5_end_to_end_representative_traces",
+      "target": "docs_audit_experimental_validation_5_distinction_between_functional_tests_and_benchmark_evaluations",
       "confidence_score": 1.0
     },
     {
@@ -23879,18 +24106,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_experimental_validation_4_scientific_findings_and_detailed_analysis",
-      "target": "docs_audit_experimental_validation_4_3_proven_efficacy_of_uncertainty_aware_abstention_c_vs_d",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/audit/experimental_validation.md",
-      "source_location": "L89",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_audit_experimental_validation_4_scientific_findings_and_detailed_analysis",
-      "target": "docs_audit_experimental_validation_4_4_calibration_analysis",
+      "target": "docs_audit_experimental_validation_4_3_efficacy_of_uncertainty_aware_abstention_c_vs_d",
       "confidence_score": 1.0
     },
     {
@@ -24313,5 +24529,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0fcf7b3784e8b211b42dcb2aed6fe8d60ae8d0da"
+  "built_at_commit": "5baf691d939ba9c13bea9945d176bf5900e6a617"
 }

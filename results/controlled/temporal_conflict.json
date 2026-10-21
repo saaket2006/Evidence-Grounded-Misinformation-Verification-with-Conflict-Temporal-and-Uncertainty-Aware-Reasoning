@@ -59,10 +59,10 @@
     "mrr": 1.0
   },
   "calibration_metrics": {
-    "ece": 0.0869,
-    "brier_score": 0.7578,
-    "multiclass_brier": 0.7578,
-    "normalized_brier": 0.3789
+    "ece": 0.158,
+    "brier_score": 0.7115,
+    "multiclass_brier": 0.7115,
+    "normalized_brier": 0.3557
   },
   "abstention_metrics": {
     "coverage": 1.0,
@@ -105,7 +105,7 @@
       "confidence": 0.8691,
       "uncertainty": 0.1309,
       "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'The James Webb Space Telescope was launched in December 2021 on an Ariane 5 rocket.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Chronology Note: Timeline gap: evidence refers to [2023], while claim specifies 2021.; Timeline gap: evidence refers to [2024], while claim specifies 2021.; Timeline gap: evidence refers to [1880, 2023], while claim specifies 2021.\n- Aggregate Evidence Signal: 95.0% Support, 2.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+      "reasoning": "Claim verification analysis for: 'The James Webb Space Telescope was launched in December 2021 on an Ariane 5 rocket.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Chronology Note: Timeline gap: evidence refers to [2024], while claim specifies 2021.; Timeline gap: evidence refers to [2023], while claim specifies 2021.; Timeline gap: evidence refers to [1880, 2023], while claim specifies 2021.\n- Aggregate Evidence Signal: 95.0% Support, 2.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
     },
     {
       "id": "ctrl_claim_13",
@@ -135,10 +135,10 @@
       "true_label": "INSUFFICIENT_EVIDENCE",
       "pred_label": "SUPPORTED",
       "correct": false,
-      "confidence": 0.6544,
-      "uncertainty": 0.3456,
-      "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'NovaTech enterprise platform generated $10 million in undisputed 2024 earnings.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Chronology Note: Timeline gap: evidence refers to [2019], while claim specifies 2024.; Timeline gap: evidence refers to [2021], while claim specifies 2024.\n- Aggregate Evidence Signal: 54.8% Support, 10.0% Contradict, 35.2% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+      "confidence": 0.3643,
+      "uncertainty": 0.6357,
+      "conflict_detected": true,
+      "reasoning": "Claim verification analysis for: 'NovaTech enterprise platform generated $10 million in undisputed 2024 earnings.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 0.98). 1 passage(s) support while 1 passage(s) contradict.\n- Chronology Note: Timeline gap: evidence refers to [2021], while claim specifies 2024.; Timeline gap: evidence refers to [2019], while claim specifies 2024.\n- Aggregate Evidence Signal: 50.8% Support, 47.5% Contradict, 1.7% Neutral.\n- Final Grounded Verdict: SUPPORTED."
     },
     {
       "id": "ctrl_claim_16",
@@ -157,10 +157,10 @@
       "true_label": "CONTRADICTED",
       "pred_label": "CONTRADICTED",
       "correct": true,
-      "confidence": 0.7199,
-      "uncertainty": 0.2801,
+      "confidence": 0.9013,
+      "uncertainty": 0.0987,
       "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'Alan Turing made no contribution to World War II cryptanalysis.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 10.0% Support, 20.0% Contradict, 70.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+      "reasoning": "Claim verification analysis for: 'Alan Turing made no contribution to World War II cryptanalysis.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
     },
     {
       "id": "ctrl_claim_18",

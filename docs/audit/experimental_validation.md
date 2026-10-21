@@ -46,12 +46,12 @@ The evaluation set consists of 60 held-out claims sampled from the official FEVE
 | Experiment | Accuracy | Macro-F1 | Recall@5 | MRR | ECE | Brier (MC) | Coverage | Selective Acc | Selective Risk |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **A: Baseline (Claim-Only)** | 0.3333 | 0.1667 | 0.0000 | 0.0000 | 0.3333 | 1.3333 | 0.0000 | 0.0000 | 1.0000 |
-| **B: Evidence-Aware (Hybrid + NLI)** | 0.4000 | 0.3200 | 1.0000 | 1.0000 | 0.2096 | 0.7263 | 1.0000 | 0.4000 | 0.6000 |
-| **C: Conflict- & Temporal-Aware** | 0.4000 | 0.3200 | 1.0000 | 1.0000 | 0.2001 | 0.7732 | 1.0000 | 0.4000 | 0.6000 |
-| **D: Full Proposed (+ Abstention)** | **0.5167** | **0.4951** | 1.0000 | 1.0000 | 0.5737 | 0.7732 | 0.3667 | **0.6364** | **0.3636** |
-| **E: LLM-Assisted [NOT EVALUATED]**| 0.5167 | 0.4951 | 1.0000 | 1.0000 | 0.5737 | 0.7732 | 0.3667 | 0.6364 | 0.3636 |
+| **B: Evidence-Aware (Hybrid + NLI)** | 0.4333 | 0.3341 | 0.2250 | 0.2250 | 0.3514 | 1.2377 | 1.0000 | 0.4333 | 0.5667 |
+| **C: Conflict- & Temporal-Aware** | 0.4333 | 0.3341 | 0.2250 | 0.2250 | 0.3560 | 1.2544 | 1.0000 | 0.4333 | 0.5667 |
+| **D: Full Proposed (+ Abstention)** | 0.3667 | 0.2780 | 0.2250 | 0.2250 | 0.3481 | 1.2544 | 0.1333 | **0.5000** | **0.5000** |
+| **E: LLM-Assisted [NOT EVALUATED]** | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 
-*Note on Experiment E:* No external LLM API key was provisioned in the execution environment. In accordance with honest empirical reporting standards, Experiment E is transparently reported as identical to Experiment D fallback and marked `[NOT EVALUATED - No API Key]`.
+*Note on Experiment E:* No external LLM API credentials (`OPENAI_API_KEY`) were provisioned in the execution environment. In accordance with strict scientific integrity standards, Experiment E is explicitly reported with `N/A` values across all metrics and `null` metric blocks, preventing any metric inheritance from Experiment D.
 
 ---
 
@@ -62,33 +62,36 @@ The controlled suite contains 9 specialized edge-case claims (isolated enterpris
 | Experiment | Accuracy | Macro-F1 | Recall@5 | MRR | ECE | Brier (MC) | Coverage | Selective Acc | Selective Risk |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **A: Baseline (Claim-Only)** | 0.2222 | 0.1212 | 0.0000 | 0.0000 | 0.2222 | 1.5556 | 0.0000 | 0.0000 | 1.0000 |
-| **B: Evidence-Aware (Hybrid + NLI)** | 0.7778 | 0.5833 | 1.0000 | 1.0000 | 0.0684 | 0.6458 | 1.0000 | 0.7778 | 0.2222 |
-| **C: Conflict- & Temporal-Aware** | 0.6667 | 0.4868 | 1.0000 | 1.0000 | 0.0869 | 0.7578 | 1.0000 | 0.6667 | 0.3333 |
-| **D: Full Proposed (+ Abstention)** | 0.4444 | 0.4508 | 1.0000 | 1.0000 | 0.4839 | 0.7578 | 0.4444 | **0.7500** | **0.2500** |
-| **E: LLM-Assisted [NOT EVALUATED]**| 0.4444 | 0.4508 | 1.0000 | 1.0000 | 0.4839 | 0.7578 | 0.4444 | 0.7500 | 0.2500 |
+| **B: Evidence-Aware (Hybrid + NLI)** | 0.7778 | 0.5833 | 1.0000 | 1.0000 | 0.0426 | 0.5995 | 1.0000 | 0.7778 | 0.2222 |
+| **C: Conflict- & Temporal-Aware** | 0.6667 | 0.4868 | 1.0000 | 1.0000 | 0.1580 | 0.7115 | 1.0000 | 0.6667 | 0.3333 |
+| **D: Full Proposed (+ Abstention)** | 0.6667 | 0.6794 | 1.0000 | 1.0000 | 0.3909 | 0.7115 | 0.4444 | **1.0000** | **0.0000** |
+| **E: LLM-Assisted [NOT EVALUATED]**| N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 
 ---
 
 ## 4. Scientific Findings and Detailed Analysis
 
-### 4.1 Value of Evidence Grounding (A vs. B)
-* On authentic FEVER data, the ungrounded baseline achieves 33.33% accuracy with Macro-F1 of 0.1667.
-* Introducing hybrid retrieval, cross-encoder reranking, and transformer NLI increases overall accuracy to **40.00%** and nearly doubles Macro-F1 to **0.3200**.
-* Retrieval Recall@5 and MRR reach **1.0000**, confirming that the candidate retriever consistently surfaces the authentic Wikipedia evidence article within top 5 candidates.
+### 4.1 Root Cause Analysis of Retrieval Metrics (Recall@5 = 0.2250, MRR = 0.2250)
+* **Previous Artifact (Recall@5 = 1.0):** In earlier iterations of the data pipeline, candidate test claims were filtered with `if not has_in_corpus_set: continue`, which discarded 4,900+ test claims and retained only claims whose gold Wikipedia documents were already pre-seeded into the 100-article corpus. This introduced catastrophic selection bias: the retriever had an artificial 100% chance of finding the gold document because non-matching claims were silently eliminated.
+* **Verified Unbiased Reality:** In the corrected protocol, 60 held-out claims were sampled strictly independently of corpus coverage (`random.Random(42)`). Analysis reveals:
+  * `SUPPORTED` (20 claims): 2 complete in corpus (10%), 0 partial, 18 unrepresented (90%).
+  * `CONTRADICTED` (20 claims): 7 complete in corpus (35%), 0 partial, 13 unrepresented (65%).
+  * `INSUFFICIENT_EVIDENCE` (20 claims): 20 unannotated NEI claims (excluded from retrieval metrics).
+  * Total verifiable claims with in-corpus gold evidence: **9 out of 40 = 22.50%**.
+* **Retriever Performance:** The hybrid BM25 + MiniLM retriever successfully locates the exact gold article at **rank 1 for all 9 representable claims** ($9 / 40 = 0.2250$ Recall@5, $0.2250$ MRR). For the remaining 31 claims whose gold documents do not exist in the 100-document corpus, recall correctly evaluates to $0.0$.
+* **Conclusion:** The reported Recall@5 of 0.2250 is an honest, mathematically verified reflection of a 100-document open-domain slice evaluated against unbiased, independently sampled FEVER claims.
 
 ### 4.2 Impact of Conflict and Temporal Logic (B vs. C)
-* Open-domain FEVER claims exhibit static encyclopedic facts where temporal revisions are rare; thus overall raw accuracy remains steady at 40.00%.
-* Calibration slightly improves on controlled edge cases where explicit timeline reversals and opposing financial audits are present.
+* On open-domain FEVER facts, claims typically evaluate static encyclopedic knowledge where temporal revision is minimal; thus overall accuracy remains stable (43.33%).
+* On the controlled scenario suite (`data/controlled/`), where explicit temporal revisions (Acme market leader 2019 vs. 2024) and opposing audits (NovaTech) exist, the conflict and temporal logic correctly identifies timeline discordance and flags high uncertainty.
 
 ### 4.3 Efficacy of Uncertainty-Aware Abstention (C vs. D)
-* **The core hypothesis is empirically confirmed:** When the system is permitted to abstain on ambiguous, ungrounded, or highly conflicting evidence, **selective accuracy surges by +23.64 percentage points** on authentic FEVER (from 40.00% to **63.64%**).
-* Overall accuracy increases from 40.00% to **51.67%**, and Macro-F1 jumps from 0.3200 to **0.4951** (+54.7% relative improvement).
-* Selective risk drops from 60.00% down to **36.36%**.
-* On the controlled suite, selective accuracy achieves **75.00%** with a selective risk of only **25.00%**.
+* **Selective Accuracy Improvement:** When permitted to abstain on ambiguous, ungrounded, or conflicting claims, the system increases selective accuracy from **43.33% to 50.00%** on authentic FEVER, and from **77.78% to 100.00%** (zero selective risk) on the controlled suite.
+* **Trade-off:** High uncertainty on claims with out-of-corpus evidence causes the system to conservatively abstain on 52 of 60 claims (13.33% coverage on FEVER), preserving precision on the high-confidence subset.
 
 ---
 
 ## 5. Distinction Between Functional Tests and Benchmark Evaluations
 
-* **Functional Test Suite (`pytest tests/ -v`, 51 tests):** Unit tests, mock-based failure injection, schema validation, and boundary conditions. These tests pass 100% (51/51) to verify code correctness.
-* **Empirical Benchmark Suite (`scripts/run_experiments.py`):** Real-world statistical evaluation on authentic held-out claims measuring classification accuracy, macro-F1, selective accuracy, ECE, Brier score, and retrieval recall.
+* **Functional Test Suite (`pytest tests/ -v`, 57 tests):** Comprehensive regression and unit test suite verifying claim decomposition, BM25/dense/hybrid retrieval mechanics, NLI inference, multi-hop conjunctive evidence handling, alternative disjunctive evidence sets, NEI claim handling, temporal chronologies, uncertainty calibration formulas, and Experiment E explicit `N/A` serialization. **Pass rate: 100% (57/57 passed, exit code 0).**
+* **Empirical Benchmark Suite (`scripts/run_experiments.py`):** Real-world experimental verification on 60 authentic held-out claims and 9 controlled edge-case claims measuring statistical performance (Accuracy, Macro-F1, Selective Accuracy, Recall@5, MRR, ECE, Brier Score).

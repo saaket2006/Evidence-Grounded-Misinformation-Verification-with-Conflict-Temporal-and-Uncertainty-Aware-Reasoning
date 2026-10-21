@@ -3,9 +3,10 @@
   "provenance_url": "https://fever.ai/download/fever/paper_dev.jsonl",
   "methodology": {
     "corpus_independence": "Fixed evidence corpus constructed from reference dev_pool independently of test_pool",
+    "test_selection_independence": "Test claims sampled from test_pool independently of corpus coverage without filtering",
     "evidence_groups": "FEVER alternative acceptable evidence sets and multi-hop sets strictly preserved in evidence_sets",
     "synthetic_separation": "Zero synthetic passages in data/processed/corpus.jsonl (quarantined in data/controlled/)",
-    "retrieval_protocol": "Recall@k requires at least one complete evidence set in top-k; MRR evaluates first gold passage"
+    "retrieval_protocol": "Recall@k requires at least one complete evidence set in top-k; claims without in-corpus gold evidence correctly score 0.0"
   },
   "num_claims_total": 90,
   "dev_count": 30,
@@ -21,6 +22,54 @@
       "SUPPORTED": 20,
       "CONTRADICTED": 20,
       "INSUFFICIENT_EVIDENCE": 20
+    }
+  },
+  "evidence_coverage": {
+    "dev": {
+      "SUPPORTED": {
+        "total_claims": 10,
+        "complete_evidence_in_corpus": 3,
+        "partial_evidence_in_corpus": 0,
+        "no_evidence_in_corpus": 7,
+        "not_enough_info_unannotated": 0
+      },
+      "CONTRADICTED": {
+        "total_claims": 10,
+        "complete_evidence_in_corpus": 2,
+        "partial_evidence_in_corpus": 2,
+        "no_evidence_in_corpus": 6,
+        "not_enough_info_unannotated": 0
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "total_claims": 10,
+        "complete_evidence_in_corpus": 0,
+        "partial_evidence_in_corpus": 0,
+        "no_evidence_in_corpus": 0,
+        "not_enough_info_unannotated": 10
+      }
+    },
+    "test": {
+      "SUPPORTED": {
+        "total_claims": 20,
+        "complete_evidence_in_corpus": 2,
+        "partial_evidence_in_corpus": 0,
+        "no_evidence_in_corpus": 18,
+        "not_enough_info_unannotated": 0
+      },
+      "CONTRADICTED": {
+        "total_claims": 20,
+        "complete_evidence_in_corpus": 7,
+        "partial_evidence_in_corpus": 0,
+        "no_evidence_in_corpus": 13,
+        "not_enough_info_unannotated": 0
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "total_claims": 20,
+        "complete_evidence_in_corpus": 0,
+        "partial_evidence_in_corpus": 0,
+        "no_evidence_in_corpus": 0,
+        "not_enough_info_unannotated": 20
+      }
     }
   },
   "label_mapping": {

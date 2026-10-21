@@ -1,6 +1,6 @@
 Experiment,Accuracy,Macro-F1,Recall@5,MRR,ECE,Brier (MC),Coverage,Selective Acc
 Experiment A: Baseline Direct Classifier,0.2222,0.1212,0.0,0.0,0.2222,1.5556,0.0,0.0
-Experiment B: Evidence-Aware (Retrieval + NLI),0.7778,0.5833,1.0,1.0,0.0684,0.6458,1.0,0.7778
-Experiment C: Conflict- & Temporal-Aware,0.6667,0.4868,1.0,1.0,0.0869,0.7578,1.0,0.6667
-Experiment D: Full Proposed System (with Uncertainty & Abstention),0.4444,0.4508,1.0,1.0,0.4839,0.7578,0.4444,0.75
-Experiment E: Full System + LLM Reasoning Advisor [NOT EVALUATED - No API Key],0.4444,0.4508,1.0,1.0,0.4839,0.7578,0.4444,0.75
+Experiment B: Evidence-Aware (Retrieval + NLI),0.7778,0.5833,1.0,1.0,0.0426,0.5995,1.0,0.7778
+Experiment C: Conflict- & Temporal-Aware,0.6667,0.4868,1.0,1.0,0.158,0.7115,1.0,0.6667
+Experiment D: Full Proposed System (with Uncertainty & Abstention),0.6667,0.6794,1.0,1.0,0.3909,0.7115,0.4444,1.0
+Experiment E: Full System + LLM Reasoning Advisor [NOT EVALUATED - No API Key],N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A

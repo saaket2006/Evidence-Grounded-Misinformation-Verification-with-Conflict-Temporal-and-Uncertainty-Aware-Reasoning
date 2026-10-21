@@ -24,8 +24,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_build_index",
-      "community": 26,
-      "community_name": "CorpusManager",
+      "community": 32,
+      "community_name": "build_index.py",
       "norm_label": "build_index.py"
     },
     {
@@ -35,8 +35,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "scripts_build_index_build_indexes",
-      "community": 26,
-      "community_name": "CorpusManager",
+      "community": 32,
+      "community_name": "build_index.py",
       "norm_label": "build_indexes()"
     },
     {
@@ -46,8 +46,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "scripts_build_index_main",
-      "community": 26,
-      "community_name": "CorpusManager",
+      "community": 32,
+      "community_name": "build_index.py",
       "norm_label": "main()"
     },
     {
@@ -57,8 +57,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_build_index_rationale_1",
-      "community": 26,
-      "community_name": "CorpusManager",
+      "community": 32,
+      "community_name": "build_index.py",
       "norm_label": "build and save bm25 and dense retrieval indexes from processed corpus."
     },
     {
@@ -296,7 +296,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L699",
+      "source_location": "L732",
       "_origin": "ast",
       "id": "scripts_prepare_data_main",
       "community": 44,
@@ -428,7 +428,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L227",
+      "source_location": "L243",
       "_origin": "ast",
       "id": "scripts_run_experiments_main",
       "community": 1,
@@ -464,7 +464,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_run_pipeline",
-      "community": 19,
+      "community": 48,
       "community_name": "MisinformationVerifier",
       "norm_label": "run_pipeline.py"
     },
@@ -475,7 +475,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "scripts_run_pipeline_main",
-      "community": 19,
+      "community": 48,
       "community_name": "MisinformationVerifier",
       "norm_label": "main()"
     },
@@ -486,7 +486,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_run_pipeline_rationale_1",
-      "community": 19,
+      "community": 48,
       "community_name": "MisinformationVerifier",
       "norm_label": "cli entry point to verify a single claim using the verification pipeline."
     },
@@ -497,7 +497,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_verify_representative_claims",
-      "community": 19,
+      "community": 48,
       "community_name": "MisinformationVerifier",
       "norm_label": "verify_representative_claims.py"
     },
@@ -508,7 +508,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "scripts_verify_representative_claims_run_representative_inspections",
-      "community": 19,
+      "community": 48,
       "community_name": "MisinformationVerifier",
       "norm_label": "run_representative_inspections()"
     },
@@ -519,7 +519,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_verify_representative_claims_rationale_1",
-      "community": 19,
+      "community": 48,
       "community_name": "MisinformationVerifier",
       "norm_label": "script to verify and inspect representative end-to-end claims across all..."
     },
@@ -553,7 +553,7 @@
       "_origin": "ast",
       "id": "src_aggregation_init",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "aggregation/__init__.py"
     },
     {
@@ -564,7 +564,7 @@
       "_origin": "ast",
       "id": "src_aggregation_init_rationale_1",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "evidence aggregation module."
     },
     {
@@ -575,7 +575,7 @@
       "_origin": "ast",
       "id": "src_aggregation_aggregator",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "aggregator.py"
     },
     {
@@ -586,7 +586,7 @@
       "_origin": "ast",
       "id": "src_aggregation_aggregator_aggregationresult",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "aggregationresult"
     },
     {
@@ -597,7 +597,7 @@
       "_origin": "ast",
       "id": "src_aggregation_aggregator_py_basemodel",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "basemodel"
     },
     {
@@ -607,7 +607,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_aggregation_aggregator_evidenceaggregator",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "evidenceaggregator"
     },
@@ -618,7 +618,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_aggregation_aggregator_evidenceaggregator_init",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": ".__init__()"
     },
@@ -629,7 +629,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_aggregation_aggregator_evidenceaggregator_aggregate",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": ".aggregate()"
     },
@@ -641,7 +641,7 @@
       "_origin": "ast",
       "id": "src_aggregation_aggregator_rationale_1",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "evidence aggregation engine synthesizing multiple evidence passages."
     },
     {
@@ -651,7 +651,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "src_aggregation_aggregator_rationale_23",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "synthesizes passage-level nli classifications into a coherent claim-level..."
     },
@@ -663,7 +663,7 @@
       "_origin": "ast",
       "id": "src_claim_processing_init",
       "community": 12,
-      "community_name": "RuleBasedClaimDecomposer",
+      "community_name": "SubClaim",
       "norm_label": "claim_processing/__init__.py"
     },
     {
@@ -674,7 +674,7 @@
       "_origin": "ast",
       "id": "src_claim_processing_init_rationale_1",
       "community": 12,
-      "community_name": "RuleBasedClaimDecomposer",
+      "community_name": "SubClaim",
       "norm_label": "claim processing module."
     },
     {
@@ -685,7 +685,7 @@
       "_origin": "ast",
       "id": "src_claim_processing_decomposer",
       "community": 12,
-      "community_name": "RuleBasedClaimDecomposer",
+      "community_name": "SubClaim",
       "norm_label": "decomposer.py"
     },
     {
@@ -696,7 +696,7 @@
       "_origin": "ast",
       "id": "src_claim_processing_decomposer_baseclaimdecomposer",
       "community": 12,
-      "community_name": "RuleBasedClaimDecomposer",
+      "community_name": "SubClaim",
       "norm_label": "baseclaimdecomposer"
     },
     {
@@ -707,7 +707,7 @@
       "_origin": "ast",
       "id": "src_claim_processing_decomposer_py_abc",
       "community": 12,
-      "community_name": "RuleBasedClaimDecomposer",
+      "community_name": "SubClaim",
       "norm_label": "abc"
     },
     {
@@ -718,7 +718,7 @@
       "_origin": "ast",
       "id": "src_claim_processing_decomposer_baseclaimdecomposer_decompose",
       "community": 12,
-      "community_name": "RuleBasedClaimDecomposer",
+      "community_name": "SubClaim",
       "norm_label": ".decompose()"
     },
     {
@@ -728,7 +728,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_claim_processing_decomposer_rulebasedclaimdecomposer",
-      "community": 12,
+      "community": 49,
       "community_name": "RuleBasedClaimDecomposer",
       "norm_label": "rulebasedclaimdecomposer"
     },
@@ -739,7 +739,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_claim_processing_decomposer_rulebasedclaimdecomposer_init",
-      "community": 12,
+      "community": 49,
       "community_name": "RuleBasedClaimDecomposer",
       "norm_label": ".__init__()"
     },
@@ -750,7 +750,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_claim_processing_decomposer_rulebasedclaimdecomposer_decompose",
-      "community": 12,
+      "community": 49,
       "community_name": "RuleBasedClaimDecomposer",
       "norm_label": ".decompose()"
     },
@@ -762,7 +762,7 @@
       "_origin": "ast",
       "id": "src_claim_processing_decomposer_rationale_1",
       "community": 12,
-      "community_name": "RuleBasedClaimDecomposer",
+      "community_name": "SubClaim",
       "norm_label": "claim processing and atomic proposition decomposition."
     },
     {
@@ -773,7 +773,7 @@
       "_origin": "ast",
       "id": "src_claim_processing_decomposer_rationale_10",
       "community": 12,
-      "community_name": "RuleBasedClaimDecomposer",
+      "community_name": "SubClaim",
       "norm_label": "abstract interface for claim decomposition."
     },
     {
@@ -784,7 +784,7 @@
       "_origin": "ast",
       "id": "src_claim_processing_decomposer_rationale_14",
       "community": 12,
-      "community_name": "RuleBasedClaimDecomposer",
+      "community_name": "SubClaim",
       "norm_label": "decompose a textual claim into atomic subclaims."
     },
     {
@@ -794,7 +794,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_claim_processing_decomposer_rationale_19",
-      "community": 12,
+      "community": 49,
       "community_name": "RuleBasedClaimDecomposer",
       "norm_label": "deterministic rule-based claim decomposer. splits compound propositions on..."
     },
@@ -805,7 +805,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_conflict_init",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "conflict/__init__.py"
     },
@@ -816,7 +816,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_conflict_init_rationale_1",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "conflict analysis module."
     },
@@ -827,7 +827,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_conflict_detector",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "detector.py"
     },
@@ -839,7 +839,7 @@
       "_origin": "ast",
       "id": "src_conflict_detector_conflictreport",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "conflictreport"
     },
     {
@@ -850,7 +850,7 @@
       "_origin": "ast",
       "id": "src_conflict_detector_py_basemodel",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "basemodel"
     },
     {
@@ -860,7 +860,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_conflict_detector_conflictdetector",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "conflictdetector"
     },
@@ -871,7 +871,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_conflict_detector_conflictdetector_init",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": ".__init__()"
     },
@@ -882,7 +882,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_conflict_detector_conflictdetector_analyze",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": ".analyze()"
     },
@@ -893,7 +893,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_conflict_detector_rationale_1",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "conflict detection and consensus analysis across evidence passages."
     },
@@ -904,7 +904,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_conflict_detector_rationale_22",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "analyzes evidence pool for contradictory and opposing claims."
     },
@@ -915,7 +915,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_conflict_detector_rationale_25",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "args: balance_threshold: minimum ratio of minority-to-majority mass to declare..."
     },
@@ -927,7 +927,7 @@
       "_origin": "ast",
       "id": "src_decision_init",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "decision/__init__.py"
     },
     {
@@ -938,7 +938,7 @@
       "_origin": "ast",
       "id": "src_decision_init_rationale_1",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "decision and abstention module."
     },
     {
@@ -949,7 +949,7 @@
       "_origin": "ast",
       "id": "src_decision_decider",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "decider.py"
     },
     {
@@ -960,7 +960,7 @@
       "_origin": "ast",
       "id": "src_decision_decider_verificationdecider",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "verificationdecider"
     },
     {
@@ -971,7 +971,7 @@
       "_origin": "ast",
       "id": "src_decision_decider_verificationdecider_init",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": ".__init__()"
     },
     {
@@ -982,7 +982,7 @@
       "_origin": "ast",
       "id": "src_decision_decider_verificationdecider_decide",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": ".decide()"
     },
     {
@@ -993,7 +993,7 @@
       "_origin": "ast",
       "id": "src_decision_decider_rationale_1",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "decision engine and abstention policy for final verdict assignment."
     },
     {
@@ -1004,7 +1004,7 @@
       "_origin": "ast",
       "id": "src_decision_decider_rationale_11",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "evaluates evidence aggregations, conflict reports, and uncertainty to decide..."
     },
     {
@@ -1015,7 +1015,7 @@
       "_origin": "ast",
       "id": "src_decision_decider_rationale_33",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "determine verdict and produce an auditable explanation. returns: tuple of..."
     },
     {
@@ -1388,7 +1388,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pipeline_init",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "pipeline/__init__.py"
     },
@@ -1399,7 +1399,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_pipeline_init_getattr",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "__getattr__()"
     },
@@ -1410,7 +1410,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pipeline_schema",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "schema.py"
     },
@@ -1422,7 +1422,7 @@
       "_origin": "ast",
       "id": "src_pipeline_schema_verdict",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "verdict"
     },
     {
@@ -1433,7 +1433,7 @@
       "_origin": "ast",
       "id": "str",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "str"
     },
     {
@@ -1443,7 +1443,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "enum",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "enum"
     },
@@ -1454,7 +1454,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pipeline_schema_nlilabel",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "nlilabel"
     },
@@ -1465,7 +1465,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_pipeline_schema_evidencepassage",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "evidencepassage"
     },
@@ -1477,7 +1477,7 @@
       "_origin": "ast",
       "id": "src_pipeline_schema_py_basemodel",
       "community": 17,
-      "community_name": "EvidencePassage",
+      "community_name": ".verify_single_proposition",
       "norm_label": "basemodel"
     },
     {
@@ -1488,7 +1488,7 @@
       "_origin": "ast",
       "id": "src_pipeline_schema_subclaim",
       "community": 12,
-      "community_name": "RuleBasedClaimDecomposer",
+      "community_name": "SubClaim",
       "norm_label": "subclaim"
     },
     {
@@ -1499,7 +1499,7 @@
       "_origin": "ast",
       "id": "src_pipeline_schema_verificationresult",
       "community": 17,
-      "community_name": "EvidencePassage",
+      "community_name": ".verify_single_proposition",
       "norm_label": "verificationresult"
     },
     {
@@ -1509,7 +1509,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pipeline_schema_rationale_1",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "structured data models for the verification pipeline."
     },
@@ -1520,8 +1520,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pipeline_verifier",
-      "community": 17,
-      "community_name": "EvidencePassage",
+      "community": 9,
+      "community_name": "verifier.py",
       "norm_label": "verifier.py"
     },
     {
@@ -1531,7 +1531,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_pipeline_verifier_misinformationverifier",
-      "community": 19,
+      "community": 48,
       "community_name": "MisinformationVerifier",
       "norm_label": "misinformationverifier"
     },
@@ -1542,8 +1542,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_pipeline_verifier_misinformationverifier_init",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 47,
+      "community_name": "DenseRetriever",
       "norm_label": ".__init__()"
     },
     {
@@ -1553,8 +1553,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_pipeline_verifier_py_any",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 17,
+      "community_name": ".verify_single_proposition",
       "norm_label": "any"
     },
     {
@@ -1564,8 +1564,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_pipeline_verifier_py_path",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 47,
+      "community_name": "DenseRetriever",
       "norm_label": "path"
     },
     {
@@ -1575,8 +1575,8 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "src_pipeline_verifier_misinformationverifier_retrieve_candidates",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 17,
+      "community_name": ".verify_single_proposition",
       "norm_label": "._retrieve_candidates()"
     },
     {
@@ -1586,8 +1586,8 @@
       "source_location": "L156",
       "_origin": "ast",
       "id": "src_pipeline_verifier_misinformationverifier_verify_single_proposition",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 17,
+      "community_name": ".verify_single_proposition",
       "norm_label": ".verify_single_proposition()"
     },
     {
@@ -1597,8 +1597,8 @@
       "source_location": "L228",
       "_origin": "ast",
       "id": "src_pipeline_verifier_misinformationverifier_verify",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 17,
+      "community_name": ".verify_single_proposition",
       "norm_label": ".verify()"
     },
     {
@@ -1608,8 +1608,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pipeline_verifier_rationale_1",
-      "community": 17,
-      "community_name": "EvidencePassage",
+      "community": 9,
+      "community_name": "verifier.py",
       "norm_label": "end-to-end evidence-grounded misinformation verification pipeline."
     },
     {
@@ -1619,7 +1619,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "src_pipeline_verifier_rationale_26",
-      "community": 19,
+      "community": 48,
       "community_name": "MisinformationVerifier",
       "norm_label": "core evidence-grounded misinformation verification system."
     },
@@ -1630,8 +1630,8 @@
       "source_location": "L144",
       "_origin": "ast",
       "id": "src_pipeline_verifier_rationale_144",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 17,
+      "community_name": ".verify_single_proposition",
       "norm_label": "retrieve candidate passages using the active retrieval strategy."
     },
     {
@@ -1641,8 +1641,8 @@
       "source_location": "L157",
       "_origin": "ast",
       "id": "src_pipeline_verifier_rationale_157",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 17,
+      "community_name": ".verify_single_proposition",
       "norm_label": "execute verification pipeline on a single atomic claim proposition."
     },
     {
@@ -1652,8 +1652,8 @@
       "source_location": "L229",
       "_origin": "ast",
       "id": "src_pipeline_verifier_rationale_229",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 17,
+      "community_name": ".verify_single_proposition",
       "norm_label": "main verification entrypoint for any textual claim."
     },
     {
@@ -1664,7 +1664,7 @@
       "_origin": "ast",
       "id": "src_reasoning_init",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "reasoning/__init__.py"
     },
     {
@@ -1675,7 +1675,7 @@
       "_origin": "ast",
       "id": "src_reasoning_init_rationale_1",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "reasoning module package."
     },
     {
@@ -1686,7 +1686,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "engine.py"
     },
     {
@@ -1697,7 +1697,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_reasoningadvice",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "reasoningadvice"
     },
     {
@@ -1708,7 +1708,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_py_basemodel",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "basemodel"
     },
     {
@@ -1719,7 +1719,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_basereasoningengine",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "basereasoningengine"
     },
     {
@@ -1730,7 +1730,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_py_abc",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "abc"
     },
     {
@@ -1741,7 +1741,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_basereasoningengine_reason",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": ".reason()"
     },
     {
@@ -1752,7 +1752,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_heuristicreasoningadvisor",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "heuristicreasoningadvisor"
     },
     {
@@ -1763,7 +1763,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_heuristicreasoningadvisor_reason",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": ".reason()"
     },
     {
@@ -1774,7 +1774,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_llmreasoningadvisor",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "llmreasoningadvisor"
     },
     {
@@ -1785,7 +1785,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_llmreasoningadvisor_init",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": ".__init__()"
     },
     {
@@ -1796,7 +1796,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_llmreasoningadvisor_reason",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": ".reason()"
     },
     {
@@ -1807,7 +1807,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_llmreasoningadvisor_parse_llm_response",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "._parse_llm_response()"
     },
     {
@@ -1818,7 +1818,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_llmreasoningadvisor_build_prompt",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "._build_prompt()"
     },
     {
@@ -1829,7 +1829,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_get_reasoning_engine",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "get_reasoning_engine()"
     },
     {
@@ -1840,7 +1840,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_py_any",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "any"
     },
     {
@@ -1851,7 +1851,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_rationale_1",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "reasoning engine and pluggable llm advisor for complex verification cases."
     },
     {
@@ -1862,7 +1862,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_rationale_31",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "abstract interface for higher-order reasoning advisors."
     },
     {
@@ -1873,7 +1873,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_rationale_43",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "analyze evidence and current decision state to provide auditable reasoning..."
     },
     {
@@ -1884,7 +1884,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_rationale_48",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "deterministic, reproducible evidence synthesizer."
     },
     {
@@ -1895,7 +1895,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_rationale_108",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "pluggable, decoupled llm reasoning advisor. supports openai-compatible rest..."
     },
     {
@@ -1906,7 +1906,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_rationale_211",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "parse structured response from llm output."
     },
     {
@@ -1917,7 +1917,7 @@
       "_origin": "ast",
       "id": "src_reasoning_engine_rationale_273",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "factory creating reasoning engine based on configuration."
     },
     {
@@ -2137,7 +2137,7 @@
       "_origin": "ast",
       "id": "src_retrieval_init",
       "community": 9,
-      "community_name": "BM25Retriever",
+      "community_name": "verifier.py",
       "norm_label": "retrieval/__init__.py"
     },
     {
@@ -2148,7 +2148,7 @@
       "_origin": "ast",
       "id": "src_retrieval_init_rationale_1",
       "community": 9,
-      "community_name": "BM25Retriever",
+      "community_name": "verifier.py",
       "norm_label": "retrieval module package."
     },
     {
@@ -2159,7 +2159,7 @@
       "_origin": "ast",
       "id": "src_retrieval_base",
       "community": 9,
-      "community_name": "BM25Retriever",
+      "community_name": "verifier.py",
       "norm_label": "retrieval/base.py"
     },
     {
@@ -2170,7 +2170,7 @@
       "_origin": "ast",
       "id": "src_retrieval_base_baseretriever",
       "community": 9,
-      "community_name": "BM25Retriever",
+      "community_name": "verifier.py",
       "norm_label": "baseretriever"
     },
     {
@@ -2181,7 +2181,7 @@
       "_origin": "ast",
       "id": "src_retrieval_base_py_abc",
       "community": 9,
-      "community_name": "BM25Retriever",
+      "community_name": "verifier.py",
       "norm_label": "abc"
     },
     {
@@ -2191,8 +2191,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_retrieval_base_baseretriever_search",
-      "community": 32,
-      "community_name": ".search",
+      "community": 9,
+      "community_name": "verifier.py",
       "norm_label": ".search()"
     },
     {
@@ -2203,7 +2203,7 @@
       "_origin": "ast",
       "id": "src_retrieval_base_rationale_1",
       "community": 9,
-      "community_name": "BM25Retriever",
+      "community_name": "verifier.py",
       "norm_label": "base interface for evidence retrieval components."
     },
     {
@@ -2214,7 +2214,7 @@
       "_origin": "ast",
       "id": "src_retrieval_base_rationale_9",
       "community": 9,
-      "community_name": "BM25Retriever",
+      "community_name": "verifier.py",
       "norm_label": "abstract base class for evidence retrieval engines."
     },
     {
@@ -2224,8 +2224,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_retrieval_base_rationale_13",
-      "community": 32,
-      "community_name": ".search",
+      "community": 9,
+      "community_name": "verifier.py",
       "norm_label": "search the evidence corpus for passages relevant to the query. args: query: the..."
     },
     {
@@ -2236,7 +2236,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25",
       "community": 9,
-      "community_name": "BM25Retriever",
+      "community_name": "verifier.py",
       "norm_label": "bm25.py"
     },
     {
@@ -2247,7 +2247,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_tokenize",
       "community": 24,
-      "community_name": ".__init__",
+      "community_name": "BM25Retriever",
       "norm_label": "tokenize()"
     },
     {
@@ -2257,7 +2257,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_retrieval_bm25_bm25retriever",
-      "community": 9,
+      "community": 24,
       "community_name": "BM25Retriever",
       "norm_label": "bm25retriever"
     },
@@ -2269,7 +2269,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_bm25retriever_init",
       "community": 24,
-      "community_name": ".__init__",
+      "community_name": "BM25Retriever",
       "norm_label": ".__init__()"
     },
     {
@@ -2280,7 +2280,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_py_path",
       "community": 24,
-      "community_name": ".__init__",
+      "community_name": "BM25Retriever",
       "norm_label": "path"
     },
     {
@@ -2291,7 +2291,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_bm25retriever_build_index",
       "community": 24,
-      "community_name": ".__init__",
+      "community_name": "BM25Retriever",
       "norm_label": ".build_index()"
     },
     {
@@ -2302,7 +2302,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_bm25retriever_save_index",
       "community": 24,
-      "community_name": ".__init__",
+      "community_name": "BM25Retriever",
       "norm_label": ".save_index()"
     },
     {
@@ -2313,7 +2313,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_bm25retriever_load_index",
       "community": 24,
-      "community_name": ".__init__",
+      "community_name": "BM25Retriever",
       "norm_label": ".load_index()"
     },
     {
@@ -2324,7 +2324,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_bm25retriever_search",
       "community": 24,
-      "community_name": ".__init__",
+      "community_name": "BM25Retriever",
       "norm_label": ".search()"
     },
     {
@@ -2335,7 +2335,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_rationale_1",
       "community": 9,
-      "community_name": "BM25Retriever",
+      "community_name": "verifier.py",
       "norm_label": "lexical bm25 retrieval engine."
     },
     {
@@ -2346,7 +2346,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_rationale_15",
       "community": 24,
-      "community_name": ".__init__",
+      "community_name": "BM25Retriever",
       "norm_label": "simple alphanumeric lowercasing tokenizer for bm25."
     },
     {
@@ -2356,7 +2356,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_retrieval_bm25_rationale_20",
-      "community": 9,
+      "community": 24,
       "community_name": "BM25Retriever",
       "norm_label": "lexical retriever based on okapi bm25."
     },
@@ -2368,7 +2368,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_rationale_34",
       "community": 24,
-      "community_name": ".__init__",
+      "community_name": "BM25Retriever",
       "norm_label": "build bm25 index from corpus manager documents."
     },
     {
@@ -2379,7 +2379,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_rationale_48",
       "community": 24,
-      "community_name": ".__init__",
+      "community_name": "BM25Retriever",
       "norm_label": "save bm25 index and doc_ids to disk."
     },
     {
@@ -2390,7 +2390,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_rationale_57",
       "community": 24,
-      "community_name": ".__init__",
+      "community_name": "BM25Retriever",
       "norm_label": "load precomputed bm25 index from disk."
     },
     {
@@ -2401,7 +2401,7 @@
       "_origin": "ast",
       "id": "src_retrieval_bm25_rationale_64",
       "community": 24,
-      "community_name": ".__init__",
+      "community_name": "BM25Retriever",
       "norm_label": "search bm25 index for the given query."
     },
     {
@@ -2411,8 +2411,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_retrieval_corpus",
-      "community": 26,
-      "community_name": "CorpusManager",
+      "community": 9,
+      "community_name": "verifier.py",
       "norm_label": "corpus.py"
     },
     {
@@ -2510,8 +2510,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_retrieval_corpus_rationale_1",
-      "community": 26,
-      "community_name": "CorpusManager",
+      "community": 9,
+      "community_name": "verifier.py",
       "norm_label": "corpus management and document loading."
     },
     {
@@ -2565,8 +2565,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_retrieval_dense",
-      "community": 26,
-      "community_name": "CorpusManager",
+      "community": 9,
+      "community_name": "verifier.py",
       "norm_label": "dense.py"
     },
     {
@@ -2576,7 +2576,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever",
-      "community": 18,
+      "community": 47,
       "community_name": "DenseRetriever",
       "norm_label": "denseretriever"
     },
@@ -2587,8 +2587,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever_init",
-      "community": 18,
-      "community_name": "DenseRetriever",
+      "community": 51,
+      "community_name": ".__init__",
       "norm_label": ".__init__()"
     },
     {
@@ -2598,8 +2598,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_retrieval_dense_py_path",
-      "community": 18,
-      "community_name": "DenseRetriever",
+      "community": 51,
+      "community_name": ".__init__",
       "norm_label": "path"
     },
     {
@@ -2610,7 +2610,7 @@
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever_ensure_model",
       "community": 18,
-      "community_name": "DenseRetriever",
+      "community_name": "._ensure_model",
       "norm_label": "._ensure_model()"
     },
     {
@@ -2621,7 +2621,7 @@
       "_origin": "ast",
       "id": "sentencetransformer",
       "community": 18,
-      "community_name": "DenseRetriever",
+      "community_name": "._ensure_model",
       "norm_label": "sentencetransformer"
     },
     {
@@ -2632,7 +2632,7 @@
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever_build_index",
       "community": 18,
-      "community_name": "DenseRetriever",
+      "community_name": "._ensure_model",
       "norm_label": ".build_index()"
     },
     {
@@ -2642,8 +2642,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever_save_index",
-      "community": 18,
-      "community_name": "DenseRetriever",
+      "community": 51,
+      "community_name": ".__init__",
       "norm_label": ".save_index()"
     },
     {
@@ -2653,8 +2653,8 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever_load_index",
-      "community": 18,
-      "community_name": "DenseRetriever",
+      "community": 51,
+      "community_name": ".__init__",
       "norm_label": ".load_index()"
     },
     {
@@ -2665,7 +2665,7 @@
       "_origin": "ast",
       "id": "src_retrieval_dense_denseretriever_search",
       "community": 18,
-      "community_name": "DenseRetriever",
+      "community_name": "._ensure_model",
       "norm_label": ".search()"
     },
     {
@@ -2675,8 +2675,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_1",
-      "community": 26,
-      "community_name": "CorpusManager",
+      "community": 9,
+      "community_name": "verifier.py",
       "norm_label": "dense semantic retrieval engine using sentence transformers."
     },
     {
@@ -2686,7 +2686,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_14",
-      "community": 18,
+      "community": 47,
       "community_name": "DenseRetriever",
       "norm_label": "dense retriever using bi-encoder sentence embeddings."
     },
@@ -2698,7 +2698,7 @@
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_40",
       "community": 18,
-      "community_name": "DenseRetriever",
+      "community_name": "._ensure_model",
       "norm_label": "lazy load the sentence transformer model."
     },
     {
@@ -2709,7 +2709,7 @@
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_50",
       "community": 18,
-      "community_name": "DenseRetriever",
+      "community_name": "._ensure_model",
       "norm_label": "encode all documents in the corpus and build dense tensor index."
     },
     {
@@ -2719,8 +2719,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_73",
-      "community": 18,
-      "community_name": "DenseRetriever",
+      "community": 51,
+      "community_name": ".__init__",
       "norm_label": "save embeddings and document ids to disk."
     },
     {
@@ -2730,8 +2730,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_88",
-      "community": 18,
-      "community_name": "DenseRetriever",
+      "community": 51,
+      "community_name": ".__init__",
       "norm_label": "load embeddings and document ids from disk."
     },
     {
@@ -2742,7 +2742,7 @@
       "_origin": "ast",
       "id": "src_retrieval_dense_rationale_95",
       "community": 18,
-      "community_name": "DenseRetriever",
+      "community_name": "._ensure_model",
       "norm_label": "search dense embeddings using cosine similarity."
     },
     {
@@ -2753,7 +2753,7 @@
       "_origin": "ast",
       "id": "src_retrieval_hybrid",
       "community": 9,
-      "community_name": "BM25Retriever",
+      "community_name": "verifier.py",
       "norm_label": "hybrid.py"
     },
     {
@@ -2763,8 +2763,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_retrieval_hybrid_hybridretriever",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 47,
+      "community_name": "DenseRetriever",
       "norm_label": "hybridretriever"
     },
     {
@@ -2774,8 +2774,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_retrieval_hybrid_hybridretriever_init",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 47,
+      "community_name": "DenseRetriever",
       "norm_label": ".__init__()"
     },
     {
@@ -2786,7 +2786,7 @@
       "_origin": "ast",
       "id": "src_retrieval_hybrid_hybridretriever_search",
       "community": 47,
-      "community_name": ".search",
+      "community_name": "DenseRetriever",
       "norm_label": ".search()"
     },
     {
@@ -2797,7 +2797,7 @@
       "_origin": "ast",
       "id": "src_retrieval_hybrid_rationale_1",
       "community": 9,
-      "community_name": "BM25Retriever",
+      "community_name": "verifier.py",
       "norm_label": "hybrid retrieval combining lexical (bm25) and dense semantic search."
     },
     {
@@ -2807,8 +2807,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_retrieval_hybrid_rationale_11",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 47,
+      "community_name": "DenseRetriever",
       "norm_label": "combines bm25 lexical and dense semantic retrieval."
     },
     {
@@ -2819,7 +2819,7 @@
       "_origin": "ast",
       "id": "src_retrieval_hybrid_rationale_30",
       "community": 47,
-      "community_name": ".search",
+      "community_name": "DenseRetriever",
       "norm_label": "execute hybrid search using configured fusion strategy."
     },
     {
@@ -2829,8 +2829,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_temporal_init",
-      "community": 0,
-      "community_name": "ConflictReport",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "temporal/__init__.py"
     },
     {
@@ -2840,8 +2840,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_temporal_init_rationale_1",
-      "community": 0,
-      "community_name": "ConflictReport",
+      "community": 23,
+      "community_name": "TemporalAnalyzer",
       "norm_label": "temporal analysis module."
     },
     {
@@ -2852,7 +2852,7 @@
       "_origin": "ast",
       "id": "src_temporal_analyzer",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "analyzer.py"
     },
     {
@@ -2863,7 +2863,7 @@
       "_origin": "ast",
       "id": "src_temporal_analyzer_temporalreport",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "temporalreport"
     },
     {
@@ -2874,7 +2874,7 @@
       "_origin": "ast",
       "id": "src_temporal_analyzer_py_basemodel",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "basemodel"
     },
     {
@@ -2940,7 +2940,7 @@
       "_origin": "ast",
       "id": "src_temporal_analyzer_rationale_1",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "temporal reasoning and chronological consistency analyzer."
     },
     {
@@ -2995,7 +2995,7 @@
       "_origin": "ast",
       "id": "src_uncertainty_init",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "uncertainty/__init__.py"
     },
     {
@@ -3006,7 +3006,7 @@
       "_origin": "ast",
       "id": "src_uncertainty_init_rationale_1",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "uncertainty estimation module."
     },
     {
@@ -3017,7 +3017,7 @@
       "_origin": "ast",
       "id": "src_uncertainty_estimator",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "estimator.py"
     },
     {
@@ -3028,7 +3028,7 @@
       "_origin": "ast",
       "id": "src_uncertainty_estimator_uncertaintyprofile",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "uncertaintyprofile"
     },
     {
@@ -3039,7 +3039,7 @@
       "_origin": "ast",
       "id": "src_uncertainty_estimator_py_basemodel",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "basemodel"
     },
     {
@@ -3050,7 +3050,7 @@
       "_origin": "ast",
       "id": "src_uncertainty_estimator_uncertaintyestimator",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "uncertaintyestimator"
     },
     {
@@ -3061,7 +3061,7 @@
       "_origin": "ast",
       "id": "src_uncertainty_estimator_uncertaintyestimator_init",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": ".__init__()"
     },
     {
@@ -3072,7 +3072,7 @@
       "_origin": "ast",
       "id": "src_uncertainty_estimator_uncertaintyestimator_compute_entropy",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": ".compute_entropy()"
     },
     {
@@ -3083,7 +3083,7 @@
       "_origin": "ast",
       "id": "src_uncertainty_estimator_uncertaintyestimator_estimate",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": ".estimate()"
     },
     {
@@ -3094,7 +3094,7 @@
       "_origin": "ast",
       "id": "src_uncertainty_estimator_rationale_1",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "multi-signal uncertainty and calibrated confidence estimation."
     },
     {
@@ -3105,7 +3105,7 @@
       "_origin": "ast",
       "id": "src_uncertainty_estimator_rationale_24",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "computes multi-source uncertainty and calibrated confidence."
     },
     {
@@ -3116,7 +3116,7 @@
       "_origin": "ast",
       "id": "src_uncertainty_estimator_rationale_47",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "compute normalized shannon entropy in [0, 1] for 3-class distribution."
     },
     {
@@ -3126,8 +3126,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_utils_config",
-      "community": 1,
-      "community_name": "test_metrics.py",
+      "community": 32,
+      "community_name": "build_index.py",
       "norm_label": "config.py"
     },
     {
@@ -3137,8 +3137,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_utils_config_load_config",
-      "community": 1,
-      "community_name": "test_metrics.py",
+      "community": 32,
+      "community_name": "build_index.py",
       "norm_label": "load_config()"
     },
     {
@@ -3148,8 +3148,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_utils_config_py_path",
-      "community": 1,
-      "community_name": "test_metrics.py",
+      "community": 32,
+      "community_name": "build_index.py",
       "norm_label": "path"
     },
     {
@@ -3181,8 +3181,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_utils_config_rationale_1",
-      "community": 1,
-      "community_name": "test_metrics.py",
+      "community": 32,
+      "community_name": "build_index.py",
       "norm_label": "configuration management module."
     },
     {
@@ -3192,8 +3192,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_utils_config_rationale_9",
-      "community": 1,
-      "community_name": "test_metrics.py",
+      "community": 32,
+      "community_name": "build_index.py",
       "norm_label": "load configuration from a yaml file. args: config_path: path to the yaml..."
     },
     {
@@ -3247,8 +3247,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "src_utils_logging_log_stage",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 17,
+      "community_name": ".verify_single_proposition",
       "norm_label": "log_stage()"
     },
     {
@@ -3280,9 +3280,163 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_utils_logging_rationale_27",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 17,
+      "community_name": ".verify_single_proposition",
       "norm_label": "log a specific stage in the verification pipeline."
+    },
+    {
+      "label": "test_benchmark_integrity.py",
+      "file_type": "code",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "test_benchmark_integrity.py"
+    },
+    {
+      "label": "test_experiment_e_explicit_na_in_results()",
+      "file_type": "code",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_test_experiment_e_explicit_na_in_results",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "test_experiment_e_explicit_na_in_results()"
+    },
+    {
+      "label": "test_experiment_e_no_inheritance_in_summary_table()",
+      "file_type": "code",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_test_experiment_e_no_inheritance_in_summary_table",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "test_experiment_e_no_inheritance_in_summary_table()"
+    },
+    {
+      "label": "test_retrieval_metrics_conjunctive_multihop()",
+      "file_type": "code",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_test_retrieval_metrics_conjunctive_multihop",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "test_retrieval_metrics_conjunctive_multihop()"
+    },
+    {
+      "label": "test_retrieval_metrics_alternative_evidence_sets()",
+      "file_type": "code",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_test_retrieval_metrics_alternative_evidence_sets",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "test_retrieval_metrics_alternative_evidence_sets()"
+    },
+    {
+      "label": "test_retrieval_metrics_nei_claims_ignored()",
+      "file_type": "code",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L87",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_test_retrieval_metrics_nei_claims_ignored",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "test_retrieval_metrics_nei_claims_ignored()"
+    },
+    {
+      "label": "test_held_out_test_independent_of_corpus_coverage()",
+      "file_type": "code",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_test_held_out_test_independent_of_corpus_coverage",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "test_held_out_test_independent_of_corpus_coverage()"
+    },
+    {
+      "label": "Regression tests for benchmark integrity: 1. Experiment E missing results /\u2026",
+      "file_type": "rationale",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_rationale_1",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "regression tests for benchmark integrity: 1. experiment e missing results /..."
+    },
+    {
+      "label": "Verify Experiment E result file has explicit nulls/NOT_EVALUATED and no\u2026",
+      "file_type": "rationale",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_rationale_15",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "verify experiment e result file has explicit nulls/not_evaluated and no..."
+    },
+    {
+      "label": "Verify Experiment E row in summary_table.csv and summary_table.json has\u2026",
+      "file_type": "rationale",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_rationale_32",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "verify experiment e row in summary_table.csv and summary_table.json has..."
+    },
+    {
+      "label": "Verify conjunctive multi-hop evidence requires all documents for full recall.",
+      "file_type": "rationale",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_rationale_51",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "verify conjunctive multi-hop evidence requires all documents for full recall."
+    },
+    {
+      "label": "Verify disjunctive alternative evidence sets (either set satisfies claim).",
+      "file_type": "rationale",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_rationale_75",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "verify disjunctive alternative evidence sets (either set satisfies claim)."
+    },
+    {
+      "label": "Verify NOT ENOUGH INFO / empty evidence sets do not skew retrieval recall\u2026",
+      "file_type": "rationale",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_rationale_88",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "verify not enough info / empty evidence sets do not skew retrieval recall..."
+    },
+    {
+      "label": "Verify that test split contains claims whose gold evidence is NOT in the corpus\u2026",
+      "file_type": "rationale",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "tests_test_benchmark_integrity_rationale_106",
+      "community": 1,
+      "community_name": "test_metrics.py",
+      "norm_label": "verify that test split contains claims whose gold evidence is not in the corpus..."
     },
     {
       "label": "test_claim_processing.py",
@@ -3291,7 +3445,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_claim_processing",
-      "community": 12,
+      "community": 49,
       "community_name": "RuleBasedClaimDecomposer",
       "norm_label": "test_claim_processing.py"
     },
@@ -3302,7 +3456,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "tests_test_claim_processing_test_simple_claim",
-      "community": 12,
+      "community": 49,
       "community_name": "RuleBasedClaimDecomposer",
       "norm_label": "test_simple_claim()"
     },
@@ -3313,7 +3467,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "tests_test_claim_processing_test_compound_claim_conjunction",
-      "community": 12,
+      "community": 49,
       "community_name": "RuleBasedClaimDecomposer",
       "norm_label": "test_compound_claim_conjunction()"
     },
@@ -3324,7 +3478,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "tests_test_claim_processing_test_compound_claim_semicolon",
-      "community": 12,
+      "community": 49,
       "community_name": "RuleBasedClaimDecomposer",
       "norm_label": "test_compound_claim_semicolon()"
     },
@@ -3335,7 +3489,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_claim_processing_rationale_1",
-      "community": 12,
+      "community": 49,
       "community_name": "RuleBasedClaimDecomposer",
       "norm_label": "unit tests for claim processing and decomposition."
     },
@@ -3346,7 +3500,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_conflict",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "test_conflict.py"
     },
@@ -3357,7 +3511,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_test_conflict_test_only_supporting_evidence",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "test_only_supporting_evidence()"
     },
@@ -3368,7 +3522,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "tests_test_conflict_test_only_contradicting_evidence",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "test_only_contradicting_evidence()"
     },
@@ -3379,7 +3533,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "tests_test_conflict_test_mixed_conflicting_evidence",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "test_mixed_conflicting_evidence()"
     },
@@ -3390,7 +3544,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_conflict_rationale_1",
-      "community": 17,
+      "community": 0,
       "community_name": "EvidencePassage",
       "norm_label": "unit tests for conflict analysis module."
     },
@@ -3402,7 +3556,7 @@
       "_origin": "ast",
       "id": "tests_test_controlled_scenarios",
       "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community_name": "test_controlled_scenarios.py",
       "norm_label": "test_controlled_scenarios.py"
     },
     {
@@ -3413,7 +3567,7 @@
       "_origin": "ast",
       "id": "tests_test_controlled_scenarios_py_fixture",
       "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community_name": "test_controlled_scenarios.py",
       "norm_label": "fixture"
     },
     {
@@ -3424,7 +3578,7 @@
       "_origin": "ast",
       "id": "tests_test_controlled_scenarios_controlled_verifier",
       "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community_name": "test_controlled_scenarios.py",
       "norm_label": "controlled_verifier()"
     },
     {
@@ -3435,7 +3589,7 @@
       "_origin": "ast",
       "id": "tests_test_controlled_scenarios_test_controlled_conflict_detection",
       "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community_name": "test_controlled_scenarios.py",
       "norm_label": "test_controlled_conflict_detection()"
     },
     {
@@ -3446,7 +3600,7 @@
       "_origin": "ast",
       "id": "tests_test_controlled_scenarios_test_controlled_temporal_evolution",
       "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community_name": "test_controlled_scenarios.py",
       "norm_label": "test_controlled_temporal_evolution()"
     },
     {
@@ -3457,7 +3611,7 @@
       "_origin": "ast",
       "id": "tests_test_controlled_scenarios_test_controlled_ungrounded_claim",
       "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community_name": "test_controlled_scenarios.py",
       "norm_label": "test_controlled_ungrounded_claim()"
     },
     {
@@ -3468,7 +3622,7 @@
       "_origin": "ast",
       "id": "tests_test_controlled_scenarios_rationale_1",
       "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community_name": "test_controlled_scenarios.py",
       "norm_label": "functional tests for controlled synthetic scenarios (temporal evolution,..."
     },
     {
@@ -3479,7 +3633,7 @@
       "_origin": "ast",
       "id": "tests_test_controlled_scenarios_rationale_14",
       "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community_name": "test_controlled_scenarios.py",
       "norm_label": "novatech claim has contradictory press release vs audit report."
     },
     {
@@ -3490,7 +3644,7 @@
       "_origin": "ast",
       "id": "tests_test_controlled_scenarios_rationale_23",
       "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community_name": "test_controlled_scenarios.py",
       "norm_label": "acme corporation dominance superseded by 2024 market shift."
     },
     {
@@ -3501,7 +3655,7 @@
       "_origin": "ast",
       "id": "tests_test_controlled_scenarios_rationale_31",
       "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community_name": "test_controlled_scenarios.py",
       "norm_label": "unfounded martian hallucination should trigger abstention / insufficient..."
     },
     {
@@ -3512,7 +3666,7 @@
       "_origin": "ast",
       "id": "tests_test_decision",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_decision.py"
     },
     {
@@ -3523,7 +3677,7 @@
       "_origin": "ast",
       "id": "tests_test_decision_py_fixture",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "fixture"
     },
     {
@@ -3534,7 +3688,7 @@
       "_origin": "ast",
       "id": "tests_test_decision_decider",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "decider()"
     },
     {
@@ -3545,7 +3699,7 @@
       "_origin": "ast",
       "id": "tests_test_decision_test_verdict_supported",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_verdict_supported()"
     },
     {
@@ -3556,7 +3710,7 @@
       "_origin": "ast",
       "id": "tests_test_decision_test_verdict_contradicted",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_verdict_contradicted()"
     },
     {
@@ -3567,7 +3721,7 @@
       "_origin": "ast",
       "id": "tests_test_decision_test_verdict_insufficient_evidence_by_conflict",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_verdict_insufficient_evidence_by_conflict()"
     },
     {
@@ -3578,7 +3732,7 @@
       "_origin": "ast",
       "id": "tests_test_decision_test_verdict_insufficient_evidence_by_empty",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_verdict_insufficient_evidence_by_empty()"
     },
     {
@@ -3589,7 +3743,7 @@
       "_origin": "ast",
       "id": "tests_test_decision_rationale_1",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "unit tests for final decision and abstention policy."
     },
     {
@@ -3599,8 +3753,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_end_to_end",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 50,
+      "community_name": "test_end_to_end.py",
       "norm_label": "test_end_to_end.py"
     },
     {
@@ -3610,8 +3764,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "tests_test_end_to_end_py_fixture",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 50,
+      "community_name": "test_end_to_end.py",
       "norm_label": "fixture"
     },
     {
@@ -3621,8 +3775,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tests_test_end_to_end_verifier",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 50,
+      "community_name": "test_end_to_end.py",
       "norm_label": "verifier()"
     },
     {
@@ -3632,8 +3786,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "tests_test_end_to_end_test_verify_supported_claim",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 50,
+      "community_name": "test_end_to_end.py",
       "norm_label": "test_verify_supported_claim()"
     },
     {
@@ -3643,8 +3797,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "tests_test_end_to_end_test_verify_contradicted_claim",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 50,
+      "community_name": "test_end_to_end.py",
       "norm_label": "test_verify_contradicted_claim()"
     },
     {
@@ -3654,8 +3808,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "tests_test_end_to_end_test_verify_insufficient_claim",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 50,
+      "community_name": "test_end_to_end.py",
       "norm_label": "test_verify_insufficient_claim()"
     },
     {
@@ -3665,8 +3819,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "tests_test_end_to_end_test_verify_compound_claim",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 50,
+      "community_name": "test_end_to_end.py",
       "norm_label": "test_verify_compound_claim()"
     },
     {
@@ -3676,8 +3830,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_end_to_end_rationale_1",
-      "community": 19,
-      "community_name": "MisinformationVerifier",
+      "community": 50,
+      "community_name": "test_end_to_end.py",
       "norm_label": "end-to-end integration tests for the full verification pipeline."
     },
     {
@@ -3919,7 +4073,7 @@
       "_origin": "ast",
       "id": "tests_test_reasoning",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_reasoning.py"
     },
     {
@@ -3930,7 +4084,7 @@
       "_origin": "ast",
       "id": "tests_test_reasoning_py_fixture",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "fixture"
     },
     {
@@ -3941,7 +4095,7 @@
       "_origin": "ast",
       "id": "tests_test_reasoning_sample_context",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "sample_context()"
     },
     {
@@ -3952,7 +4106,7 @@
       "_origin": "ast",
       "id": "tests_test_reasoning_test_heuristic_advisor_execution",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_heuristic_advisor_execution()"
     },
     {
@@ -3963,7 +4117,7 @@
       "_origin": "ast",
       "id": "tests_test_reasoning_test_heuristic_advisor_empty_evidence",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_heuristic_advisor_empty_evidence()"
     },
     {
@@ -3974,7 +4128,7 @@
       "_origin": "ast",
       "id": "tests_test_reasoning_test_llm_advisor_no_key_fallback",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_llm_advisor_no_key_fallback()"
     },
     {
@@ -3985,7 +4139,7 @@
       "_origin": "ast",
       "id": "tests_test_reasoning_test_llm_advisor_valid_mock_response",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_llm_advisor_valid_mock_response()"
     },
     {
@@ -3996,7 +4150,7 @@
       "_origin": "ast",
       "id": "tests_test_reasoning_test_llm_advisor_http_error_fallback",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_llm_advisor_http_error_fallback()"
     },
     {
@@ -4007,7 +4161,7 @@
       "_origin": "ast",
       "id": "tests_test_reasoning_test_llm_advisor_timeout_fallback",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_llm_advisor_timeout_fallback()"
     },
     {
@@ -4018,7 +4172,7 @@
       "_origin": "ast",
       "id": "tests_test_reasoning_test_get_reasoning_engine_factory",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_get_reasoning_engine_factory()"
     },
     {
@@ -4029,7 +4183,7 @@
       "_origin": "ast",
       "id": "tests_test_reasoning_rationale_1",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "unit tests for reasoning engine and llm advisor integration."
     },
     {
@@ -4039,8 +4193,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_retrieval",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 47,
+      "community_name": "DenseRetriever",
       "norm_label": "test_retrieval.py"
     },
     {
@@ -4072,7 +4226,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "tests_test_retrieval_test_bm25_retrieval",
-      "community": 9,
+      "community": 24,
       "community_name": "BM25Retriever",
       "norm_label": "test_bm25_retrieval()"
     },
@@ -4083,8 +4237,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "tests_test_retrieval_test_dense_retrieval",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 47,
+      "community_name": "DenseRetriever",
       "norm_label": "test_dense_retrieval()"
     },
     {
@@ -4094,8 +4248,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "tests_test_retrieval_test_hybrid_retrieval",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 47,
+      "community_name": "DenseRetriever",
       "norm_label": "test_hybrid_retrieval()"
     },
     {
@@ -4105,7 +4259,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "tests_test_retrieval_test_irrelevant_evidence_handling",
-      "community": 9,
+      "community": 24,
       "community_name": "BM25Retriever",
       "norm_label": "test_irrelevant_evidence_handling()"
     },
@@ -4116,8 +4270,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_retrieval_rationale_1",
-      "community": 9,
-      "community_name": "BM25Retriever",
+      "community": 47,
+      "community_name": "DenseRetriever",
       "norm_label": "unit tests for evidence retrieval (bm25, dense, hybrid)."
     },
     {
@@ -4194,7 +4348,7 @@
       "_origin": "ast",
       "id": "tests_test_uncertainty",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_uncertainty.py"
     },
     {
@@ -4205,7 +4359,7 @@
       "_origin": "ast",
       "id": "tests_test_uncertainty_py_fixture",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "fixture"
     },
     {
@@ -4216,7 +4370,7 @@
       "_origin": "ast",
       "id": "tests_test_uncertainty_estimator",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "estimator()"
     },
     {
@@ -4227,7 +4381,7 @@
       "_origin": "ast",
       "id": "tests_test_uncertainty_test_strong_agreement",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_strong_agreement()"
     },
     {
@@ -4238,7 +4392,7 @@
       "_origin": "ast",
       "id": "tests_test_uncertainty_test_weak_evidence",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_weak_evidence()"
     },
     {
@@ -4249,7 +4403,7 @@
       "_origin": "ast",
       "id": "tests_test_uncertainty_test_conflicting_evidence",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_conflicting_evidence()"
     },
     {
@@ -4260,7 +4414,7 @@
       "_origin": "ast",
       "id": "tests_test_uncertainty_test_insufficient_evidence",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "test_insufficient_evidence()"
     },
     {
@@ -4271,7 +4425,7 @@
       "_origin": "ast",
       "id": "tests_test_uncertainty_rationale_1",
       "community": 0,
-      "community_name": "ConflictReport",
+      "community_name": "EvidencePassage",
       "norm_label": "unit tests for uncertainty estimation module."
     },
     {
@@ -4281,8 +4435,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_app",
-      "community": 1,
-      "community_name": "test_metrics.py",
+      "community": 32,
+      "community_name": "build_index.py",
       "norm_label": "app.py"
     },
     {
@@ -4292,8 +4446,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "cache_resource",
-      "community": 1,
-      "community_name": "test_metrics.py",
+      "community": 48,
+      "community_name": "MisinformationVerifier",
       "norm_label": "cache_resource"
     },
     {
@@ -4303,8 +4457,8 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "ui_app_get_verifier",
-      "community": 1,
-      "community_name": "test_metrics.py",
+      "community": 48,
+      "community_name": "MisinformationVerifier",
       "norm_label": "get_verifier()"
     },
     {
@@ -4314,8 +4468,8 @@
       "source_location": "L171",
       "_origin": "ast",
       "id": "ui_app_render_passage",
-      "community": 1,
-      "community_name": "test_metrics.py",
+      "community": 32,
+      "community_name": "build_index.py",
       "norm_label": "render_passage()"
     },
     {
@@ -4325,8 +4479,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_app_rationale_1",
-      "community": 1,
-      "community_name": "test_metrics.py",
+      "community": 32,
+      "community_name": "build_index.py",
       "norm_label": "interactive research ui for evidence-grounded misinformation verification. run..."
     },
     {
@@ -6786,7 +6940,7 @@
       "label": "10. Audit Documentation Suite",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L211",
+      "source_location": "L214",
       "_origin": "ast",
       "id": "readme_10_audit_documentation_suite",
       "community": 15,
@@ -6797,7 +6951,7 @@
       "label": "10. Evaluation Metrics",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L222",
+      "source_location": "L225",
       "_origin": "ast",
       "id": "readme_10_evaluation_metrics",
       "community": 15,
@@ -6808,7 +6962,7 @@
       "label": "11. Configuration Guide",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L237",
+      "source_location": "L240",
       "_origin": "ast",
       "id": "readme_11_configuration_guide",
       "community": 15,
@@ -6819,7 +6973,7 @@
       "label": "12. Running Tests",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L284",
+      "source_location": "L287",
       "_origin": "ast",
       "id": "readme_12_running_tests",
       "community": 15,
@@ -6830,7 +6984,7 @@
       "label": "13. Limitations & Future Work",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L303",
+      "source_location": "L306",
       "_origin": "ast",
       "id": "readme_13_limitations_future_work",
       "community": 15,
@@ -8488,21 +8642,32 @@
       "norm_label": "3.4 evidence structure and retrieval evaluation protocol"
     },
     {
-      "label": "3.5 Limitations of Restricted Sample Scope",
+      "label": "3.5 Evidence Coverage Breakdown by Label (100-Document Corpus)",
       "file_type": "document",
       "source_file": "docs/audit/dataset_audit.md",
       "source_location": "L81",
       "_origin": "ast",
-      "id": "docs_audit_dataset_audit_3_5_limitations_of_restricted_sample_scope",
+      "id": "docs_audit_dataset_audit_3_5_evidence_coverage_breakdown_by_label_100_document_corpus",
       "community": 40,
       "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
-      "norm_label": "3.5 limitations of restricted sample scope"
+      "norm_label": "3.5 evidence coverage breakdown by label (100-document corpus)"
+    },
+    {
+      "label": "3.6 Limitations of Restricted Sample Scope",
+      "file_type": "document",
+      "source_file": "docs/audit/dataset_audit.md",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "docs_audit_dataset_audit_3_6_limitations_of_restricted_sample_scope",
+      "community": 40,
+      "community_name": "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)",
+      "norm_label": "3.6 limitations of restricted sample scope"
     },
     {
       "label": "4. Dataset Suite B: Controlled Scenarios (`data/controlled/`)",
       "file_type": "document",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L87",
+      "source_location": "L103",
       "_origin": "ast",
       "id": "docs_audit_dataset_audit_4_dataset_suite_b_controlled_scenarios_data_controlled",
       "community": 40,
@@ -8513,7 +8678,7 @@
       "label": "4.1 Purpose & Role",
       "file_type": "document",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L89",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "docs_audit_dataset_audit_4_1_purpose_role",
       "community": 40,
@@ -8620,21 +8785,21 @@
       "norm_label": "4. scientific findings and detailed analysis"
     },
     {
-      "label": "4.1 Value of Evidence Grounding (A vs. B)",
+      "label": "4.1 Root Cause Analysis of Retrieval Metrics (Recall@5 = 0.2250, MRR = 0.2250)",
       "file_type": "document",
       "source_file": "docs/audit/experimental_validation.md",
       "source_location": "L74",
       "_origin": "ast",
-      "id": "docs_audit_experimental_validation_4_1_value_of_evidence_grounding_a_vs_b",
+      "id": "docs_audit_experimental_validation_4_1_root_cause_analysis_of_retrieval_metrics_recall_5_0_2250_mrr_0_2250",
       "community": 43,
       "community_name": "Experimental Validation Report",
-      "norm_label": "4.1 value of evidence grounding (a vs. b)"
+      "norm_label": "4.1 root cause analysis of retrieval metrics (recall@5 = 0.2250, mrr = 0.2250)"
     },
     {
       "label": "4.2 Impact of Conflict and Temporal Logic (B vs. C)",
       "file_type": "document",
       "source_file": "docs/audit/experimental_validation.md",
-      "source_location": "L79",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "docs_audit_experimental_validation_4_2_impact_of_conflict_and_temporal_logic_b_vs_c",
       "community": 43,
@@ -8645,7 +8810,7 @@
       "label": "4.3 Efficacy of Uncertainty-Aware Abstention (C vs. D)",
       "file_type": "document",
       "source_file": "docs/audit/experimental_validation.md",
-      "source_location": "L83",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "docs_audit_experimental_validation_4_3_efficacy_of_uncertainty_aware_abstention_c_vs_d",
       "community": 43,
@@ -8656,7 +8821,7 @@
       "label": "5. Distinction Between Functional Tests and Benchmark Evaluations",
       "file_type": "document",
       "source_file": "docs/audit/experimental_validation.md",
-      "source_location": "L91",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "docs_audit_experimental_validation_5_distinction_between_functional_tests_and_benchmark_evaluations",
       "community": 43,
@@ -9681,7 +9846,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L699",
+      "source_location": "L732",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data",
@@ -9818,7 +9983,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L710",
+      "source_location": "L743",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data_main",
@@ -9854,7 +10019,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L710",
+      "source_location": "L743",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data_main",
@@ -9877,7 +10042,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prepare_data.py",
-      "source_location": "L717",
+      "source_location": "L750",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_prepare_data_main",
@@ -9922,7 +10087,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L227",
+      "source_location": "L243",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments",
@@ -10100,7 +10265,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L239",
+      "source_location": "L255",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_main",
@@ -10123,7 +10288,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L235",
+      "source_location": "L251",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_main",
@@ -10159,7 +10324,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L247",
+      "source_location": "L263",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_main",
@@ -10171,7 +10336,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L200",
+      "source_location": "L219",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_run_experiment",
@@ -10183,7 +10348,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L194",
+      "source_location": "L213",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_run_experiment",
@@ -10195,7 +10360,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L193",
+      "source_location": "L212",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_run_experiment",
@@ -10207,7 +10372,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L192",
+      "source_location": "L211",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_run_experiment",
@@ -10243,7 +10408,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run_experiments.py",
-      "source_location": "L238",
+      "source_location": "L254",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_run_experiments_main",
@@ -12613,6 +12778,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity",
+      "target": "src_evaluation_metrics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "tests/test_metrics.py",
       "source_location": "L5",
       "weight": 1.0,
@@ -12641,6 +12818,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_evaluation_metrics_rationale_15",
+      "target": "src_evaluation_metrics_compute_verification_metrics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity",
       "target": "src_evaluation_metrics_compute_verification_metrics",
       "confidence_score": 1.0
     },
@@ -12712,6 +12901,54 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_evaluation_metrics_rationale_70",
+      "target": "src_evaluation_metrics_compute_retrieval_metrics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity",
+      "target": "src_evaluation_metrics_compute_retrieval_metrics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity_test_retrieval_metrics_alternative_evidence_sets",
+      "target": "src_evaluation_metrics_compute_retrieval_metrics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity_test_retrieval_metrics_conjunctive_multihop",
+      "target": "src_evaluation_metrics_compute_retrieval_metrics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity_test_retrieval_metrics_nei_claims_ignored",
       "target": "src_evaluation_metrics_compute_retrieval_metrics",
       "confidence_score": 1.0
     },
@@ -19077,6 +19314,149 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity",
+      "target": "tests_test_benchmark_integrity_test_experiment_e_explicit_na_in_results",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity",
+      "target": "tests_test_benchmark_integrity_test_experiment_e_no_inheritance_in_summary_table",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity",
+      "target": "tests_test_benchmark_integrity_test_held_out_test_independent_of_corpus_coverage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity",
+      "target": "tests_test_benchmark_integrity_test_retrieval_metrics_alternative_evidence_sets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity",
+      "target": "tests_test_benchmark_integrity_test_retrieval_metrics_conjunctive_multihop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity",
+      "target": "tests_test_benchmark_integrity_test_retrieval_metrics_nei_claims_ignored",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity_rationale_1",
+      "target": "tests_test_benchmark_integrity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity_rationale_15",
+      "target": "tests_test_benchmark_integrity_test_experiment_e_explicit_na_in_results",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity_rationale_32",
+      "target": "tests_test_benchmark_integrity_test_experiment_e_no_inheritance_in_summary_table",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity_rationale_51",
+      "target": "tests_test_benchmark_integrity_test_retrieval_metrics_conjunctive_multihop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity_rationale_75",
+      "target": "tests_test_benchmark_integrity_test_retrieval_metrics_alternative_evidence_sets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity_rationale_88",
+      "target": "tests_test_benchmark_integrity_test_retrieval_metrics_nei_claims_ignored",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_benchmark_integrity.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_benchmark_integrity_rationale_106",
+      "target": "tests_test_benchmark_integrity_test_held_out_test_independent_of_corpus_coverage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "tests/test_claim_processing.py",
       "source_location": "L15",
       "weight": 1.0,
@@ -22155,7 +22535,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L211",
+      "source_location": "L214",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_evidence_grounded_misinformation_verification_with_conflict_temporal_and_uncertainty_aware_reasoning",
@@ -22166,7 +22546,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L222",
+      "source_location": "L225",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_evidence_grounded_misinformation_verification_with_conflict_temporal_and_uncertainty_aware_reasoning",
@@ -22177,7 +22557,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L237",
+      "source_location": "L240",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_evidence_grounded_misinformation_verification_with_conflict_temporal_and_uncertainty_aware_reasoning",
@@ -22188,7 +22568,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L284",
+      "source_location": "L287",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_evidence_grounded_misinformation_verification_with_conflict_temporal_and_uncertainty_aware_reasoning",
@@ -22199,7 +22579,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L303",
+      "source_location": "L306",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_evidence_grounded_misinformation_verification_with_conflict_temporal_and_uncertainty_aware_reasoning",
@@ -23904,7 +24284,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L87",
+      "source_location": "L103",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_dataset_audit_dataset_audit_and_provenance_report",
@@ -23963,14 +24343,25 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_dataset_audit_3_dataset_suite_a_authentic_fever_benchmark_data_processed",
-      "target": "docs_audit_dataset_audit_3_5_limitations_of_restricted_sample_scope",
+      "target": "docs_audit_dataset_audit_3_5_evidence_coverage_breakdown_by_label_100_document_corpus",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/dataset_audit.md",
-      "source_location": "L89",
+      "source_location": "L97",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_audit_dataset_audit_3_dataset_suite_a_authentic_fever_benchmark_data_processed",
+      "target": "docs_audit_dataset_audit_3_6_limitations_of_restricted_sample_scope",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/audit/dataset_audit.md",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_dataset_audit_4_dataset_suite_b_controlled_scenarios_data_controlled",
@@ -24036,7 +24427,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/experimental_validation.md",
-      "source_location": "L91",
+      "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_experimental_validation_experimental_validation_report",
@@ -24084,14 +24475,14 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_experimental_validation_4_scientific_findings_and_detailed_analysis",
-      "target": "docs_audit_experimental_validation_4_1_value_of_evidence_grounding_a_vs_b",
+      "target": "docs_audit_experimental_validation_4_1_root_cause_analysis_of_retrieval_metrics_recall_5_0_2250_mrr_0_2250",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/experimental_validation.md",
-      "source_location": "L79",
+      "source_location": "L84",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_experimental_validation_4_scientific_findings_and_detailed_analysis",
@@ -24102,7 +24493,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/audit/experimental_validation.md",
-      "source_location": "L83",
+      "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_audit_experimental_validation_4_scientific_findings_and_detailed_analysis",
@@ -24529,5 +24920,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5baf691d939ba9c13bea9945d176bf5900e6a617"
+  "built_at_commit": "3629b9d3ab86efefca28716195d616df75439ba2"
 }

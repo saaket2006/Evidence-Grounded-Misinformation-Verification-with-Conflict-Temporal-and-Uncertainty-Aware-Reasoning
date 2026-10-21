@@ -188,32 +188,48 @@ def run_experiment(
             "reasoning": res.reasoning,
         })
 
-    # Compute evaluation metrics
-    verif_metrics = compute_verification_metrics(y_true, y_pred)
-    retrieval_metrics = compute_retrieval_metrics(gold_ids, retrieved_ids, k=5)
-    calib_metrics = compute_calibration_metrics(
-        confidences=confidences,
-        accuracies=accuracies,
-        y_true=y_true,
-        prob_vectors=prob_vectors,
-    )
-    abstention_metrics = compute_abstention_metrics(y_true, y_pred)
-
     is_llm_experiment = (exp_key == "llm_assisted")
     llm_status = "EXECUTED" if (is_llm_experiment and llm_actually_executed_count > 0) else ("NOT_EVALUATED" if is_llm_experiment else "N/A")
 
-    result_payload = {
-        "experiment_key": exp_key,
-        "name": exp_def["name"],
-        "num_claims": len(dataset),
-        "llm_status": llm_status,
-        "llm_calls_succeeded": llm_actually_executed_count,
-        "verification_metrics": verif_metrics,
-        "retrieval_metrics": retrieval_metrics,
-        "calibration_metrics": calib_metrics,
-        "abstention_metrics": abstention_metrics,
-        "claims_evaluated": item_details,
-    }
+    if llm_status == "NOT_EVALUATED":
+        # Unevaluated experiment must NOT inherit metrics from heuristic fallback
+        result_payload = {
+            "experiment_key": exp_key,
+            "name": exp_def["name"],
+            "num_claims": len(dataset),
+            "llm_status": "NOT_EVALUATED",
+            "llm_calls_succeeded": 0,
+            "note": "Experiment E remains unevaluated because no active LLM API credentials were provided. Metrics are explicitly recorded as null/N/A to prevent inheriting fallback values.",
+            "verification_metrics": None,
+            "retrieval_metrics": None,
+            "calibration_metrics": None,
+            "abstention_metrics": None,
+            "claims_evaluated": [],
+        }
+    else:
+        # Compute evaluation metrics
+        verif_metrics = compute_verification_metrics(y_true, y_pred)
+        retrieval_metrics = compute_retrieval_metrics(gold_ids, retrieved_ids, k=5)
+        calib_metrics = compute_calibration_metrics(
+            confidences=confidences,
+            accuracies=accuracies,
+            y_true=y_true,
+            prob_vectors=prob_vectors,
+        )
+        abstention_metrics = compute_abstention_metrics(y_true, y_pred)
+
+        result_payload = {
+            "experiment_key": exp_key,
+            "name": exp_def["name"],
+            "num_claims": len(dataset),
+            "llm_status": llm_status,
+            "llm_calls_succeeded": llm_actually_executed_count,
+            "verification_metrics": verif_metrics,
+            "retrieval_metrics": retrieval_metrics,
+            "calibration_metrics": calib_metrics,
+            "abstention_metrics": abstention_metrics,
+            "claims_evaluated": item_details,
+        }
 
     # Save to results/
     out_file = results_dir / exp_def["file"]
@@ -247,26 +263,37 @@ def main():
             res = run_experiment(exp_key, base_config, dataset, results_dir)
             all_results.append(res)
 
-            v = res["verification_metrics"]
-            r = res["retrieval_metrics"]
-            c = res["calibration_metrics"]
-            a = res["abstention_metrics"]
-
             exp_name = res["name"]
             if res.get("llm_status") == "NOT_EVALUATED":
                 exp_name += " [NOT EVALUATED - No API Key]"
+                summary_rows.append({
+                    "Experiment": exp_name,
+                    "Accuracy": "N/A",
+                    "Macro-F1": "N/A",
+                    "Recall@5": "N/A",
+                    "MRR": "N/A",
+                    "ECE": "N/A",
+                    "Brier (MC)": "N/A",
+                    "Coverage": "N/A",
+                    "Selective Acc": "N/A",
+                })
+            else:
+                v = res["verification_metrics"]
+                r = res["retrieval_metrics"]
+                c = res["calibration_metrics"]
+                a = res["abstention_metrics"]
 
-            summary_rows.append({
-                "Experiment": exp_name,
-                "Accuracy": v["accuracy"],
-                "Macro-F1": v["macro_f1"],
-                "Recall@5": r.get("recall@5", 0.0),
-                "MRR": r.get("mrr", 0.0),
-                "ECE": c["ece"],
-                "Brier (MC)": c.get("multiclass_brier", c.get("brier_score")),
-                "Coverage": a["coverage"],
-                "Selective Acc": a["selective_accuracy"],
-            })
+                summary_rows.append({
+                    "Experiment": exp_name,
+                    "Accuracy": v["accuracy"],
+                    "Macro-F1": v["macro_f1"],
+                    "Recall@5": r.get("recall@5", 0.0),
+                    "MRR": r.get("mrr", 0.0),
+                    "ECE": c["ece"],
+                    "Brier (MC)": c.get("multiclass_brier", c.get("brier_score")),
+                    "Coverage": a["coverage"],
+                    "Selective Acc": a["selective_accuracy"],
+                })
 
     # Save summary table
     summary_df = pd.DataFrame(summary_rows)

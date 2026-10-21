@@ -18,7 +18,7 @@ In adherence to scientific integrity principles, this document explicitly identi
 ### 2.1 External LLM Reasoning Layer (Experiment E)
 * **Status:** Adapter Implemented, Experiment `NOT EVALUATED`.
 * **Details:** The system provides a fully functioning, pluggable HTTP adapter (`src/reasoning/engine.py`) designed for OpenAI-compatible endpoints (Ollama, vLLM, OpenAI, DeepSeek). However, no external API credentials (`OPENAI_API_KEY`) were configured in the local execution environment.
-* **Research Impact:** The core verification pipeline operates 100% locally and deterministically using DistilBERT MNLI and SentenceTransformers without requiring an LLM. In accordance with anti-fabrication rules, Experiment E results are reported as identical to Experiment D fallback and clearly flagged `[NOT EVALUATED - No API Key]`.
+* **Research Impact:** The core verification pipeline operates 100% locally and deterministically using DistilBERT MNLI and SentenceTransformers without requiring an LLM. In accordance with anti-fabrication rules, Experiment E results are recorded as explicit `N/A` values across all metric columns and `null` metric objects in JSON, strictly preventing any metric inheritance from Experiment D, and clearly flagged `[NOT EVALUATED - No API Key]`.
 
 ### 2.2 Syntactic Rule-Based Claim Decomposition
 * **Status:** Operational Heuristic Approximation.
@@ -28,10 +28,10 @@ In adherence to scientific integrity principles, this document explicitly identi
   * Recommendation for future research: Incorporate a lightweight neural Semantic Role Labeling (SRL) or T5-based proposition extractor.
 
 ### 2.3 Evidence Corpus Scale
-* **Status:** Focused Research Benchmark Corpus (89 Documents).
-* **Details:** The authentic FEVER evaluation split is grounded against an external corpus of 89 authentic Wikipedia introductory articles fetched via the Wikimedia API, covering all entities referenced in the evaluation and validation claims.
+* **Status:** Focused Research Benchmark Corpus (100 Documents).
+* **Details:** The authentic FEVER evaluation split is grounded against an external corpus of 100 authentic Wikipedia introductory articles fetched via the Wikimedia API, selected strictly from the reference `dev_pool` independently of held-out test claims.
 * **Limitations:**
-  * While representative for the 90 held-out evaluation and development claims, the external corpus does not contain the entire 5.4-million article English Wikipedia dump.
+  * While representative for testing pipeline behavior, calibration, and abstention mechanics, the 100-document slice covers only 22.5% of the entities referenced in the unbiased held-out test claims.
   * Scaling to full Wikipedia will require sharded dense vector indexing (such as FAISS or Milvus) and distributed Elasticsearch clusters rather than in-memory PyTorch tensors and pickled BM25 structures.
 
 ### 2.4 Temporal Expression Extraction

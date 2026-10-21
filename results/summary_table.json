@@ -12,46 +12,46 @@
   },
   {
     "Experiment": "Experiment B: Evidence-Aware (Retrieval + NLI)",
-    "Accuracy": 0.4,
-    "Macro-F1": 0.32,
-    "Recall@5": 1.0,
-    "MRR": 1.0,
-    "ECE": 0.2096,
-    "Brier (MC)": 0.7263,
+    "Accuracy": 0.4333,
+    "Macro-F1": 0.3341,
+    "Recall@5": 0.225,
+    "MRR": 0.225,
+    "ECE": 0.3514,
+    "Brier (MC)": 1.2377,
     "Coverage": 1.0,
-    "Selective Acc": 0.4
+    "Selective Acc": 0.4333
   },
   {
     "Experiment": "Experiment C: Conflict- & Temporal-Aware",
-    "Accuracy": 0.4,
-    "Macro-F1": 0.32,
-    "Recall@5": 1.0,
-    "MRR": 1.0,
-    "ECE": 0.2001,
-    "Brier (MC)": 0.7732,
+    "Accuracy": 0.4333,
+    "Macro-F1": 0.3341,
+    "Recall@5": 0.225,
+    "MRR": 0.225,
+    "ECE": 0.356,
+    "Brier (MC)": 1.2544,
     "Coverage": 1.0,
-    "Selective Acc": 0.4
+    "Selective Acc": 0.4333
   },
   {
     "Experiment": "Experiment D: Full Proposed System (with Uncertainty & Abstention)",
-    "Accuracy": 0.5167,
-    "Macro-F1": 0.4951,
-    "Recall@5": 1.0,
-    "MRR": 1.0,
-    "ECE": 0.5737,
-    "Brier (MC)": 0.7732,
-    "Coverage": 0.3667,
-    "Selective Acc": 0.6364
+    "Accuracy": 0.3667,
+    "Macro-F1": 0.278,
+    "Recall@5": 0.225,
+    "MRR": 0.225,
+    "ECE": 0.3481,
+    "Brier (MC)": 1.2544,
+    "Coverage": 0.1333,
+    "Selective Acc": 0.5
   },
   {
     "Experiment": "Experiment E: Full System + LLM Reasoning Advisor [NOT EVALUATED - No API Key]",
-    "Accuracy": 0.5167,
-    "Macro-F1": 0.4951,
-    "Recall@5": 1.0,
-    "MRR": 1.0,
-    "ECE": 0.5737,
-    "Brier (MC)": 0.7732,
-    "Coverage": 0.3667,
-    "Selective Acc": 0.6364
+    "Accuracy": "N/A",
+    "Macro-F1": "N/A",
+    "Recall@5": "N/A",
+    "MRR": "N/A",
+    "ECE": "N/A",
+    "Brier (MC)": "N/A",
+    "Coverage": "N/A",
+    "Selective Acc": "N/A"
   }
 ]

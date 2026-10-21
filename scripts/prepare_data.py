@@ -580,26 +580,57 @@ def prepare_fever_benchmark(
         flat_unique = list(dict.fromkeys(doc for s in evidence_sets for doc in s))
         return evidence_sets, flat_unique
 
-    # Step 3: Sample Validation (Dev) Claims from dev_pool (N=30, balanced)
+    # Helper function to compute corpus coverage statistics by label
+    def compute_coverage_breakdown(claims_list: List[Dict[str, Any]]) -> Dict[str, Any]:
+        breakdown = {}
+        for lbl in ("SUPPORTED", "CONTRADICTED", "INSUFFICIENT_EVIDENCE"):
+            subset = [c for c in claims_list if c["label"] == lbl]
+            complete_cov = 0
+            partial_cov = 0
+            no_cov = 0
+            nei_count = 0
+            for item in subset:
+                if lbl == "INSUFFICIENT_EVIDENCE":
+                    nei_count += 1
+                    continue
+                ev_sets = item.get("evidence_sets", [])
+                if not ev_sets:
+                    no_cov += 1
+                    continue
+                has_complete = any(all(doc_id in corpus_doc_ids for doc_id in s) for s in ev_sets)
+                has_partial = any(any(doc_id in corpus_doc_ids for doc_id in s) for s in ev_sets)
+                if has_complete:
+                    complete_cov += 1
+                elif has_partial:
+                    partial_cov += 1
+                else:
+                    no_cov += 1
+            breakdown[lbl] = {
+                "total_claims": len(subset),
+                "complete_evidence_in_corpus": complete_cov,
+                "partial_evidence_in_corpus": partial_cov,
+                "no_evidence_in_corpus": no_cov,
+                "not_enough_info_unannotated": nei_count,
+            }
+        return breakdown
+
+    # Step 3: Sample Validation (Dev) Claims from dev_pool (N=30, balanced, independent of corpus coverage)
     dev_target_per_class = num_dev // 3
     dev_by_label: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
-
     for c in dev_pool:
         raw_lbl = c.get("label")
         mapped_lbl = LABEL_MAPPING.get(raw_lbl)
-        if not mapped_lbl:
-            continue
+        if mapped_lbl:
+            dev_by_label[mapped_lbl].append(c)
 
-        ev_sets, ev_ids = extract_fever_evidence_sets(c)
-
-        if mapped_lbl in ("SUPPORTED", "CONTRADICTED"):
-            # Ensure at least one evidence set is in corpus for development calibration
-            has_in_corpus_set = any(all(doc_id in corpus_doc_ids for doc_id in s) for s in ev_sets)
-            if not has_in_corpus_set:
-                continue
-
-        if len(dev_by_label[mapped_lbl]) < dev_target_per_class:
-            dev_by_label[mapped_lbl].append({
+    dev_claims = []
+    dev_rng = random.Random(seed)
+    for mapped_lbl in ("SUPPORTED", "CONTRADICTED", "INSUFFICIENT_EVIDENCE"):
+        cands = list(dev_by_label[mapped_lbl])
+        dev_rng.shuffle(cands)
+        for c in cands[:dev_target_per_class]:
+            ev_sets, ev_ids = extract_fever_evidence_sets(c)
+            dev_claims.append({
                 "id": f"fever_{c['id']}",
                 "claim": c["claim"].strip(),
                 "label": mapped_lbl,
@@ -608,32 +639,27 @@ def prepare_fever_benchmark(
                 "fever_evidence_raw": c.get("evidence", []),
                 "category": "fever_benchmark",
                 "split": "dev",
-                "fever_raw_label": raw_lbl,
+                "fever_raw_label": c.get("label"),
             })
+    dev_rng.shuffle(dev_claims)
 
-    dev_claims = [item for sublist in dev_by_label.values() for item in sublist]
-    random.shuffle(dev_claims)
-
-    # Step 4: Sample Held-Out Test Claims from test_pool (N=60, balanced)
+    # Step 4: Sample Held-Out Test Claims from test_pool (N=60, balanced, independent of corpus coverage)
     test_target_per_class = num_test // 3
     test_by_label: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
-
     for c in test_pool:
         raw_lbl = c.get("label")
         mapped_lbl = LABEL_MAPPING.get(raw_lbl)
-        if not mapped_lbl:
-            continue
+        if mapped_lbl:
+            test_by_label[mapped_lbl].append(c)
 
-        ev_sets, ev_ids = extract_fever_evidence_sets(c)
-
-        if mapped_lbl in ("SUPPORTED", "CONTRADICTED"):
-            # In-corpus coverage for verifiable claims
-            has_in_corpus_set = any(all(doc_id in corpus_doc_ids for doc_id in s) for s in ev_sets)
-            if not has_in_corpus_set:
-                continue
-
-        if len(test_by_label[mapped_lbl]) < test_target_per_class:
-            test_by_label[mapped_lbl].append({
+    test_claims = []
+    test_rng = random.Random(seed)
+    for mapped_lbl in ("SUPPORTED", "CONTRADICTED", "INSUFFICIENT_EVIDENCE"):
+        cands = list(test_by_label[mapped_lbl])
+        test_rng.shuffle(cands)
+        for c in cands[:test_target_per_class]:
+            ev_sets, ev_ids = extract_fever_evidence_sets(c)
+            test_claims.append({
                 "id": f"fever_{c['id']}",
                 "claim": c["claim"].strip(),
                 "label": mapped_lbl,
@@ -642,11 +668,9 @@ def prepare_fever_benchmark(
                 "fever_evidence_raw": c.get("evidence", []),
                 "category": "fever_benchmark",
                 "split": "test",
-                "fever_raw_label": raw_lbl,
+                "fever_raw_label": c.get("label"),
             })
-
-    test_claims = [item for sublist in test_by_label.values() for item in sublist]
-    random.shuffle(test_claims)
+    test_rng.shuffle(test_claims)
 
     # Step 5: Save Datasets
     # 1. Authentic Corpus (data/processed/corpus.jsonl)
@@ -670,15 +694,20 @@ def prepare_fever_benchmark(
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
     logger.info(f"Saved held-out test split ({len(test_claims)} claims) to {test_file}")
 
+    # Compute coverage breakdown
+    dev_coverage = compute_coverage_breakdown(dev_claims)
+    test_coverage = compute_coverage_breakdown(test_claims)
+
     # 4. dataset_info.json
     info = {
         "dataset_name": "Authentic FEVER Benchmark (Independent Corpus & Evidence Groups)",
         "provenance_url": "https://fever.ai/download/fever/paper_dev.jsonl",
         "methodology": {
             "corpus_independence": "Fixed evidence corpus constructed from reference dev_pool independently of test_pool",
+            "test_selection_independence": "Test claims sampled from test_pool independently of corpus coverage without filtering",
             "evidence_groups": "FEVER alternative acceptable evidence sets and multi-hop sets strictly preserved in evidence_sets",
             "synthetic_separation": "Zero synthetic passages in data/processed/corpus.jsonl (quarantined in data/controlled/)",
-            "retrieval_protocol": "Recall@k requires at least one complete evidence set in top-k; MRR evaluates first gold passage",
+            "retrieval_protocol": "Recall@k requires at least one complete evidence set in top-k; claims without in-corpus gold evidence correctly score 0.0",
         },
         "num_claims_total": len(dev_claims) + len(test_claims),
         "dev_count": len(dev_claims),
@@ -687,6 +716,10 @@ def prepare_fever_benchmark(
         "label_counts": {
             "dev": {lbl: sum(1 for c in dev_claims if c["label"] == lbl) for lbl in ("SUPPORTED", "CONTRADICTED", "INSUFFICIENT_EVIDENCE")},
             "test": {lbl: sum(1 for c in test_claims if c["label"] == lbl) for lbl in ("SUPPORTED", "CONTRADICTED", "INSUFFICIENT_EVIDENCE")},
+        },
+        "evidence_coverage": {
+            "dev": dev_coverage,
+            "test": test_coverage,
         },
         "label_mapping": LABEL_MAPPING,
         "seed": seed,

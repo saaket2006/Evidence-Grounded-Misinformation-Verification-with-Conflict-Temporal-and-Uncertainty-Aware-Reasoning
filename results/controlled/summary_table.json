@@ -16,8 +16,8 @@
     "Macro-F1": 0.5833,
     "Recall@5": 1.0,
     "MRR": 1.0,
-    "ECE": 0.0684,
-    "Brier (MC)": 0.6458,
+    "ECE": 0.0426,
+    "Brier (MC)": 0.5995,
     "Coverage": 1.0,
     "Selective Acc": 0.7778
   },
@@ -27,31 +27,31 @@
     "Macro-F1": 0.4868,
     "Recall@5": 1.0,
     "MRR": 1.0,
-    "ECE": 0.0869,
-    "Brier (MC)": 0.7578,
+    "ECE": 0.158,
+    "Brier (MC)": 0.7115,
     "Coverage": 1.0,
     "Selective Acc": 0.6667
   },
   {
     "Experiment": "Experiment D: Full Proposed System (with Uncertainty & Abstention)",
-    "Accuracy": 0.4444,
-    "Macro-F1": 0.4508,
+    "Accuracy": 0.6667,
+    "Macro-F1": 0.6794,
     "Recall@5": 1.0,
     "MRR": 1.0,
-    "ECE": 0.4839,
-    "Brier (MC)": 0.7578,
+    "ECE": 0.3909,
+    "Brier (MC)": 0.7115,
     "Coverage": 0.4444,
-    "Selective Acc": 0.75
+    "Selective Acc": 1.0
   },
   {
     "Experiment": "Experiment E: Full System + LLM Reasoning Advisor [NOT EVALUATED - No API Key]",
-    "Accuracy": 0.4444,
-    "Macro-F1": 0.4508,
-    "Recall@5": 1.0,
-    "MRR": 1.0,
-    "ECE": 0.4839,
-    "Brier (MC)": 0.7578,
-    "Coverage": 0.4444,
-    "Selective Acc": 0.75
+    "Accuracy": "N/A",
+    "Macro-F1": "N/A",
+    "Recall@5": "N/A",
+    "MRR": "N/A",
+    "ECE": "N/A",
+    "Brier (MC)": "N/A",
+    "Coverage": "N/A",
+    "Selective Acc": "N/A"
   }
 ]

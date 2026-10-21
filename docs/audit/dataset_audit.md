@@ -75,10 +75,26 @@ The verification system enforces three primary verdict classes:
 * **Evaluation Metric:** For a retrieved candidate list $R = [d_1, \dots, d_k]$ and gold evidence sets $S = \{S_1, S_2, \dots, S_m\}$:
   $$\text{Recall@}k = \max_{j} \frac{|R \cap S_j|}{|S_j|}$$
   Recall@k reaches $1.0$ if and only if all documents in at least one acceptable evidence set $S_j$ are present within top-$k$.
-* **Held-Out Test Claims:** $N=60$ held-out claims (20 `SUPPORTED`, 20 `CONTRADICTED`, 20 `INSUFFICIENT_EVIDENCE`) sampled with seed 42 from `test_pool`.
+* **Held-Out Test Claims:** $N=60$ held-out claims (20 `SUPPORTED`, 20 `CONTRADICTED`, 20 `INSUFFICIENT_EVIDENCE`) sampled with seed 42 from `test_pool` independently of corpus coverage.
 * **Validation Claims:** $N=30$ development claims (10 `SUPPORTED`, 10 `CONTRADICTED`, 10 `INSUFFICIENT_EVIDENCE`) sampled from `dev_pool`.
 
-### 3.5 Limitations of Restricted Sample Scope
+### 3.5 Evidence Coverage Breakdown by Label (100-Document Corpus)
+
+To audit and eliminate retrieval selection bias, the evidence coverage of the 60 held-out test claims against the 100-document authentic Wikipedia corpus was quantified across all categories:
+
+| Label | Total Claims | Complete Evidence in Corpus | Partial Evidence in Corpus | No Evidence in Corpus | NEI (Unannotated) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **SUPPORTED** | 20 | 2 (10.0%) | 0 (0.0%) | 18 (90.0%) | 0 |
+| **CONTRADICTED** | 20 | 7 (35.0%) | 0 (0.0%) | 13 (65.0%) | 0 |
+| **INSUFFICIENT_EVIDENCE** | 20 | 0 | 0 | 0 | 20 (100.0%) |
+| **Total Test Pool** | **60** | **9 (15.0%)** | **0 (0.0%)** | **31 (51.7%)** | **20 (33.3%)** |
+
+*Methodological Principles Enforced:*
+1. **Zero Test-Peeking / No Selection Filter:** Test claims were sampled strictly independently of corpus coverage. Candidate claims with unrepresented evidence were deliberately retained rather than silently filtered out.
+2. **Retrieval Metric Denominator:** Only verifiable claims (`SUPPORTED` and `CONTRADICTED`, $N=40$) enter the retrieval metric evaluation. The 9 claims with complete in-corpus evidence achieve 100% recall at rank 1, producing an honest, unbiased Recall@5 of $9 / 40 = \mathbf{0.2250}$ and MRR of $\mathbf{0.2250}$.
+3. **Classification Grounding for NEI:** All 20 `INSUFFICIENT_EVIDENCE` claims have empty gold evidence sets (`evidence_sets: []`). They participate fully in 3-class classification, calibration (ECE, Brier score), and abstention decisions, but do not count toward retrieval recall.
+
+### 3.6 Limitations of Restricted Sample Scope
 * **Entity-Restricted Domain:** The evaluation corpus comprises 100 authentic Wikipedia articles rather than the full 5.4 million article Wikipedia dump. Consequently, open-domain recall against unindexed Wikipedia entities cannot be measured without scaling indexing infrastructure.
 * **Sample Size:** Evaluation is conducted on $N=60$ held-out claims. While sufficient for verifying pipeline calibration, abstention mechanics, and precision/recall metrics, larger statistical margins of error apply relative to evaluating all 9,999 dev claims.
 

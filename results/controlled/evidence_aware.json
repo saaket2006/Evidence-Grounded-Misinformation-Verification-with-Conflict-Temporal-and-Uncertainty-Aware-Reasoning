@@ -59,10 +59,10 @@
     "mrr": 1.0
   },
   "calibration_metrics": {
-    "ece": 0.0684,
-    "brier_score": 0.6458,
-    "multiclass_brier": 0.6458,
-    "normalized_brier": 0.3229
+    "ece": 0.0426,
+    "brier_score": 0.5995,
+    "multiclass_brier": 0.5995,
+    "normalized_brier": 0.2998
   },
   "abstention_metrics": {
     "coverage": 1.0,
@@ -135,10 +135,10 @@
       "true_label": "INSUFFICIENT_EVIDENCE",
       "pred_label": "SUPPORTED",
       "correct": false,
-      "confidence": 0.7044,
-      "uncertainty": 0.2956,
+      "confidence": 0.7558,
+      "uncertainty": 0.2442,
       "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'NovaTech enterprise platform generated $10 million in undisputed 2024 earnings.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 54.8% Support, 10.0% Contradict, 35.2% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+      "reasoning": "Claim verification analysis for: 'NovaTech enterprise platform generated $10 million in undisputed 2024 earnings.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 50.8% Support, 47.5% Contradict, 1.7% Neutral.\n- Final Grounded Verdict: SUPPORTED."
     },
     {
       "id": "ctrl_claim_16",
@@ -157,10 +157,10 @@
       "true_label": "CONTRADICTED",
       "pred_label": "CONTRADICTED",
       "correct": true,
-      "confidence": 0.7199,
-      "uncertainty": 0.2801,
+      "confidence": 0.9013,
+      "uncertainty": 0.0987,
       "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'Alan Turing made no contribution to World War II cryptanalysis.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 10.0% Support, 20.0% Contradict, 70.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+      "reasoning": "Claim verification analysis for: 'Alan Turing made no contribution to World War II cryptanalysis.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
     },
     {
       "id": "ctrl_claim_18",

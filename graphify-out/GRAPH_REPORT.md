@@ -1,21 +1,21 @@
 # Graph Report - Evidence-Grounded-Misinformation-Verification-with-Conflict-Temporal-and-Uncertainty-Aware-Reasoning  (2026-10-21)
 
 ## Corpus Check
-- 93 files · ~97,618 words
+- 94 files · ~94,360 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 828 nodes · 1352 edges · 48 communities (42 shown, 6 thin omitted)
+- 843 nodes · 1372 edges · 52 communities (48 shown, 4 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 77 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5baf691d`
+- Built from commit: `3629b9d3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- ConflictReport
+- EvidencePassage
 - test_metrics.py
 - Product Requirements Document (PRD)
 - Core Principles
@@ -24,22 +24,22 @@
 - TransformerNLIClassifier
 - Core Principles
 - Capabilities
-- BM25Retriever
+- verifier.py
 - API Design Principles Implementation Playbook
 - Core Principles
-- RuleBasedClaimDecomposer
+- SubClaim
 - Functional Requirements Document (FRD)
 - CrossEncoderReranker
 - Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning
 - Non-Functional Requirements Document (NFRD)
-- EvidencePassage
-- DenseRetriever
-- MisinformationVerifier
+- .verify_single_proposition
+- ._ensure_model
+- test_controlled_scenarios.py
 - Evidence-Grounded Multimodal Misinformation Verification with Uncertainty-Aware Reasoning
 - 3. Detailed Stage Audits
 - 3. Functional Software Requirements
 - TemporalAnalyzer
-- .__init__
+- BM25Retriever
 - SRS.md
 - CorpusManager
 - API Design Principles
@@ -47,7 +47,7 @@
 - System Architecture: Evidence-Grounded Misinformation Verification
 - 4. Differentiating Verification Requirements
 - 10. Testing Requirements
-- .search
+- build_index.py
 - 1. Introduction
 - 5. Data Requirements
 - download_model.py
@@ -61,7 +61,11 @@
 - logging.py
 - Phase One Initial Audit Assessment
 - 2. Identified Limitations and Technical Boundaries
-- .search
+- DenseRetriever
+- MisinformationVerifier
+- RuleBasedClaimDecomposer
+- test_end_to_end.py
+- .__init__
 
 ## God Nodes (most connected - your core abstractions)
 1. `EvidencePassage` - 77 edges
@@ -82,23 +86,23 @@
   tests/test_nli.py → src/pipeline/schema.py
 - `test_nli_support()` --calls--> `EvidencePassage`  [EXTRACTED]
   tests/test_nli.py → src/pipeline/schema.py
-- `test_dense_retrieval()` --calls--> `DenseRetriever`  [EXTRACTED]
-  tests/test_retrieval.py → src/retrieval/dense.py
 - `build_indexes()` --calls--> `BM25Retriever`  [EXTRACTED]
   scripts/build_index.py → src/retrieval/bm25.py
+- `build_indexes()` --calls--> `CorpusManager`  [EXTRACTED]
+  scripts/build_index.py → src/retrieval/corpus.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (48 total, 6 thin omitted)
+## Communities (52 total, 4 thin omitted)
 
-### Community 0 - "ConflictReport"
-Cohesion: 0.06
-Nodes (64): AggregationResult, BaseModel, Evidence aggregation engine synthesizing multiple evidence passages., Evidence aggregation module., ConflictReport, BaseModel, Decision engine and abstention policy for final verdict assignment., Evaluates evidence aggregations, conflict reports, and uncertainty to decide… (+56 more)
+### Community 0 - "EvidencePassage"
+Cohesion: 0.05
+Nodes (78): Enum, AggregationResult, EvidenceAggregator, BaseModel, Evidence aggregation engine synthesizing multiple evidence passages., Synthesizes passage-level NLI classifications into a coherent claim-level…, Evidence aggregation module., ConflictDetector (+70 more)
 
 ### Community 1 - "test_metrics.py"
-Cohesion: 0.08
-Nodes (43): cache_resource, evaluate(), main(), Run standalone evaluation on a dataset split and export metrics., load_dataset(), main(), Any, Path (+35 more)
+Cohesion: 0.07
+Nodes (49): evaluate(), main(), Run standalone evaluation on a dataset split and export metrics., load_dataset(), main(), Any, Path, Run the full benchmark experimental suite (Experiments A, B, C, D, E). Outputs… (+41 more)
 
 ### Community 2 - "Product Requirements Document (PRD)"
 Cohesion: 0.05
@@ -128,9 +132,9 @@ Nodes (24): 1. Start with requirements, 2. Prefer simplicity, 3. Evaluate techno
 Cohesion: 0.09
 Nodes (22): Application Security Testing, Behavioral Traits, Capabilities, Cloud Security, Compliance & Governance, DevSecOps & Security Automation, Do not use this skill when, Emerging Security Technologies (+14 more)
 
-### Community 9 - "BM25Retriever"
-Cohesion: 0.16
-Nodes (17): Path, BaseRetriever, ABC, Base interface for evidence retrieval components., Abstract base class for evidence retrieval engines., BM25Retriever, Lexical BM25 retrieval engine., Lexical retriever based on Okapi BM25. (+9 more)
+### Community 9 - "verifier.py"
+Cohesion: 0.19
+Nodes (11): End-to-end evidence-grounded misinformation verification pipeline., BaseRetriever, ABC, Base interface for evidence retrieval components., Search the evidence corpus for passages relevant to the query. Args: query: The…, Abstract base class for evidence retrieval engines., Lexical BM25 retrieval engine., Corpus management and document loading. (+3 more)
 
 ### Community 10 - "API Design Principles Implementation Playbook"
 Cohesion: 0.10
@@ -140,9 +144,9 @@ Nodes (19): 1. RESTful Design Principles, 2. GraphQL Design Principles, 3. API V
 Cohesion: 0.10
 Nodes (19): 10. Testing, 11. SEO, 1. Follow the existing project architecture, 2. Build for correctness first, 3. Component design, 4. State and data fetching, 5. Responsive design, 6. Accessibility (+11 more)
 
-### Community 12 - "RuleBasedClaimDecomposer"
-Cohesion: 0.18
-Nodes (13): BaseClaimDecomposer, ABC, Claim processing and atomic proposition decomposition., Abstract interface for claim decomposition., Decompose a textual claim into atomic subclaims., Deterministic rule-based claim decomposer. Splits compound propositions on…, RuleBasedClaimDecomposer, Claim processing module. (+5 more)
+### Community 12 - "SubClaim"
+Cohesion: 0.29
+Nodes (7): BaseClaimDecomposer, ABC, Claim processing and atomic proposition decomposition., Abstract interface for claim decomposition., Decompose a textual claim into atomic subclaims., Claim processing module., SubClaim
 
 ### Community 13 - "Functional Requirements Document (FRD)"
 Cohesion: 0.11
@@ -160,17 +164,17 @@ Nodes (20): 10. Audit Documentation Suite, 10. Evaluation Metrics, 11. Configura
 Cohesion: 0.12
 Nodes (16): 10. Maintainability, 11. Research Reproducibility, 12. Ethical and Responsible Behavior, 13. BERT Component Quality Requirements, 13. Research Differentiation Quality Requirements, 1. Purpose, 2. Reliability, 3. Accuracy and Verification Quality (+8 more)
 
-### Community 17 - "EvidencePassage"
-Cohesion: 0.14
-Nodes (18): Enum, EvidenceAggregator, Synthesizes passage-level NLI classifications into a coherent claim-level…, ConflictDetector, Conflict detection and consensus analysis across evidence passages., Analyzes evidence pool for contradictory and opposing claims., Args: balance_threshold: Minimum ratio of minority-to-majority mass to declare…, Conflict analysis module. (+10 more)
+### Community 17 - ".verify_single_proposition"
+Cohesion: 0.20
+Nodes (8): BaseModel, VerificationResult, Any, Retrieve candidate passages using the active retrieval strategy., Execute verification pipeline on a single atomic claim proposition., Main verification entrypoint for any textual claim., log_stage(), Log a specific stage in the verification pipeline.
 
-### Community 18 - "DenseRetriever"
-Cohesion: 0.18
-Nodes (9): SentenceTransformer, DenseRetriever, Path, Dense retriever using bi-encoder sentence embeddings., Lazy load the sentence transformer model., Encode all documents in the corpus and build dense tensor index., Save embeddings and document IDs to disk., Load embeddings and document IDs from disk. (+1 more)
+### Community 18 - "._ensure_model"
+Cohesion: 0.29
+Nodes (4): SentenceTransformer, Lazy load the sentence transformer model., Encode all documents in the corpus and build dense tensor index., Search dense embeddings using cosine similarity.
 
-### Community 19 - "MisinformationVerifier"
-Cohesion: 0.07
-Nodes (24): main(), CLI entry point to verify a single claim using the verification pipeline., Script to verify and inspect representative end-to-end claims across all…, run_representative_inspections(), MisinformationVerifier, Any, Retrieve candidate passages using the active retrieval strategy., Execute verification pipeline on a single atomic claim proposition. (+16 more)
+### Community 19 - "test_controlled_scenarios.py"
+Cohesion: 0.20
+Nodes (9): controlled_verifier(), fixture, Functional tests for controlled synthetic scenarios (temporal evolution,…, NovaTech claim has contradictory press release vs audit report., Acme Corporation dominance superseded by 2024 market shift., Unfounded Martian hallucination should trigger abstention / insufficient…, test_controlled_conflict_detection(), test_controlled_temporal_evolution() (+1 more)
 
 ### Community 20 - "Evidence-Grounded Multimodal Misinformation Verification with Uncertainty-Aware Reasoning"
 Cohesion: 0.15
@@ -185,20 +189,20 @@ Cohesion: 0.17
 Nodes (12): 3.10 Reporting Module, 3.11 Audit Module, 3.1 Input Module, 3.2 Claim Processing Module, 3.3 Retrieval Module, 3.4 Evidence Assessment Module, 3.5 Temporal Module, 3.6 Multimodal Module (+4 more)
 
 ### Community 23 - "TemporalAnalyzer"
-Cohesion: 0.19
-Nodes (10): Analyzes temporal context, publication dates, and chronological validity., Extract explicit 4-digit calendar years from text., Extract year from an ISO date string or year string., Assess temporal alignment between claim and retrieved evidence., TemporalAnalyzer, Unit tests for temporal reasoning module., test_conflicting_temporal_evidence(), test_matching_dates() (+2 more)
+Cohesion: 0.16
+Nodes (11): Analyzes temporal context, publication dates, and chronological validity., Extract explicit 4-digit calendar years from text., Extract year from an ISO date string or year string., Assess temporal alignment between claim and retrieved evidence., TemporalAnalyzer, Temporal analysis module., Unit tests for temporal reasoning module., test_conflicting_temporal_evidence() (+3 more)
 
-### Community 24 - ".__init__"
-Cohesion: 0.18
-Nodes (7): Path, Simple alphanumeric lowercasing tokenizer for BM25., Build BM25 index from corpus manager documents., Save BM25 index and doc_ids to disk., Load precomputed BM25 index from disk., Search BM25 index for the given query., tokenize()
+### Community 24 - "BM25Retriever"
+Cohesion: 0.17
+Nodes (11): BM25Retriever, Path, Simple alphanumeric lowercasing tokenizer for BM25., Lexical retriever based on Okapi BM25., Build BM25 index from corpus manager documents., Save BM25 index and doc_ids to disk., Load precomputed BM25 index from disk., Search BM25 index for the given query. (+3 more)
 
 ### Community 25 - "SRS.md"
 Cohesion: 0.20
 Nodes (9): 11. Traceability, 12. Open Design Decisions, 13. Current Research Differentiation Statement, 5. External System Requirements, 6. Security Requirements, 7. Performance Requirements, 9. Research and Evaluation Requirements, Project Title (+1 more)
 
 ### Community 26 - "CorpusManager"
-Cohesion: 0.12
-Nodes (14): build_indexes(), main(), Build and save BM25 and Dense retrieval indexes from processed corpus., CorpusManager, Any, Path, Corpus management and document loading., Manages passage loading, lookup, and metadata for the evidence corpus. (+6 more)
+Cohesion: 0.16
+Nodes (9): CorpusManager, Any, Path, Manages passage loading, lookup, and metadata for the evidence corpus., Load corpus JSONL into memory., Retrieve document by ID., Convert a document into a pipeline EvidencePassage object., corpus_manager() (+1 more)
 
 ### Community 27 - "API Design Principles"
 Cohesion: 0.25
@@ -220,6 +224,10 @@ Nodes (7): 4.1 Conflict-Aware Evidence Model, 4.2 Temporal Assessment, 4.3 Uncer
 Cohesion: 0.33
 Nodes (6): 10. Testing Requirements, Failure Testing, Integration Testing, Research Evaluation, Robustness Testing, Unit Testing
 
+### Community 32 - "build_index.py"
+Cohesion: 0.23
+Nodes (8): build_indexes(), main(), Build and save BM25 and Dense retrieval indexes from processed corpus., load_config(), Path, Configuration management module., Load configuration from a YAML file. Args: config_path: Path to the YAML…, Interactive Research UI for Evidence-Grounded Misinformation Verification. Run…
+
 ### Community 33 - "1. Introduction"
 Cohesion: 0.50
 Nodes (4): 1.1 Purpose, 1.2 Scope, 1.3 Definitions, 1. Introduction
@@ -237,12 +245,12 @@ Cohesion: 0.67
 Nodes (3): 2.1 Product Perspective, 2.2 User Classes, 2. Overall System Description
 
 ### Community 40 - "3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`)"
-Cohesion: 0.17
-Nodes (11): 1. Executive Summary, 2. Dataset Suite Overview, 3.1 Provenance and Source, 3.2 Label Schema & Canonical Mapping, 3.3 Corpus Construction Methodology & Zero Test-Peeking, 3.4 Evidence Structure and Retrieval Evaluation Protocol, 3.5 Limitations of Restricted Sample Scope, 3. Dataset Suite A: Authentic FEVER Benchmark (`data/processed/`) (+3 more)
+Cohesion: 0.15
+Nodes (12): 1. Executive Summary, 2. Dataset Suite Overview, 3.1 Provenance and Source, 3.2 Label Schema & Canonical Mapping, 3.3 Corpus Construction Methodology & Zero Test-Peeking, 3.4 Evidence Structure and Retrieval Evaluation Protocol, 3.5 Evidence Coverage Breakdown by Label (100-Document Corpus), 3.6 Limitations of Restricted Sample Scope (+4 more)
 
 ### Community 43 - "Experimental Validation Report"
 Cohesion: 0.15
-Nodes (12): 1.1 Evaluated Ablation Pipeline, 1.2 Mathematical Metric Formulations, 1. Experimental Methodology and Setup, 2. Benchmark Evaluation on Authentic FEVER Test Split ($N=60$), 3. Benchmark Evaluation on Controlled Scenarios ($N=9$), 4.1 Value of Evidence Grounding (A vs. B), 4.2 Impact of Conflict and Temporal Logic (B vs. C), 4.3 Efficacy of Uncertainty-Aware Abstention (C vs. D) (+4 more)
+Nodes (12): 1.1 Evaluated Ablation Pipeline, 1.2 Mathematical Metric Formulations, 1. Experimental Methodology and Setup, 2. Benchmark Evaluation on Authentic FEVER Test Split ($N=60$), 3. Benchmark Evaluation on Controlled Scenarios ($N=9$), 4.1 Root Cause Analysis of Retrieval Metrics (Recall@5 = 0.2250, MRR = 0.2250), 4.2 Impact of Conflict and Temporal Logic (B vs. C), 4.3 Efficacy of Uncertainty-Aware Abstention (C vs. D) (+4 more)
 
 ### Community 44 - "logging.py"
 Cohesion: 0.11
@@ -256,19 +264,39 @@ Nodes (10): 1. System & Execution Environment, 2. Models & Offline Inference Ver
 Cohesion: 0.20
 Nodes (9): 1. Executive Summary, 2.1 External LLM Reasoning Layer (Experiment E), 2.2 Syntactic Rule-Based Claim Decomposition, 2.3 Evidence Corpus Scale, 2.4 Temporal Expression Extraction, 2.5 Cross-Encoder Context Window Limit, 2.6 Domain Transfer & Threshold Sensitivity, 2. Identified Limitations and Technical Boundaries (+1 more)
 
+### Community 47 - "DenseRetriever"
+Cohesion: 0.23
+Nodes (9): Path, DenseRetriever, Dense retriever using bi-encoder sentence embeddings., HybridRetriever, Combines BM25 lexical and Dense semantic retrieval., Execute hybrid search using configured fusion strategy., Unit tests for evidence retrieval (BM25, Dense, Hybrid)., test_dense_retrieval() (+1 more)
+
+### Community 48 - "MisinformationVerifier"
+Cohesion: 0.24
+Nodes (8): cache_resource, main(), CLI entry point to verify a single claim using the verification pipeline., Script to verify and inspect representative end-to-end claims across all…, run_representative_inspections(), MisinformationVerifier, Core evidence-grounded misinformation verification system., get_verifier()
+
+### Community 49 - "RuleBasedClaimDecomposer"
+Cohesion: 0.31
+Nodes (6): Deterministic rule-based claim decomposer. Splits compound propositions on…, RuleBasedClaimDecomposer, Unit tests for claim processing and decomposition., test_compound_claim_conjunction(), test_compound_claim_semicolon(), test_simple_claim()
+
+### Community 50 - "test_end_to_end.py"
+Cohesion: 0.25
+Nodes (3): fixture, End-to-end integration tests for the full verification pipeline., verifier()
+
+### Community 51 - ".__init__"
+Cohesion: 0.40
+Nodes (3): Path, Save embeddings and document IDs to disk., Load embeddings and document IDs from disk.
+
 ## Knowledge Gaps
-- **351 isolated node(s):** `misinfo-verification`, `graphify`, `Description:`, `Use this skill when`, `Do not use this skill when` (+346 more)
+- **352 isolated node(s):** `misinfo-verification`, `graphify`, `Description:`, `Use this skill when`, `Do not use this skill when` (+347 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `EvidencePassage` connect `EvidencePassage` to `ConflictReport`, `.search`, `TransformerNLIClassifier`, `BM25Retriever`, `CrossEncoderReranker`, `.search`, `DenseRetriever`, `MisinformationVerifier`, `TemporalAnalyzer`, `.__init__`, `CorpusManager`?**
+- **Why does `EvidencePassage` connect `EvidencePassage` to `TransformerNLIClassifier`, `verifier.py`, `CrossEncoderReranker`, `DenseRetriever`, `MisinformationVerifier`, `.verify_single_proposition`, `._ensure_model`, `TemporalAnalyzer`, `BM25Retriever`, `CorpusManager`?**
   _High betweenness centrality (0.062) - this node is a cross-community bridge._
-- **Why does `MisinformationVerifier` connect `MisinformationVerifier` to `ConflictReport`, `test_metrics.py`, `TransformerNLIClassifier`, `BM25Retriever`, `RuleBasedClaimDecomposer`, `CrossEncoderReranker`, `EvidencePassage`, `DenseRetriever`, `TemporalAnalyzer`, `CorpusManager`?**
-  _High betweenness centrality (0.043) - this node is a cross-community bridge._
-- **Why does `DenseRetriever` connect `DenseRetriever` to `EvidencePassage`, `CorpusManager`, `MisinformationVerifier`, `BM25Retriever`?**
+- **Why does `MisinformationVerifier` connect `MisinformationVerifier` to `EvidencePassage`, `test_metrics.py`, `build_index.py`, `TransformerNLIClassifier`, `verifier.py`, `SubClaim`, `CrossEncoderReranker`, `DenseRetriever`, `RuleBasedClaimDecomposer`, `.verify_single_proposition`, `test_controlled_scenarios.py`, `test_end_to_end.py`, `TemporalAnalyzer`, `BM25Retriever`, `CorpusManager`?**
+  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+- **Why does `DenseRetriever` connect `DenseRetriever` to `build_index.py`, `EvidencePassage`, `verifier.py`, `MisinformationVerifier`, `._ensure_model`, `.__init__`, `CorpusManager`?**
   _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **Are the 22 inferred relationships involving `EvidencePassage` (e.g. with `AggregationResult` and `EvidenceAggregator`) actually correct?**
   _`EvidencePassage` has 22 INFERRED edges - model-reasoned connections that need verification._
