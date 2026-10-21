@@ -185,17 +185,17 @@ The system evaluates a 5-tier experimental progression to empirically isolate ea
 | **Exp E: LLM-Assisted** | `llm_assisted` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ### Benchmark Results on Authentic FEVER Held-Out Test Split ($N=60$)
-Evaluated on 60 held-out balanced claims from the official FEVER development release grounded in an authentic 89-document Wikipedia corpus:
+Evaluated on 60 held-out balanced claims from the official FEVER development release grounded in an authentic 100-document Wikipedia corpus (zero synthetic passages, independent entity construction):
 
 | Experiment | Accuracy | Macro-F1 | Recall@5 | MRR | ECE | Brier (MC) | Coverage | Selective Acc |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **A: Baseline (Claim-Only)** | 0.3333 | 0.1667 | 0.0000 | 0.0000 | 0.3333 | 1.3333 | 0.0000 | 0.0000 |
-| **B: Evidence-Aware (Hybrid + NLI)** | 0.4167 | 0.3311 | 1.0000 | 1.0000 | 0.1602 | 0.6640 | 1.0000 | 0.4167 |
-| **C: Conflict- & Temporal-Aware** | 0.4167 | 0.3311 | 1.0000 | 1.0000 | 0.1740 | 0.6585 | 1.0000 | 0.4167 |
-| **D: Full Proposed System** | **0.5667** | **0.5248** | 1.0000 | 1.0000 | 0.5907 | 0.6585 | 0.3667 | **0.6364** |
-| **E: LLM-Assisted [NOT EVALUATED]** | 0.5667 | 0.5248 | 1.0000 | 1.0000 | 0.5907 | 0.6585 | 0.3667 | 0.6364 |
+| **B: Evidence-Aware (Hybrid + NLI)** | 0.4000 | 0.3200 | 1.0000 | 1.0000 | 0.2096 | 0.7263 | 1.0000 | 0.4000 |
+| **C: Conflict- & Temporal-Aware** | 0.4000 | 0.3200 | 1.0000 | 1.0000 | 0.2001 | 0.7732 | 1.0000 | 0.4000 |
+| **D: Full Proposed System** | **0.5167** | **0.4951** | 1.0000 | 1.0000 | 0.5737 | 0.7732 | 0.3667 | **0.6364** |
+| **E: LLM-Assisted [NOT EVALUATED]** | 0.5167 | 0.4951 | 1.0000 | 1.0000 | 0.5737 | 0.7732 | 0.3667 | 0.6364 |
 
-*Key Scientific Takeaway:* Enabling multi-signal calibrated uncertainty abstention (Exp D) increases selective verification accuracy by **+21.97 percentage points** (from 41.67% to 63.64%), while overall accuracy rises from 41.67% to 56.67%.
+*Key Scientific Takeaway:* Enabling multi-signal calibrated uncertainty abstention (Exp D) increases selective verification accuracy by **+23.64 percentage points** (from 40.00% to 63.64%), while overall accuracy rises from 40.00% to 51.67%.
 
 To execute benchmarks:
 ```bash

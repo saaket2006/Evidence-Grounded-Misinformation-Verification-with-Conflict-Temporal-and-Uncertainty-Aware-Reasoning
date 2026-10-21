@@ -1,57 +1,57 @@
 [
   {
     "Experiment": "Experiment A: Baseline Direct Classifier",
-    "Accuracy": 0.3333,
-    "Macro-F1": 0.1667,
+    "Accuracy": 0.2222,
+    "Macro-F1": 0.1212,
     "Recall@5": 0.0,
     "MRR": 0.0,
-    "ECE": 0.3333,
-    "Brier (MC)": 1.3333,
+    "ECE": 0.2222,
+    "Brier (MC)": 1.5556,
     "Coverage": 0.0,
     "Selective Acc": 0.0
   },
   {
     "Experiment": "Experiment B: Evidence-Aware (Retrieval + NLI)",
-    "Accuracy": 0.6667,
-    "Macro-F1": 0.5357,
+    "Accuracy": 0.7778,
+    "Macro-F1": 0.5833,
     "Recall@5": 1.0,
-    "MRR": 0.9375,
-    "ECE": 0.0359,
-    "Brier (MC)": 0.5467,
+    "MRR": 1.0,
+    "ECE": 0.0684,
+    "Brier (MC)": 0.6458,
     "Coverage": 1.0,
-    "Selective Acc": 0.6667
+    "Selective Acc": 0.7778
   },
   {
     "Experiment": "Experiment C: Conflict- & Temporal-Aware",
     "Accuracy": 0.6667,
-    "Macro-F1": 0.5357,
+    "Macro-F1": 0.4868,
     "Recall@5": 1.0,
-    "MRR": 0.9375,
-    "ECE": 0.0736,
-    "Brier (MC)": 0.5254,
+    "MRR": 1.0,
+    "ECE": 0.0869,
+    "Brier (MC)": 0.7578,
     "Coverage": 1.0,
     "Selective Acc": 0.6667
   },
   {
     "Experiment": "Experiment D: Full Proposed System (with Uncertainty & Abstention)",
-    "Accuracy": 0.7778,
-    "Macro-F1": 0.7746,
+    "Accuracy": 0.4444,
+    "Macro-F1": 0.4508,
     "Recall@5": 1.0,
-    "MRR": 0.9375,
-    "ECE": 0.1847,
-    "Brier (MC)": 0.5254,
-    "Coverage": 0.6667,
-    "Selective Acc": 0.8333
+    "MRR": 1.0,
+    "ECE": 0.4839,
+    "Brier (MC)": 0.7578,
+    "Coverage": 0.4444,
+    "Selective Acc": 0.75
   },
   {
     "Experiment": "Experiment E: Full System + LLM Reasoning Advisor [NOT EVALUATED - No API Key]",
-    "Accuracy": 0.7778,
-    "Macro-F1": 0.7746,
+    "Accuracy": 0.4444,
+    "Macro-F1": 0.4508,
     "Recall@5": 1.0,
-    "MRR": 0.9375,
-    "ECE": 0.1847,
-    "Brier (MC)": 0.5254,
-    "Coverage": 0.6667,
-    "Selective Acc": 0.8333
+    "MRR": 1.0,
+    "ECE": 0.4839,
+    "Brier (MC)": 0.7578,
+    "Coverage": 0.4444,
+    "Selective Acc": 0.75
   }
 ]

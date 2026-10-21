@@ -14,25 +14,25 @@ def corpus_manager():
 
 def test_bm25_retrieval(corpus_manager):
     bm25 = BM25Retriever(corpus_manager)
-    results = bm25.search("Eiffel Tower Paris", top_k=3)
+    results = bm25.search("Aleister Crowley occultist magician", top_k=3)
     assert len(results) > 0
-    assert any("Eiffel" in r.text or "Tower" in r.text for r in results)
+    assert any("Crowley" in r.text for r in results)
 
 
 def test_dense_retrieval(corpus_manager):
     dense = DenseRetriever(corpus_manager, index_path="data/indexes/dense_index.pt")
-    results = dense.search("Eiffel Tower in France", top_k=3)
+    results = dense.search("Reign Over Me American drama film", top_k=3)
     assert len(results) > 0
-    assert any("Eiffel" in r.text for r in results)
+    assert any("Reign" in r.text for r in results)
 
 
 def test_hybrid_retrieval(corpus_manager):
     bm25 = BM25Retriever(corpus_manager)
     dense = DenseRetriever(corpus_manager, index_path="data/indexes/dense_index.pt")
     hybrid = HybridRetriever(bm25, dense)
-    results = hybrid.search("Alan Turing mathematician", top_k=3)
+    results = hybrid.search("Margaret Thatcher British Prime Minister", top_k=3)
     assert len(results) > 0
-    assert any("Turing" in r.text for r in results)
+    assert any("Thatcher" in r.text for r in results)
 
 
 def test_irrelevant_evidence_handling(corpus_manager):

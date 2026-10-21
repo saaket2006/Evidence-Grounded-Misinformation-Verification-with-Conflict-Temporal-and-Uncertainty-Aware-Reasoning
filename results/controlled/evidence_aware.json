@@ -5,9 +5,9 @@
   "llm_status": "N/A",
   "llm_calls_succeeded": 0,
   "verification_metrics": {
-    "accuracy": 0.6667,
-    "macro_f1": 0.5357,
-    "macro_precision": 0.45,
+    "accuracy": 0.7778,
+    "macro_f1": 0.5833,
+    "macro_precision": 0.5333,
     "macro_recall": 0.6667,
     "confusion_matrix": [
       [
@@ -17,12 +17,12 @@
       ],
       [
         0,
-        3,
+        4,
         0
       ],
       [
         2,
-        1,
+        0,
         0
       ]
     ],
@@ -39,16 +39,16 @@
         "support": 3
       },
       "CONTRADICTED": {
-        "precision": 0.75,
+        "precision": 1.0,
         "recall": 1.0,
-        "f1": 0.8571,
-        "support": 3
+        "f1": 1.0,
+        "support": 4
       },
       "INSUFFICIENT_EVIDENCE": {
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
-        "support": 3
+        "support": 2
       }
     },
     "total_evaluated": 9
@@ -56,122 +56,122 @@
   "retrieval_metrics": {
     "recall@5": 1.0,
     "precision@5": 0.25,
-    "mrr": 0.9375
+    "mrr": 1.0
   },
   "calibration_metrics": {
-    "ece": 0.0359,
-    "brier_score": 0.5467,
-    "multiclass_brier": 0.5467,
-    "normalized_brier": 0.2734
+    "ece": 0.0684,
+    "brier_score": 0.6458,
+    "multiclass_brier": 0.6458,
+    "normalized_brier": 0.3229
   },
   "abstention_metrics": {
     "coverage": 1.0,
-    "selective_accuracy": 0.6667,
-    "selective_risk": 0.3333,
-    "overall_accuracy": 0.6667,
+    "selective_accuracy": 0.7778,
+    "selective_risk": 0.2222,
+    "overall_accuracy": 0.7778,
     "covered_count": 9,
     "abstained_count": 0,
     "total_count": 9
   },
   "claims_evaluated": [
     {
-      "id": "ctrl_claim_010",
-      "claim": "Roman Atwood is an American YouTube personality.",
+      "id": "ctrl_claim_10",
+      "claim": "Roman Atwood was born in Millersport, Ohio and he produces videos.",
       "true_label": "SUPPORTED",
       "pred_label": "SUPPORTED",
       "correct": true,
-      "confidence": 0.7621,
-      "uncertainty": 0.2379,
+      "confidence": 0.7727,
+      "uncertainty": 0.2273,
       "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'Roman Atwood is an American YouTube personality.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 55.2% Support, 1.3% Contradict, 43.5% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+      "reasoning": "Claim verification analysis for: 'Roman Atwood was born in Millersport, Ohio and he produces videos.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 24.7% Support, 3.9% Contradict, 71.4% Neutral.\n- Final Grounded Verdict: SUPPORTED."
     },
     {
-      "id": "ctrl_claim_011",
-      "claim": "The Eiffel Tower is in Paris.",
+      "id": "ctrl_claim_11",
+      "claim": "The Eiffel Tower is located in Berlin, Germany.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.8007,
+      "uncertainty": 0.1993,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'The Eiffel Tower is located in Berlin, Germany.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 6.6% Support, 13.2% Contradict, 80.2% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "ctrl_claim_12",
+      "claim": "The James Webb Space Telescope was launched in December 2021 on an Ariane 5 rocket.",
       "true_label": "SUPPORTED",
       "pred_label": "SUPPORTED",
       "correct": true,
-      "confidence": 0.6801,
-      "uncertainty": 0.3199,
+      "confidence": 0.926,
+      "uncertainty": 0.074,
       "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'The Eiffel Tower is in Paris.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 51.1% Support, 16.3% Contradict, 32.6% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+      "reasoning": "Claim verification analysis for: 'The James Webb Space Telescope was launched in December 2021 on an Ariane 5 rocket.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 95.0% Support, 2.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
     },
     {
-      "id": "ctrl_claim_012",
-      "claim": "Roman Atwood was born in London, England.",
+      "id": "ctrl_claim_13",
+      "claim": "Emmanuelle Charpentier and Jennifer Doudna won the 2020 Nobel Prize in Chemistry.",
+      "true_label": "SUPPORTED",
+      "pred_label": "SUPPORTED",
+      "correct": true,
+      "confidence": 0.9891,
+      "uncertainty": 0.0109,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Emmanuelle Charpentier and Jennifer Doudna won the 2020 Nobel Prize in Chemistry.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 99.5% Support, 0.1% Contradict, 0.4% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+    },
+    {
+      "id": "ctrl_claim_14",
+      "claim": "The Martian rover Perseverance landed in Gusev Crater.",
       "true_label": "CONTRADICTED",
       "pred_label": "CONTRADICTED",
       "correct": true,
-      "confidence": 0.754,
-      "uncertainty": 0.246,
+      "confidence": 0.7442,
+      "uncertainty": 0.2558,
       "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'Roman Atwood was born in London, England.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 0.9% Support, 44.9% Contradict, 54.1% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+      "reasoning": "Claim verification analysis for: 'The Martian rover Perseverance landed in Gusev Crater.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 10.0% Support, 20.0% Contradict, 70.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
     },
     {
-      "id": "ctrl_claim_013",
-      "claim": "Alan Turing died in 1980.",
-      "true_label": "CONTRADICTED",
-      "pred_label": "CONTRADICTED",
-      "correct": true,
-      "confidence": 0.9227,
-      "uncertainty": 0.0773,
-      "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'Alan Turing died in 1980.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
-    },
-    {
-      "id": "ctrl_claim_014",
-      "claim": "Acme Corporation is currently the global market leader in autonomous delivery drones.",
+      "id": "ctrl_claim_15",
+      "claim": "NovaTech enterprise platform generated $10 million in undisputed 2024 earnings.",
       "true_label": "INSUFFICIENT_EVIDENCE",
-      "pred_label": "CONTRADICTED",
-      "correct": false,
-      "confidence": 0.7799,
-      "uncertainty": 0.2201,
-      "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'Acme Corporation is currently the global market leader in autonomous delivery drones.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 24.2% Support, 72.5% Contradict, 3.4% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
-    },
-    {
-      "id": "ctrl_claim_015",
-      "claim": "NovaTech achieved $10 million in enterprise revenue in 2024.",
-      "true_label": "INSUFFICIENT_EVIDENCE",
       "pred_label": "SUPPORTED",
       "correct": false,
-      "confidence": 0.7429,
-      "uncertainty": 0.2571,
+      "confidence": 0.7044,
+      "uncertainty": 0.2956,
       "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'NovaTech achieved $10 million in enterprise revenue in 2024.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 48.5% Support, 48.5% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+      "reasoning": "Claim verification analysis for: 'NovaTech enterprise platform generated $10 million in undisputed 2024 earnings.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 54.8% Support, 10.0% Contradict, 35.2% Neutral.\n- Final Grounded Verdict: SUPPORTED."
     },
     {
-      "id": "ctrl_claim_016",
-      "claim": "The Great Wall of China is easily visible from the Moon with the naked eye.",
+      "id": "ctrl_claim_16",
+      "claim": "Acme Corporation continues to dominate as the number one drone delivery firm in 2024.",
       "true_label": "CONTRADICTED",
       "pred_label": "CONTRADICTED",
       "correct": true,
-      "confidence": 0.7835,
-      "uncertainty": 0.2165,
+      "confidence": 0.7275,
+      "uncertainty": 0.2725,
       "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'The Great Wall of China is easily visible from the Moon with the naked eye.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 1.3% Support, 68.1% Contradict, 30.6% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+      "reasoning": "Claim verification analysis for: 'Acme Corporation continues to dominate as the number one drone delivery firm in 2024.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 6.0% Support, 57.5% Contradict, 36.5% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
     },
     {
-      "id": "ctrl_claim_017",
-      "claim": "Python was first released in 1991.",
-      "true_label": "SUPPORTED",
-      "pred_label": "SUPPORTED",
+      "id": "ctrl_claim_17",
+      "claim": "Alan Turing made no contribution to World War II cryptanalysis.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
       "correct": true,
-      "confidence": 0.7437,
-      "uncertainty": 0.2563,
+      "confidence": 0.7199,
+      "uncertainty": 0.2801,
       "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'Python was first released in 1991.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 52.0% Support, 45.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+      "reasoning": "Claim verification analysis for: 'Alan Turing made no contribution to World War II cryptanalysis.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 10.0% Support, 20.0% Contradict, 70.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
     },
     {
-      "id": "ctrl_claim_018",
-      "claim": "The mysterious civilization of Atlantis built a crystal pyramid on Europa in 1492.",
+      "id": "ctrl_claim_18",
+      "claim": "A secret ancient underwater civilization generated electricity on Mars in 1000 BC.",
       "true_label": "INSUFFICIENT_EVIDENCE",
       "pred_label": "SUPPORTED",
       "correct": false,
       "confidence": 0.0,
       "uncertainty": 1.0,
       "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'The mysterious civilization of Atlantis built a crystal pyramid on Europa in 1492.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+      "reasoning": "Claim verification analysis for: 'A secret ancient underwater civilization generated electricity on Mars in 1000 BC.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
     }
   ]
 }

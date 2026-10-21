@@ -12,45 +12,45 @@
   },
   {
     "Experiment": "Experiment B: Evidence-Aware (Retrieval + NLI)",
-    "Accuracy": 0.4167,
-    "Macro-F1": 0.3311,
+    "Accuracy": 0.4,
+    "Macro-F1": 0.32,
     "Recall@5": 1.0,
     "MRR": 1.0,
-    "ECE": 0.1602,
-    "Brier (MC)": 0.664,
+    "ECE": 0.2096,
+    "Brier (MC)": 0.7263,
     "Coverage": 1.0,
-    "Selective Acc": 0.4167
+    "Selective Acc": 0.4
   },
   {
     "Experiment": "Experiment C: Conflict- & Temporal-Aware",
-    "Accuracy": 0.4167,
-    "Macro-F1": 0.3311,
+    "Accuracy": 0.4,
+    "Macro-F1": 0.32,
     "Recall@5": 1.0,
     "MRR": 1.0,
-    "ECE": 0.174,
-    "Brier (MC)": 0.6585,
+    "ECE": 0.2001,
+    "Brier (MC)": 0.7732,
     "Coverage": 1.0,
-    "Selective Acc": 0.4167
+    "Selective Acc": 0.4
   },
   {
     "Experiment": "Experiment D: Full Proposed System (with Uncertainty & Abstention)",
-    "Accuracy": 0.5667,
-    "Macro-F1": 0.5248,
+    "Accuracy": 0.5167,
+    "Macro-F1": 0.4951,
     "Recall@5": 1.0,
     "MRR": 1.0,
-    "ECE": 0.5907,
-    "Brier (MC)": 0.6585,
+    "ECE": 0.5737,
+    "Brier (MC)": 0.7732,
     "Coverage": 0.3667,
     "Selective Acc": 0.6364
   },
   {
     "Experiment": "Experiment E: Full System + LLM Reasoning Advisor [NOT EVALUATED - No API Key]",
-    "Accuracy": 0.5667,
-    "Macro-F1": 0.5248,
+    "Accuracy": 0.5167,
+    "Macro-F1": 0.4951,
     "Recall@5": 1.0,
     "MRR": 1.0,
-    "ECE": 0.5907,
-    "Brier (MC)": 0.6585,
+    "ECE": 0.5737,
+    "Brier (MC)": 0.7732,
     "Coverage": 0.3667,
     "Selective Acc": 0.6364
   }

@@ -143,7 +143,12 @@ def run_experiment(
     for item in dataset:
         claim_text = item["claim"]
         true_label = item["label"]
-        gold_ev = item.get("evidence_ids", [])
+        # Preserve FEVER's alternative acceptable evidence sets and multi-hop structure
+        gold_ev = item.get("evidence_sets")
+        if gold_ev is None:
+            # Fallback for datasets with simple flattened evidence_ids
+            raw_ids = item.get("evidence_ids", [])
+            gold_ev = [raw_ids] if raw_ids else []
 
         res = verifier.verify(claim_text)
         pred_label = res.verdict.value

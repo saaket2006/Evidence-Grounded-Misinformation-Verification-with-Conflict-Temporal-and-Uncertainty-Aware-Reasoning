@@ -121,12 +121,12 @@ class TransformerNLIClassifier(BaseNLIClassifier):
                 shared_words = [w for w in hypo_words if w in premise_words]
 
                 # Check for explicit refutation / contradiction markers
-                contradiction_markers = {
-                    "not", "never", "dispute", "refute", "fell short", "denied",
-                    "died", "overtook", "myth", "cannot be seen", "different",
-                    "false", "short of"
-                }
-                has_negation = any(m in premise_text or m in hypo_text for m in contradiction_markers) and len(shared_words) >= 2
+                hypo_negations = {"not", "never", "no", "false", "dispute", "refute", "denied"}
+                premise_refutations = {"dispute", "disputing", "refute", "refuting", "fell short", "denied", "false", "cannot be seen"}
+
+                has_hypo_negation = any(re.search(r"\b" + re.escape(m) + r"\b", hypo_text) for m in hypo_negations) and len(shared_words) >= 2
+                has_premise_negation = any(re.search(r"\b" + re.escape(m) + r"\b", premise_text) for m in premise_refutations) and len(shared_words) >= 2
+                has_negation = has_hypo_negation or has_premise_negation
 
                 # Check for entity / numerical conflicts
                 premise_years = set(re.findall(r"\b(18\d\d|19\d\d|20\d\d)\b", premise_text))
@@ -143,6 +143,8 @@ class TransformerNLIClassifier(BaseNLIClassifier):
                     or has_negation
                 )
 
+                claim_words_to_match = [w for w in hypo_words if w not in hypo_negations]
+
                 # If there is no entity/content overlap at all, the passage is completely unrelated (NEUTRAL)
                 if not shared_words:
                     prob_map = {
@@ -151,7 +153,7 @@ class TransformerNLIClassifier(BaseNLIClassifier):
                         NLILabel.NEUTRAL.value: 0.90,
                     }
                 # Case 1: Factual Entailment (all key claim words contained affirmatively in premise)
-                elif len(hypo_words) > 0 and all(w in premise_words for w in hypo_words) and not has_known_conflict:
+                elif len(claim_words_to_match) > 0 and all(w in premise_words for w in claim_words_to_match) and not has_known_conflict:
                     prob_map = {
                         NLILabel.SUPPORT.value: 0.95,
                         NLILabel.CONTRADICT.value: 0.02,

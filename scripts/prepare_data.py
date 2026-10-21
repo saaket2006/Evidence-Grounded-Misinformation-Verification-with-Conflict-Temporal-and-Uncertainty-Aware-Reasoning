@@ -1,28 +1,29 @@
 """Preprocess datasets and construct reproducible benchmark and controlled suites.
 
-Outputs:
-1. data/controlled/ (Controlled Functional Scenario Suite for conflict/temporal edge cases)
-   - corpus.jsonl: 20 curated reference passages
-   - train.jsonl (4 claims), dev.jsonl (5 claims), test.jsonl (9 claims)
-
-2. data/processed/ (Authentic FEVER Evaluation Benchmark)
-   - corpus.jsonl: Authentic Wikipedia evidence passages for FEVER claims
-   - dev.jsonl: 30 validation claims (10 SUPPORTED, 10 CONTRADICTED, 10 INSUFFICIENT_EVIDENCE)
-   - test.jsonl: 60 held-out evaluation claims (20 SUPPORTED, 20 CONTRADICTED, 20 INSUFFICIENT_EVIDENCE)
-   - dataset_info.json: Detailed provenance, record counts, and split metadata
+Acceptance Criteria:
+1. Controlled synthetic passages are kept completely separate in data/controlled/.
+2. The authentic FEVER evidence corpus is constructed from a reference pool independently of the held-out test annotations.
+3. Claims are sampled reproducibly, and sample counts, provenance, and bounds are explicitly documented.
+4. FEVER's evidence groups and alternative acceptable evidence sets are strictly preserved throughout preprocessing and evaluation.
 """
 
 import argparse
-from collections import defaultdict
+from collections import Counter, defaultdict
 import json
 import logging
 import os
 from pathlib import Path
 import random
 import re
+import sys
 from typing import Any, Dict, List, Set, Tuple
 import urllib.parse
 import urllib.request
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 logger = logging.getLogger(__name__)
@@ -39,6 +40,7 @@ LABEL_MAPPING = {
 
 # -------------------------------------------------------------------------
 # Controlled Functional Benchmark (Targeted Conflict & Temporal Scenarios)
+# Stored strictly in data/controlled/ -- NEVER merged into FEVER corpus
 # -------------------------------------------------------------------------
 CONTROLLED_CORPUS = [
     {
@@ -98,125 +100,264 @@ CONTROLLED_CORPUS = [
         "source": "Global Logistics Review"
     },
     {
-        "id": "wiki_novatech_launch",
+        "id": "wiki_novatech_revenue_press",
         "title": "NovaTech Annual Financials",
         "text": "NovaTech launched its flagship enterprise platform in 2024 and achieved $10 million in revenue during that fiscal year.",
         "published_date": "2025-01-15",
-        "source": "NovaTech Financials"
+        "source": "NovaTech Press Release"
     },
     {
-        "id": "wiki_novatech_dispute",
+        "id": "wiki_novatech_revenue_audit",
         "title": "Independent Audit on NovaTech",
-        "text": "Auditors revealed that NovaTech enterprise platform revenue fell short of $4 million in 2024, disputing press announcements of $10 million.",
+        "text": "Auditors revealed that NovaTech enterprise platform revenue fell short of $4 million in 2024, disputing press announcements.",
         "published_date": "2025-02-10",
-        "source": "Independent Audit"
+        "source": "Independent Financial Audit"
     },
     {
-        "id": "wiki_vaccine_study_a",
-        "title": "Clinical Journal Trial Report",
-        "text": "Phase 3 clinical trial indicates that Vaccine-X demonstrates a 92% efficacy rate in preventing severe infection with no severe adverse effects.",
-        "published_date": "2021-04-10",
-        "source": "Medical Journal"
+        "id": "wiki_deepsea_project_1",
+        "title": "Oceanic Exploration Review",
+        "text": "Project DeepSea discovered a hydrothermal vent ecosystem in the Mariana Trench in 2022.",
+        "published_date": "2022-11-05",
+        "source": "Oceanic Review"
     },
     {
-        "id": "wiki_vaccine_study_b",
-        "title": "Post-Market Safety Committee",
-        "text": "Observational post-market cohort analysis found Vaccine-X efficacy dropped to 45% against mutated variant strains.",
-        "published_date": "2022-09-18",
-        "source": "Safety Committee"
+        "id": "wiki_deepsea_project_2",
+        "title": "Marine Science Letter",
+        "text": "The hydrothermal vent ecosystem discovered by Project DeepSea in 2022 was found to harbor unique chemotrophic organisms.",
+        "published_date": "2023-04-18",
+        "source": "Marine Science"
+    },
+    {
+        "id": "wiki_mars_perseverance",
+        "title": "Perseverance Rover",
+        "text": "The Perseverance rover touched down on Mars in Jezero Crater on February 18, 2021.",
+        "published_date": "2021-02-20",
+        "source": "NASA Mission Update"
     },
     {
         "id": "wiki_alan_turing_1",
         "title": "Alan Turing",
-        "text": "Alan Turing was an English mathematician, computer scientist, logician, cryptanalyst, philosopher, and theoretical biologist.",
-        "published_date": "2018-05-10",
+        "text": "Alan Mathison Turing was an English mathematician, computer scientist, logician, cryptanalyst, philosopher, and theoretical biologist.",
+        "published_date": "2019-06-23",
         "source": "Biographical Archive"
     },
     {
         "id": "wiki_alan_turing_2",
-        "title": "Alan Turing",
-        "text": "Turing died in Wilmslow, Cheshire, on June 7, 1954 from cyanide poisoning.",
-        "published_date": "2018-05-10",
-        "source": "Biographical Archive"
+        "title": "Alan Turing Cryptanalysis",
+        "text": "Turing played a pivotal role in cracking intercepted coded messages during World War II at Bletchley Park.",
+        "published_date": "2020-01-15",
+        "source": "History of Computing"
+    },
+    {
+        "id": "wiki_james_webb_1",
+        "title": "James Webb Space Telescope",
+        "text": "The James Webb Space Telescope was launched on December 25, 2021 on an Ariane 5 rocket from Kourou, French Guiana.",
+        "published_date": "2022-01-01",
+        "source": "ESA/NASA"
+    },
+    {
+        "id": "wiki_crispr_gene_1",
+        "title": "CRISPR Gene Editing",
+        "text": "Emmanuelle Charpentier and Jennifer Doudna were awarded the 2020 Nobel Prize in Chemistry for the development of a method for genome editing.",
+        "published_date": "2020-10-08",
+        "source": "Nobel Prize Committee"
+    },
+    {
+        "id": "wiki_python_lang_1",
+        "title": "Python Programming Language",
+        "text": "Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability.",
+        "published_date": "2021-05-10",
+        "source": "Python Software Foundation"
+    },
+    {
+        "id": "wiki_python_lang_2",
+        "title": "Python Programming Language",
+        "text": "Python 3.0 was released in 2008 and was a major revision that was not completely backward-compatible with earlier versions.",
+        "published_date": "2020-01-15",
+        "source": "Python History"
     },
     {
         "id": "wiki_great_wall_1",
         "title": "Great Wall of China",
-        "text": "The Great Wall of China is a series of fortifications built across the historical northern borders of ancient Chinese states.",
-        "published_date": "2019-02-01",
-        "source": "History Survey"
-    },
-    {
-        "id": "wiki_great_wall_2",
-        "title": "Great Wall of China",
-        "text": "It is a popular myth that the Great Wall of China is visible from space or the Moon with the naked eye; astronauts have confirmed it is not visible without magnification.",
-        "published_date": "2019-02-01",
-        "source": "History Survey"
-    },
-    {
-        "id": "wiki_mars_perseverance_1",
-        "title": "Perseverance Rover",
-        "text": "NASA's Perseverance rover successfully landed in Jezero crater on Mars on February 18, 2021.",
-        "published_date": "2021-02-19",
-        "source": "NASA Press"
-    },
-    {
-        "id": "wiki_mars_perseverance_2",
-        "title": "Perseverance Rover",
-        "text": "The rover's primary scientific objective is to seek signs of ancient life and collect samples of rock and regolith.",
-        "published_date": "2021-03-01",
-        "source": "NASA Press"
-    },
-    {
-        "id": "wiki_python_lang_1",
-        "title": "Python (Programming Language)",
-        "text": "Python was created by Guido van Rossum and was first released in 1991. It emphasizes code readability.",
-        "published_date": "2020-01-15",
-        "source": "Software History"
-    },
-    {
-        "id": "wiki_python_lang_2",
-        "title": "Python (Programming Language)",
-        "text": "Python 3.0 was released in 2008 and was a major revision that was not completely backward-compatible with earlier versions.",
-        "published_date": "2020-01-15",
-        "source": "Software History"
+        "text": "The Great Wall of China is a series of fortifications that were built across the historical northern borders of ancient Chinese states.",
+        "published_date": "2018-09-01",
+        "source": "UNESCO World Heritage"
     }
 ]
 
 CONTROLLED_CLAIMS = [
-    # Train claims (4)
-    {"id": "ctrl_claim_001", "claim": "Alan Turing was an English mathematician.", "label": "SUPPORTED", "evidence_ids": ["wiki_alan_turing_1"], "category": "simple", "split": "train"},
-    {"id": "ctrl_claim_002", "claim": "Alan Turing was born in Australia.", "label": "CONTRADICTED", "evidence_ids": ["wiki_alan_turing_1"], "category": "simple", "split": "train"},
-    {"id": "ctrl_claim_003", "claim": "Python 3.0 was released in 1980.", "label": "CONTRADICTED", "evidence_ids": ["wiki_python_lang_2"], "category": "temporal", "split": "train"},
-    {"id": "ctrl_claim_004", "claim": "Roman Atwood is an astronaut who walked on Mars.", "label": "CONTRADICTED", "evidence_ids": ["wiki_roman_atwood_1"], "category": "simple", "split": "train"},
-
-    # Dev claims (5)
-    {"id": "ctrl_claim_005", "claim": "NASA's Perseverance rover landed in Jezero crater on Mars.", "label": "SUPPORTED", "evidence_ids": ["wiki_mars_perseverance_1"], "category": "simple", "split": "dev"},
-    {"id": "ctrl_claim_006", "claim": "The Eiffel Tower was designed by Leonardo da Vinci.", "label": "CONTRADICTED", "evidence_ids": ["wiki_eiffel_tower_2"], "category": "simple", "split": "dev"},
-    {"id": "ctrl_claim_007", "claim": "Python was created by James Gosling.", "label": "CONTRADICTED", "evidence_ids": ["wiki_python_lang_1"], "category": "simple", "split": "dev"},
-    {"id": "ctrl_claim_008", "claim": "A secret submarine base was discovered under Lake Titicaca in 2025.", "label": "INSUFFICIENT_EVIDENCE", "evidence_ids": [], "category": "insufficient", "split": "dev"},
-    {"id": "ctrl_claim_009", "claim": "The Eiffel Tower was built in the 15th century.", "label": "CONTRADICTED", "evidence_ids": ["wiki_eiffel_tower_2"], "category": "temporal", "split": "dev"},
-
-    # Test claims (9)
-    {"id": "ctrl_claim_010", "claim": "Roman Atwood is an American YouTube personality.", "label": "SUPPORTED", "evidence_ids": ["wiki_roman_atwood_1"], "category": "simple", "split": "test"},
-    {"id": "ctrl_claim_011", "claim": "The Eiffel Tower is in Paris.", "label": "SUPPORTED", "evidence_ids": ["wiki_eiffel_tower_1"], "category": "simple", "split": "test"},
-    {"id": "ctrl_claim_012", "claim": "Roman Atwood was born in London, England.", "label": "CONTRADICTED", "evidence_ids": ["wiki_roman_atwood_2"], "category": "simple", "split": "test"},
-    {"id": "ctrl_claim_013", "claim": "Alan Turing died in 1980.", "label": "CONTRADICTED", "evidence_ids": ["wiki_alan_turing_2"], "category": "temporal", "split": "test"},
-    {"id": "ctrl_claim_014", "claim": "Acme Corporation is currently the global market leader in autonomous delivery drones.", "label": "INSUFFICIENT_EVIDENCE", "evidence_ids": ["wiki_acme_corp_2019", "wiki_acme_corp_2024"], "category": "temporal_shift", "split": "test"},
-    {"id": "ctrl_claim_015", "claim": "NovaTech achieved $10 million in enterprise revenue in 2024.", "label": "INSUFFICIENT_EVIDENCE", "evidence_ids": ["wiki_novatech_launch", "wiki_novatech_dispute"], "category": "conflict", "split": "test"},
-    {"id": "ctrl_claim_016", "claim": "The Great Wall of China is easily visible from the Moon with the naked eye.", "label": "CONTRADICTED", "evidence_ids": ["wiki_great_wall_2"], "category": "simple", "split": "test"},
-    {"id": "ctrl_claim_017", "claim": "Python was first released in 1991.", "label": "SUPPORTED", "evidence_ids": ["wiki_python_lang_1"], "category": "simple", "split": "test"},
-    {"id": "ctrl_claim_018", "claim": "The mysterious civilization of Atlantis built a crystal pyramid on Europa in 1492.", "label": "INSUFFICIENT_EVIDENCE", "evidence_ids": [], "category": "insufficient", "split": "test"},
+    {
+        "id": "ctrl_claim_01",
+        "claim": "Roman Atwood is an American YouTube personality.",
+        "label": "SUPPORTED",
+        "evidence_sets": [["wiki_roman_atwood_1"]],
+        "evidence_ids": ["wiki_roman_atwood_1"],
+        "category": "factual_simple",
+        "split": "train"
+    },
+    {
+        "id": "ctrl_claim_02",
+        "claim": "Roman Atwood was born in France.",
+        "label": "CONTRADICTED",
+        "evidence_sets": [["wiki_roman_atwood_2"]],
+        "evidence_ids": ["wiki_roman_atwood_2"],
+        "category": "factual_simple",
+        "split": "train"
+    },
+    {
+        "id": "ctrl_claim_03",
+        "claim": "The Eiffel Tower was constructed as the entrance to the 1889 World's Fair.",
+        "label": "SUPPORTED",
+        "evidence_sets": [["wiki_eiffel_tower_2"]],
+        "evidence_ids": ["wiki_eiffel_tower_2"],
+        "category": "historical",
+        "split": "train"
+    },
+    {
+        "id": "ctrl_claim_04",
+        "claim": "Eiffel Tower was designed by Leonardo da Vinci.",
+        "label": "CONTRADICTED",
+        "evidence_sets": [["wiki_eiffel_tower_2"]],
+        "evidence_ids": ["wiki_eiffel_tower_2"],
+        "category": "historical",
+        "split": "train"
+    },
+    {
+        "id": "ctrl_claim_05",
+        "claim": "2023 was the hottest year on global record according to official meteorological agencies.",
+        "label": "SUPPORTED",
+        "evidence_sets": [["wiki_earth_climate_1"], ["wiki_earth_climate_2"]],
+        "evidence_ids": ["wiki_earth_climate_1", "wiki_earth_climate_2"],
+        "category": "climate_data",
+        "split": "dev"
+    },
+    {
+        "id": "ctrl_claim_06",
+        "claim": "Global surface temperature records indicate 2023 was the coldest year in the past century.",
+        "label": "CONTRADICTED",
+        "evidence_sets": [["wiki_earth_climate_1"], ["wiki_earth_climate_2"]],
+        "evidence_ids": ["wiki_earth_climate_1", "wiki_earth_climate_2"],
+        "category": "climate_data",
+        "split": "dev"
+    },
+    {
+        "id": "ctrl_claim_07",
+        "claim": "NovaTech achieved $10 million in enterprise revenue in 2024.",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "evidence_sets": [["wiki_novatech_revenue_press", "wiki_novatech_revenue_audit"]],
+        "evidence_ids": ["wiki_novatech_revenue_press", "wiki_novatech_revenue_audit"],
+        "category": "conflicting_sources",
+        "split": "dev"
+    },
+    {
+        "id": "ctrl_claim_08",
+        "claim": "Acme Corporation is currently the global market leader in autonomous delivery drones.",
+        "label": "CONTRADICTED",
+        "evidence_sets": [["wiki_acme_corp_2024"]],
+        "evidence_ids": ["wiki_acme_corp_2024"],
+        "category": "temporal_evolution",
+        "split": "dev"
+    },
+    {
+        "id": "ctrl_claim_09",
+        "claim": "Project DeepSea discovered a hydrothermal vent ecosystem in the Mariana Trench in 2022.",
+        "label": "SUPPORTED",
+        "evidence_sets": [["wiki_deepsea_project_1"]],
+        "evidence_ids": ["wiki_deepsea_project_1"],
+        "category": "scientific_discovery",
+        "split": "dev"
+    },
+    {
+        "id": "ctrl_claim_10",
+        "claim": "Roman Atwood was born in Millersport, Ohio and he produces videos.",
+        "label": "SUPPORTED",
+        "evidence_sets": [["wiki_roman_atwood_1", "wiki_roman_atwood_2"]],
+        "evidence_ids": ["wiki_roman_atwood_1", "wiki_roman_atwood_2"],
+        "category": "compound_conjunction",
+        "split": "test"
+    },
+    {
+        "id": "ctrl_claim_11",
+        "claim": "The Eiffel Tower is located in Berlin, Germany.",
+        "label": "CONTRADICTED",
+        "evidence_sets": [["wiki_eiffel_tower_1"]],
+        "evidence_ids": ["wiki_eiffel_tower_1"],
+        "category": "factual_simple",
+        "split": "test"
+    },
+    {
+        "id": "ctrl_claim_12",
+        "claim": "The James Webb Space Telescope was launched in December 2021 on an Ariane 5 rocket.",
+        "label": "SUPPORTED",
+        "evidence_sets": [["wiki_james_webb_1"]],
+        "evidence_ids": ["wiki_james_webb_1"],
+        "category": "space_mission",
+        "split": "test"
+    },
+    {
+        "id": "ctrl_claim_13",
+        "claim": "Emmanuelle Charpentier and Jennifer Doudna won the 2020 Nobel Prize in Chemistry.",
+        "label": "SUPPORTED",
+        "evidence_sets": [["wiki_crispr_gene_1"]],
+        "evidence_ids": ["wiki_crispr_gene_1"],
+        "category": "nobel_prize",
+        "split": "test"
+    },
+    {
+        "id": "ctrl_claim_14",
+        "claim": "The Martian rover Perseverance landed in Gusev Crater.",
+        "label": "CONTRADICTED",
+        "evidence_sets": [["wiki_mars_perseverance"]],
+        "evidence_ids": ["wiki_mars_perseverance"],
+        "category": "space_mission",
+        "split": "test"
+    },
+    {
+        "id": "ctrl_claim_15",
+        "claim": "NovaTech enterprise platform generated $10 million in undisputed 2024 earnings.",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "evidence_sets": [["wiki_novatech_revenue_press", "wiki_novatech_revenue_audit"]],
+        "evidence_ids": ["wiki_novatech_revenue_press", "wiki_novatech_revenue_audit"],
+        "category": "conflicting_sources",
+        "split": "test"
+    },
+    {
+        "id": "ctrl_claim_16",
+        "claim": "Acme Corporation continues to dominate as the number one drone delivery firm in 2024.",
+        "label": "CONTRADICTED",
+        "evidence_sets": [["wiki_acme_corp_2024"]],
+        "evidence_ids": ["wiki_acme_corp_2024"],
+        "category": "temporal_evolution",
+        "split": "test"
+    },
+    {
+        "id": "ctrl_claim_17",
+        "claim": "Alan Turing made no contribution to World War II cryptanalysis.",
+        "label": "CONTRADICTED",
+        "evidence_sets": [["wiki_alan_turing_2"]],
+        "evidence_ids": ["wiki_alan_turing_2"],
+        "category": "historical",
+        "split": "test"
+    },
+    {
+        "id": "ctrl_claim_18",
+        "claim": "A secret ancient underwater civilization generated electricity on Mars in 1000 BC.",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "evidence_sets": [],
+        "evidence_ids": [],
+        "category": "ungrounded_hallucination",
+        "split": "test"
+    }
 ]
 
 
-def decode_fever_title(raw_title: str) -> str:
-    """Decode FEVER title encoding (-LRB-, -RRB-, underscores)."""
+def decode_fever_title(title: str) -> str:
+    """Decode FEVER specific escaped characters in Wikipedia titles."""
     return (
-        raw_title.replace("-LRB-", "(")
+        title.replace("-LRB-", "(")
         .replace("-RRB-", ")")
-        .replace("-LSB-", "[")
-        .replace("-RSB-", "]")
+        .replace("-COLON-", ":")
+        .replace("-SLASH-", "/")
         .replace("_", " ")
         .strip()
     )
@@ -228,49 +369,70 @@ def slugify_title(title: str) -> str:
     return re.sub(r"[\s-]+", "_", clean).strip("_")
 
 
-def fetch_wikipedia_articles(titles: List[str]) -> Dict[str, str]:
-    """Fetch introductory text for Wikipedia articles in batches."""
-    articles = {}
+def fetch_wikipedia_articles(titles: List[str], cache_path: Path = Path("data/raw/wiki_extracts_cache.json")) -> Dict[str, str]:
+    """Fetch introductory text for Wikipedia articles in batches, using local cache when available."""
+    articles: Dict[str, str] = {}
     unique_titles = sorted(list(set(titles)))
-    logger.info(f"Fetching {len(unique_titles)} authentic Wikipedia articles via Wikimedia API...")
 
-    for i in range(0, len(unique_titles), 20):
-        batch = unique_titles[i : i + 20]
-        titles_param = "|".join(urllib.parse.quote(t) for t in batch)
-        url = (
-            f"https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=1"
-            f"&explaintext=1&redirects=1&titles={titles_param}&format=json"
-        )
-        req = urllib.request.Request(
-            url,
-            headers={"User-Agent": "MisinfoResearchEvaluationBot/1.0 (contact: verification@research.edu)"},
-        )
+    # 1. Load from local cache if exists
+    if cache_path.exists():
         try:
-            with urllib.request.urlopen(req, timeout=12) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                pages = data.get("query", {}).get("pages", {})
-
-                # Track redirects
-                redirect_map = {}
-                for redir in data.get("query", {}).get("redirects", []):
-                    redirect_map[redir.get("to")] = redir.get("from")
-
-                for pid, page in pages.items():
-                    if "extract" in page and page["extract"]:
-                        title = page.get("title", "")
-                        extract = page.get("extract", "").strip()
-                        articles[title] = extract
-                        if title in redirect_map:
-                            articles[redirect_map[title]] = extract
+            with open(cache_path, "r", encoding="utf-8") as f:
+                articles = json.load(f)
+            logger.info(f"Loaded {len(articles)} Wikipedia article extracts from local cache ({cache_path})")
         except Exception as e:
-            logger.warning(f"Error fetching Wikipedia batch: {e}")
+            logger.warning(f"Could not load cache: {e}")
 
-    logger.info(f"Retrieved {len(articles)} Wikipedia article extracts.")
+    # Check which titles still need fetching
+    needed = [t for t in unique_titles if t not in articles and t.lower() not in [k.lower() for k in articles]]
+
+    if needed:
+        logger.info(f"Fetching {len(needed)} missing Wikipedia articles via Wikimedia API...")
+        for i in range(0, len(needed), 20):
+            batch = needed[i : i + 20]
+            titles_param = "|".join(urllib.parse.quote(t) for t in batch)
+            url = (
+                f"https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=1"
+                f"&explaintext=1&redirects=1&titles={titles_param}&format=json"
+            )
+            req = urllib.request.Request(
+                url,
+                headers={"User-Agent": "MisinfoResearchEvaluationBot/1.0 (contact: verification@research.edu)"},
+            )
+            try:
+                with urllib.request.urlopen(req, timeout=15) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                    pages = data.get("query", {}).get("pages", {})
+
+                    # Track redirects
+                    redirect_map = {}
+                    for redir in data.get("query", {}).get("redirects", []):
+                        redirect_map[redir.get("to")] = redir.get("from")
+
+                    for pid, page in pages.items():
+                        if "extract" in page and page["extract"]:
+                            title = page.get("title", "")
+                            extract = page.get("extract", "").strip()
+                            articles[title] = extract
+                            if title in redirect_map:
+                                articles[redirect_map[title]] = extract
+            except Exception as e:
+                logger.warning(f"Error fetching Wikipedia batch: {e}")
+
+        # Update cache
+        try:
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(cache_path, "w", encoding="utf-8") as f:
+                json.dump(articles, f, ensure_ascii=False, indent=2)
+            logger.info(f"Updated Wikipedia article cache ({len(articles)} entries) at {cache_path}")
+        except Exception as e:
+            logger.warning(f"Could not update cache: {e}")
+
     return articles
 
 
 def prepare_controlled_suite(output_dir: Path) -> None:
-    """Save the controlled scenario suite to data/controlled/."""
+    """Save the controlled scenario suite strictly to data/controlled/."""
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # 1. Corpus
@@ -296,172 +458,242 @@ def prepare_controlled_suite(output_dir: Path) -> None:
 def prepare_fever_benchmark(
     raw_file: Path,
     output_dir: Path,
-    num_claims: int = 90,
+    num_dev: int = 30,
+    num_test: int = 60,
     seed: int = 42,
 ) -> None:
-    """Build authentic FEVER benchmark from official paper_dev split."""
+    """Construct an authentic FEVER benchmark independently of held-out test annotations.
+
+    1. Partition claims into dev_pool (reference split) and test_pool (held-out evaluation).
+    2. Build fixed evidence corpus independently from dev_pool ONLY (zero test annotation peeking).
+    3. Ensure zero synthetic passages are included in the FEVER corpus.
+    4. Preserve FEVER's alternative acceptable evidence sets and multi-hop groups.
+    """
     if not raw_file.exists():
         raise FileNotFoundError(
             f"Raw FEVER dataset not found at '{raw_file}'. "
             f"Run 'python scripts/download_data.py --splits dev' first."
         )
 
-    random.seed(seed)
     output_dir.mkdir(parents=True, exist_ok=True)
-    logger.info(f"Constructing authentic FEVER benchmark ({num_claims} claims) from {raw_file}...")
-
-    # Load authentic FEVER claims grouped by label
-    per_class_target = num_claims // 3
-    claims_by_label: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    logger.info(f"Loading raw FEVER dataset from {raw_file}...")
 
     with open(raw_file, "r", encoding="utf-8") as f:
-        for line in f:
-            if not line.strip():
-                continue
-            item = json.loads(line)
-            raw_label = item.get("label", "")
-            mapped_label = LABEL_MAPPING.get(raw_label)
-            if not mapped_label:
-                continue
+        all_claims = [json.loads(line) for line in f if line.strip()]
 
-            # Require evidence for SUPPORTED and CONTRADICTED claims
-            if mapped_label in ("SUPPORTED", "CONTRADICTED"):
-                has_valid_evidence = False
-                for ev_set in item.get("evidence", []):
-                    for ev in ev_set:
-                        if len(ev) >= 3 and ev[2] is not None:
-                            has_valid_evidence = True
-                            break
-                if not has_valid_evidence:
-                    continue
+    total_raw = len(all_claims)
+    logger.info(f"Loaded {total_raw} raw claims.")
 
-            if len(claims_by_label[mapped_label]) < per_class_target:
-                claims_by_label[mapped_label].append(item)
+    # Step 1: Deterministic Partition into Dev Reference Pool and Held-Out Test Pool
+    random.seed(seed)
+    shuffled_claims = list(all_claims)
+    random.shuffle(shuffled_claims)
 
-            if all(len(claims_by_label[k]) >= per_class_target for k in ("SUPPORTED", "CONTRADICTED", "INSUFFICIENT_EVIDENCE")):
-                break
+    split_boundary = total_raw // 2
+    dev_pool = shuffled_claims[:split_boundary]
+    test_pool = shuffled_claims[split_boundary:]
+    logger.info(f"Partitioned into dev_pool ({len(dev_pool)} claims) and test_pool ({len(test_pool)} claims).")
 
-    # Collect Wikipedia titles needed for evidence
-    needed_titles_map: Dict[str, str] = {}  # decoded_title -> raw_fever_title
-    for mapped_label in ("SUPPORTED", "CONTRADICTED"):
-        for c in claims_by_label[mapped_label]:
-            for ev_set in c.get("evidence", []):
-                for ev in ev_set:
-                    if len(ev) >= 3 and ev[2]:
-                        raw_t = ev[2]
-                        dec_t = decode_fever_title(raw_t)
-                        needed_titles_map[dec_t] = raw_t
+    # Step 2: Construct Fixed Evidence Corpus INDEPENDENTLY from dev_pool ONLY
+    # Rank evidence titles by frequency in dev_pool
+    dev_title_freq = Counter()
+    for c in dev_pool:
+        if c.get("label") in ("SUPPORTS", "REFUTES"):
+            for s in c.get("evidence", []):
+                for e in s:
+                    if len(e) >= 3 and e[2]:
+                        dev_title_freq[e[2]] += 1
 
-    # Fetch authentic Wikipedia evidence passages
-    wiki_articles = fetch_wikipedia_articles(list(needed_titles_map.keys()))
+    # Select top 105 distinct Wikipedia titles to guarantee >= 100 extracts
+    selected_raw_titles = [t for t, _ in dev_title_freq.most_common(110)]
+    decoded_to_raw = {decode_fever_title(t): t for t in selected_raw_titles}
 
-    # Build corpus documents
-    corpus_entries = []
+    # Fetch Wikipedia articles
+    wiki_articles = fetch_wikipedia_articles(list(decoded_to_raw.keys()))
+
+    # Build corpus entries (strictly authentic Wikipedia documents, 0 synthetic)
+    corpus_entries: List[Dict[str, Any]] = []
     title_to_doc_id: Dict[str, str] = {}
 
     for dec_title, text in wiki_articles.items():
         doc_id = f"wiki_{slugify_title(dec_title)}"
+        title_to_doc_id[dec_title] = doc_id
         title_to_doc_id[dec_title.lower()] = doc_id
-        # Also map raw fever title
-        raw_t = needed_titles_map.get(dec_title, "")
+
+        # Also map raw FEVER title representations
+        raw_t = decoded_to_raw.get(dec_title, "")
         if raw_t:
-            title_to_doc_id[raw_t.lower()] = doc_id
             title_to_doc_id[raw_t] = doc_id
+            title_to_doc_id[raw_t.lower()] = doc_id
 
         corpus_entries.append({
             "id": doc_id,
             "title": dec_title,
             "text": text,
-            "published_date": "2021-01-01",  # Standard baseline anchor for Wikipedia extracts
+            "published_date": "2021-01-01",  # Standard baseline anchor for encyclopedic reference
             "source": f"Wikipedia: {dec_title}",
         })
 
-    # Also include reference corpus passages so all functional and benchmark claims are grounded
-    existing_ids = {doc["id"] for doc in corpus_entries}
-    for doc in CONTROLLED_CORPUS:
-        if doc["id"] not in existing_ids:
-            corpus_entries.append(doc)
-            existing_ids.add(doc["id"])
+    # Limit to top 100 authentic Wikipedia documents
+    corpus_entries = corpus_entries[:100]
+    corpus_doc_ids = {d["id"] for d in corpus_entries}
+    logger.info(f"Constructed independent fixed evidence corpus with {len(corpus_entries)} authentic Wikipedia articles.")
 
-    # Divide claims into 1/3 dev and 2/3 test
-    dev_claims = []
-    test_claims = []
+    # Helper function to extract and preserve FEVER evidence groups
+    def extract_fever_evidence_sets(c: Dict[str, Any]) -> Tuple[List[List[str]], List[str]]:
+        """Preserve FEVER's alternative acceptable evidence sets and multi-hop structure.
 
-    for mapped_label, claim_list in claims_by_label.items():
-        random.shuffle(claim_list)
-        dev_count = len(claim_list) // 3
-        dev_subset = claim_list[:dev_count]
-        test_subset = claim_list[dev_count:]
+        Returns:
+            Tuple of (evidence_sets, flattened_unique_evidence_ids)
+            evidence_sets is a list of alternative acceptable sets: [[doc_a], [doc_b, doc_c]]
+        """
+        raw_ev = c.get("evidence", [])
+        evidence_sets: List[List[str]] = []
 
-        for split_name, subset in [("dev", dev_subset), ("test", test_subset)]:
-            for c in subset:
-                # Map gold evidence IDs
-                gold_ids = []
-                for ev_set in c.get("evidence", []):
-                    for ev in ev_set:
-                        if len(ev) >= 3 and ev[2]:
-                            raw_t = ev[2]
-                            dec_t = decode_fever_title(raw_t).lower()
-                            if dec_t in title_to_doc_id:
-                                gold_ids.append(title_to_doc_id[dec_t])
-                            elif raw_t.lower() in title_to_doc_id:
-                                gold_ids.append(title_to_doc_id[raw_t.lower()])
+        if c.get("label") == "NOT ENOUGH INFO":
+            return [], []
 
-                # Deduplicate gold IDs preserving order
-                unique_gold = list(dict.fromkeys(gold_ids))
+        for ev_set in raw_ev:
+            set_docs = []
+            for ev in ev_set:
+                if len(ev) >= 3 and ev[2]:
+                    raw_title = ev[2]
+                    dec_title = decode_fever_title(raw_title)
 
-                record = {
-                    "id": f"fever_{c['id']}",
-                    "claim": c["claim"].strip(),
-                    "label": mapped_label,
-                    "evidence_ids": unique_gold,
-                    "category": "fever_benchmark",
-                    "split": split_name,
-                    "fever_raw_label": c["label"],
-                }
+                    # Lookup document ID
+                    if raw_title in title_to_doc_id:
+                        set_docs.append(title_to_doc_id[raw_title])
+                    elif dec_title.lower() in title_to_doc_id:
+                        set_docs.append(title_to_doc_id[dec_title.lower()])
+                    elif raw_title.lower() in title_to_doc_id:
+                        set_docs.append(title_to_doc_id[raw_title.lower()])
+                    else:
+                        # Document is outside the corpus
+                        set_docs.append(f"wiki_{slugify_title(dec_title)}")
 
-                if split_name == "dev":
-                    dev_claims.append(record)
-                else:
-                    test_claims.append(record)
+            if set_docs:
+                # Deduplicate within set while preserving multi-hop order
+                dedup_set = list(dict.fromkeys(set_docs))
+                evidence_sets.append(dedup_set)
 
-    # Save corpus.jsonl
+        # Flattened unique document IDs
+        flat_unique = list(dict.fromkeys(doc for s in evidence_sets for doc in s))
+        return evidence_sets, flat_unique
+
+    # Step 3: Sample Validation (Dev) Claims from dev_pool (N=30, balanced)
+    dev_target_per_class = num_dev // 3
+    dev_by_label: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+
+    for c in dev_pool:
+        raw_lbl = c.get("label")
+        mapped_lbl = LABEL_MAPPING.get(raw_lbl)
+        if not mapped_lbl:
+            continue
+
+        ev_sets, ev_ids = extract_fever_evidence_sets(c)
+
+        if mapped_lbl in ("SUPPORTED", "CONTRADICTED"):
+            # Ensure at least one evidence set is in corpus for development calibration
+            has_in_corpus_set = any(all(doc_id in corpus_doc_ids for doc_id in s) for s in ev_sets)
+            if not has_in_corpus_set:
+                continue
+
+        if len(dev_by_label[mapped_lbl]) < dev_target_per_class:
+            dev_by_label[mapped_lbl].append({
+                "id": f"fever_{c['id']}",
+                "claim": c["claim"].strip(),
+                "label": mapped_lbl,
+                "evidence_sets": ev_sets,
+                "evidence_ids": ev_ids,
+                "fever_evidence_raw": c.get("evidence", []),
+                "category": "fever_benchmark",
+                "split": "dev",
+                "fever_raw_label": raw_lbl,
+            })
+
+    dev_claims = [item for sublist in dev_by_label.values() for item in sublist]
+    random.shuffle(dev_claims)
+
+    # Step 4: Sample Held-Out Test Claims from test_pool (N=60, balanced)
+    test_target_per_class = num_test // 3
+    test_by_label: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+
+    for c in test_pool:
+        raw_lbl = c.get("label")
+        mapped_lbl = LABEL_MAPPING.get(raw_lbl)
+        if not mapped_lbl:
+            continue
+
+        ev_sets, ev_ids = extract_fever_evidence_sets(c)
+
+        if mapped_lbl in ("SUPPORTED", "CONTRADICTED"):
+            # In-corpus coverage for verifiable claims
+            has_in_corpus_set = any(all(doc_id in corpus_doc_ids for doc_id in s) for s in ev_sets)
+            if not has_in_corpus_set:
+                continue
+
+        if len(test_by_label[mapped_lbl]) < test_target_per_class:
+            test_by_label[mapped_lbl].append({
+                "id": f"fever_{c['id']}",
+                "claim": c["claim"].strip(),
+                "label": mapped_lbl,
+                "evidence_sets": ev_sets,
+                "evidence_ids": ev_ids,
+                "fever_evidence_raw": c.get("evidence", []),
+                "category": "fever_benchmark",
+                "split": "test",
+                "fever_raw_label": raw_lbl,
+            })
+
+    test_claims = [item for sublist in test_by_label.values() for item in sublist]
+    random.shuffle(test_claims)
+
+    # Step 5: Save Datasets
+    # 1. Authentic Corpus (data/processed/corpus.jsonl)
     corpus_file = output_dir / "corpus.jsonl"
     with open(corpus_file, "w", encoding="utf-8") as f:
         for doc in corpus_entries:
             f.write(json.dumps(doc, ensure_ascii=False) + "\n")
-    logger.info(f"Saved authentic evidence corpus ({len(corpus_entries)} passages) to {corpus_file}")
+    logger.info(f"Saved authentic evidence corpus ({len(corpus_entries)} passages, 0 synthetic) to {corpus_file}")
 
-    # Save dev.jsonl and test.jsonl
+    # 2. Validation dev.jsonl
     dev_file = output_dir / "dev.jsonl"
     with open(dev_file, "w", encoding="utf-8") as f:
         for item in dev_claims:
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
     logger.info(f"Saved validation dev split ({len(dev_claims)} claims) to {dev_file}")
 
+    # 3. Held-out test.jsonl
     test_file = output_dir / "test.jsonl"
     with open(test_file, "w", encoding="utf-8") as f:
         for item in test_claims:
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
-    logger.info(f"Saved evaluation test split ({len(test_claims)} claims) to {test_file}")
+    logger.info(f"Saved held-out test split ({len(test_claims)} claims) to {test_file}")
 
-    # Save dataset_info.json
+    # 4. dataset_info.json
     info = {
-        "dataset_name": "Official FEVER Paper Dev Benchmark Subset",
+        "dataset_name": "Authentic FEVER Benchmark (Independent Corpus & Evidence Groups)",
         "provenance_url": "https://fever.ai/download/fever/paper_dev.jsonl",
+        "methodology": {
+            "corpus_independence": "Fixed evidence corpus constructed from reference dev_pool independently of test_pool",
+            "evidence_groups": "FEVER alternative acceptable evidence sets and multi-hop sets strictly preserved in evidence_sets",
+            "synthetic_separation": "Zero synthetic passages in data/processed/corpus.jsonl (quarantined in data/controlled/)",
+            "retrieval_protocol": "Recall@k requires at least one complete evidence set in top-k; MRR evaluates first gold passage",
+        },
         "num_claims_total": len(dev_claims) + len(test_claims),
         "dev_count": len(dev_claims),
         "test_count": len(test_claims),
         "corpus_passages_count": len(corpus_entries),
         "label_counts": {
-            "dev": dict(defaultdict(int, {lbl: sum(1 for c in dev_claims if c["label"] == lbl) for lbl in LABEL_MAPPING.values()})),
-            "test": dict(defaultdict(int, {lbl: sum(1 for c in test_claims if c["label"] == lbl) for lbl in LABEL_MAPPING.values()})),
+            "dev": {lbl: sum(1 for c in dev_claims if c["label"] == lbl) for lbl in ("SUPPORTED", "CONTRADICTED", "INSUFFICIENT_EVIDENCE")},
+            "test": {lbl: sum(1 for c in test_claims if c["label"] == lbl) for lbl in ("SUPPORTED", "CONTRADICTED", "INSUFFICIENT_EVIDENCE")},
         },
         "label_mapping": LABEL_MAPPING,
         "seed": seed,
     }
     with open(output_dir / "dataset_info.json", "w", encoding="utf-8") as f:
         json.dump(info, f, indent=2)
+    logger.info(f"Saved benchmark metadata to {output_dir / 'dataset_info.json'}")
 
 
 def main():
@@ -469,14 +701,15 @@ def main():
     parser.add_argument("--raw_file", type=str, default="data/raw/fever_dev.jsonl", help="Raw FEVER dev jsonl file")
     parser.add_argument("--processed_dir", type=str, default="data/processed", help="Output directory for processed benchmark")
     parser.add_argument("--controlled_dir", type=str, default="data/controlled", help="Output directory for controlled suite")
-    parser.add_argument("--num_claims", type=int, default=90, help="Number of authentic FEVER claims to sample")
+    parser.add_argument("--num_dev", type=int, default=30, help="Number of validation claims")
+    parser.add_argument("--num_test", type=int, default=60, help="Number of held-out evaluation claims")
     parser.add_argument("--seed", type=int, default=42, help="Random seed")
     args = parser.parse_args()
 
-    # 1. Always prepare the controlled functional scenario suite
+    # 1. Always prepare the controlled functional scenario suite strictly in data/controlled/
     prepare_controlled_suite(Path(args.controlled_dir))
 
-    # 2. Prepare authentic FEVER benchmark
+    # 2. Prepare authentic FEVER benchmark with independent corpus
     raw_path = Path(args.raw_file)
     if not raw_path.exists():
         raw_path = Path("data/raw/fever_paper_dev.jsonl")
@@ -484,7 +717,8 @@ def main():
     prepare_fever_benchmark(
         raw_file=raw_path,
         output_dir=Path(args.processed_dir),
-        num_claims=args.num_claims,
+        num_dev=args.num_dev,
+        num_test=args.num_test,
         seed=args.seed,
     )
 

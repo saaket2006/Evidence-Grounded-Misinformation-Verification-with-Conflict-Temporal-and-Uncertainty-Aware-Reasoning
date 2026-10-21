@@ -1,10 +1,16 @@
 {
-  "dataset_name": "Official FEVER Paper Dev Benchmark Subset",
+  "dataset_name": "Authentic FEVER Benchmark (Independent Corpus & Evidence Groups)",
   "provenance_url": "https://fever.ai/download/fever/paper_dev.jsonl",
+  "methodology": {
+    "corpus_independence": "Fixed evidence corpus constructed from reference dev_pool independently of test_pool",
+    "evidence_groups": "FEVER alternative acceptable evidence sets and multi-hop sets strictly preserved in evidence_sets",
+    "synthetic_separation": "Zero synthetic passages in data/processed/corpus.jsonl (quarantined in data/controlled/)",
+    "retrieval_protocol": "Recall@k requires at least one complete evidence set in top-k; MRR evaluates first gold passage"
+  },
   "num_claims_total": 90,
   "dev_count": 30,
   "test_count": 60,
-  "corpus_passages_count": 89,
+  "corpus_passages_count": 100,
   "label_counts": {
     "dev": {
       "SUPPORTED": 10,
