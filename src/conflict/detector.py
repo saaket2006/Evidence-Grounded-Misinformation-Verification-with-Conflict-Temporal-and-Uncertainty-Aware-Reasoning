@@ -13,6 +13,8 @@ class ConflictReport(BaseModel):
     supporting_ids: List[str] = Field(default_factory=list, description="IDs of supporting passages")
     contradicting_ids: List[str] = Field(default_factory=list, description="IDs of contradicting passages")
     neutral_ids: List[str] = Field(default_factory=list, description="IDs of neutral passages")
+    supporting_sources: List[str] = Field(default_factory=list, description="Unique sources providing supporting evidence")
+    contradicting_sources: List[str] = Field(default_factory=list, description="Unique sources providing contradicting evidence")
     description: str = Field(default="No conflict detected.", description="Explanation of conflict state")
 
 
@@ -37,22 +39,36 @@ class ConflictDetector:
         supporting_ids = []
         contradicting_ids = []
         neutral_ids = []
+        supporting_sources = set()
+        contradicting_sources = set()
 
         support_mass = 0.0
         contradict_mass = 0.0
 
+        # Filter out exact duplicate passage texts so repeated snippets do not inflate corroboration
+        seen_texts = set()
+        unique_passages = []
         for p in passages:
+            norm_text = p.text.strip().lower()
+            if norm_text not in seen_texts:
+                seen_texts.add(norm_text)
+                unique_passages.append(p)
+
+        for p in unique_passages:
             rel = max(0.01, p.relevance_score)
             probs = p.nli_probs or {}
             p_sup = probs.get("SUPPORT", 1.0 if p.nli_label == NLILabel.SUPPORT else 0.0)
             p_con = probs.get("CONTRADICT", 1.0 if p.nli_label == NLILabel.CONTRADICT else 0.0)
+            src_name = p.source or p.id
 
             # Categorize by predominant label
             if p.nli_label == NLILabel.SUPPORT:
                 supporting_ids.append(p.id)
+                supporting_sources.add(src_name)
                 support_mass += rel * p_sup
             elif p.nli_label == NLILabel.CONTRADICT:
                 contradicting_ids.append(p.id)
+                contradicting_sources.add(src_name)
                 contradict_mass += rel * p_con
             else:
                 neutral_ids.append(p.id)
@@ -93,5 +109,7 @@ class ConflictDetector:
             supporting_ids=supporting_ids,
             contradicting_ids=contradicting_ids,
             neutral_ids=neutral_ids,
+            supporting_sources=sorted(list(supporting_sources)),
+            contradicting_sources=sorted(list(contradicting_sources)),
             description=description,
         )

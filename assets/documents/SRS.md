@@ -3,16 +3,16 @@
 ## Project Title
 **Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning**
 
-**Version:** 0.2 — Stress-Verified Draft  
-**Status:** Draft
+**Version:** 1.0 — Audited & Scientifically Validated  
+**Status:** Verified Research Prototype
 
 # 1. Introduction
 
 ## 1.1 Purpose
-Define software requirements for a system that analyzes factual claims, retrieves and assesses evidence, reasons over supporting and contradicting information, considers temporal and multimodal consistency, and produces uncertainty-aware, auditable verification results.
+Define software requirements for a system that analyzes factual claims, retrieves and assesses evidence, reasons over supporting and contradicting information, considers temporal consistency, and produces uncertainty-aware, auditable verification results.
 
 ## 1.2 Scope
-The software shall support content submission, claim extraction/decomposition, evidence retrieval, support/contradiction searches, evidence assessment, source/temporal assessment, multimodal consistency, synthesis, uncertainty, abstention, structured reports, audit trails, and research evaluation.
+The software supports content submission, claim decomposition, evidence retrieval, support/contradiction searches, evidence assessment, source/temporal assessment, synthesis, calibrated uncertainty estimation, principled abstention (`INSUFFICIENT_EVIDENCE`), structured reports, audit trails, and scientific evaluation. Multimodal consistency and dynamic web crawlers are scheduled for future milestone releases.
 
 ## 1.3 Definitions
 

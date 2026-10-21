@@ -134,9 +134,11 @@ def run_experiment(
     y_pred: List[str] = []
     confidences: List[float] = []
     accuracies: List[int] = []
+    prob_vectors: List[List[float]] = []
     gold_ids: List[List[str]] = []
     retrieved_ids: List[List[str]] = []
     item_details: List[Dict[str, Any]] = []
+    llm_actually_executed_count = 0
 
     for item in dataset:
         claim_text = item["claim"]
@@ -152,6 +154,18 @@ def run_experiment(
         y_pred.append(pred_label)
         confidences.append(conf)
         accuracies.append(is_correct)
+
+        # Extract 3-class probability distribution
+        agg_meta = res.metadata.get("aggregation", {})
+        p_sup = float(agg_meta.get("support_prob", 0.0))
+        p_con = float(agg_meta.get("contradict_prob", 0.0))
+        p_neu = float(agg_meta.get("neutral_prob", 0.0))
+        prob_vectors.append([p_sup, p_con, p_neu])
+
+        # Track genuine LLM execution
+        advice_flags = res.metadata.get("reasoning", {}).get("flags", [])
+        if "LLM_STRUCTURED_RESPONSE" in advice_flags or "LLM_RAW_TEXT_RESPONSE" in advice_flags:
+            llm_actually_executed_count += 1
 
         ret_ev = [p.id for p in res.evidence]
         gold_ids.append(gold_ev)
@@ -172,13 +186,23 @@ def run_experiment(
     # Compute evaluation metrics
     verif_metrics = compute_verification_metrics(y_true, y_pred)
     retrieval_metrics = compute_retrieval_metrics(gold_ids, retrieved_ids, k=5)
-    calib_metrics = compute_calibration_metrics(confidences, accuracies)
+    calib_metrics = compute_calibration_metrics(
+        confidences=confidences,
+        accuracies=accuracies,
+        y_true=y_true,
+        prob_vectors=prob_vectors,
+    )
     abstention_metrics = compute_abstention_metrics(y_true, y_pred)
+
+    is_llm_experiment = (exp_key == "llm_assisted")
+    llm_status = "EXECUTED" if (is_llm_experiment and llm_actually_executed_count > 0) else ("NOT_EVALUATED" if is_llm_experiment else "N/A")
 
     result_payload = {
         "experiment_key": exp_key,
         "name": exp_def["name"],
         "num_claims": len(dataset),
+        "llm_status": llm_status,
+        "llm_calls_succeeded": llm_actually_executed_count,
         "verification_metrics": verif_metrics,
         "retrieval_metrics": retrieval_metrics,
         "calibration_metrics": calib_metrics,
@@ -223,14 +247,18 @@ def main():
             c = res["calibration_metrics"]
             a = res["abstention_metrics"]
 
+            exp_name = res["name"]
+            if res.get("llm_status") == "NOT_EVALUATED":
+                exp_name += " [NOT EVALUATED - No API Key]"
+
             summary_rows.append({
-                "Experiment": res["name"],
+                "Experiment": exp_name,
                 "Accuracy": v["accuracy"],
                 "Macro-F1": v["macro_f1"],
                 "Recall@5": r.get("recall@5", 0.0),
                 "MRR": r.get("mrr", 0.0),
                 "ECE": c["ece"],
-                "Brier": c["brier_score"],
+                "Brier (MC)": c.get("multiclass_brier", c.get("brier_score")),
                 "Coverage": a["coverage"],
                 "Selective Acc": a["selective_accuracy"],
             })

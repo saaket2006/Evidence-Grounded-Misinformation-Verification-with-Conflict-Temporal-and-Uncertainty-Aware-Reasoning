@@ -1,0 +1,74 @@
+[
+  {
+    "category": "SUPPORTED",
+    "claim": "Fox 2000 Pictures released the film Soul Food.",
+    "verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.6791,
+    "uncertainty": 0.3209,
+    "conflict_detected": true,
+    "abstained": true,
+    "abstention_reason": "Claim verification analysis for: 'Fox 2000 Pictures released the film Soul Food.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 0.45). 1 passage(s) support while 3 passage(s) contradict.\n- Chronology Note: Timeline gap: evidence refers to [2002], while claim specifies 2000.; Timeline gap: evidence refers to [2010, 2012], while claim specifies 2000.; Timeline gap: evidence refers to [1995], while claim specifies 2000.\n- Aggregate Evidence Signal: 1.7% Support, 7.5% Contradict, 90.8% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE.",
+    "top_evidence_count": 5,
+    "subclaim_count": 1
+  },
+  {
+    "category": "CONTRADICTED",
+    "claim": "Telemundo is a English-language television network.",
+    "verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.7445,
+    "uncertainty": 0.2555,
+    "conflict_detected": false,
+    "abstained": true,
+    "abstention_reason": "Claim verification analysis for: 'Telemundo is a English-language television network.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 10.0% Support, 20.0% Contradict, 70.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE.",
+    "top_evidence_count": 5,
+    "subclaim_count": 1
+  },
+  {
+    "category": "INSUFFICIENT_EVIDENCE",
+    "claim": "The ancient lost civilization of Atlantis was powered by crystal energy.",
+    "verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.0,
+    "uncertainty": 1.0,
+    "conflict_detected": false,
+    "abstained": true,
+    "abstention_reason": "Claim verification analysis for: 'The ancient lost civilization of Atlantis was powered by crystal energy.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE.",
+    "top_evidence_count": 5,
+    "subclaim_count": 1
+  },
+  {
+    "category": "COMPOUND",
+    "claim": "Fox 2000 Pictures released the film Soul Food, and Telemundo is an English-language television network.",
+    "verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.7116,
+    "uncertainty": 0.2884,
+    "conflict_detected": true,
+    "abstained": true,
+    "abstention_reason": "Compound claim has INSUFFICIENT_EVIDENCE because one or more subclaims could not be definitively verified.",
+    "top_evidence_count": 9,
+    "subclaim_count": 2
+  },
+  {
+    "category": "CONFLICTING_EVIDENCE",
+    "claim": "NovaTech achieved $10 million in enterprise revenue in 2024.",
+    "verdict": "INSUFFICIENT_EVIDENCE",
+    "confidence": 0.3429,
+    "uncertainty": 0.6571,
+    "conflict_detected": true,
+    "abstained": true,
+    "abstention_reason": "Claim verification analysis for: 'NovaTech achieved $10 million in enterprise revenue in 2024.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 1.00). 1 passage(s) support while 1 passage(s) contradict.\n- Chronology Note: Timeline gap: evidence refers to [2019], while claim specifies 2024.\n- Aggregate Evidence Signal: 48.5% Support, 48.5% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE.",
+    "top_evidence_count": 5,
+    "subclaim_count": 1
+  },
+  {
+    "category": "TIME_SENSITIVE",
+    "claim": "Acme Corporation is currently the global market leader in autonomous delivery drones.",
+    "verdict": "CONTRADICTED",
+    "confidence": 0.7656,
+    "uncertainty": 0.2344,
+    "conflict_detected": false,
+    "abstained": false,
+    "abstention_reason": "N/A",
+    "top_evidence_count": 5,
+    "subclaim_count": 1
+  }
+]

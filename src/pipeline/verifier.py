@@ -51,12 +51,19 @@ class MisinformationVerifier:
         device = ret_cfg.get("device", "auto")
 
         if self.use_retrieval and self.corpus_manager:
-            bm25_path = Path(ret_cfg.get("bm25_index_path", "data/indexes/bm25.pkl"))
-            dense_path = Path(ret_cfg.get("dense_index_path", "data/indexes/dense_index.pt"))
+            bm25_raw = ret_cfg.get("bm25_index_path")
+            bm25_path = Path(bm25_raw) if bm25_raw else None
+            dense_raw = ret_cfg.get("dense_index_path")
+            dense_path = Path(dense_raw) if dense_raw else None
             dense_model = ret_cfg.get("dense_model_name", "sentence-transformers/all-MiniLM-L6-v2")
 
-            self.bm25 = BM25Retriever(self.corpus_manager, index_path=bm25_path if bm25_path.exists() else None)
-            self.dense = DenseRetriever(self.corpus_manager, model_name=dense_model, index_path=dense_path if dense_path.exists() else None, device=device)
+            self.bm25 = BM25Retriever(self.corpus_manager, index_path=bm25_path if (bm25_path and bm25_path.exists()) else None)
+            self.dense = DenseRetriever(
+                self.corpus_manager,
+                model_name=dense_model,
+                index_path=dense_path if (dense_path and dense_path.exists()) else None,
+                device=device,
+            )
             self.hybrid = HybridRetriever(
                 self.bm25,
                 self.dense,
@@ -215,6 +222,7 @@ class MisinformationVerifier:
             "temporal_report": temporal_report,
             "uncertainty_profile": uncertainty_profile,
             "explanation": advice.synthesized_explanation,
+            "advice": advice,
         }
 
     def verify(self, claim: str) -> VerificationResult:
@@ -269,6 +277,7 @@ class MisinformationVerifier:
                     "conflict_report": primary["conflict_report"].model_dump(),
                     "temporal_report": primary["temporal_report"].model_dump(),
                     "uncertainty_profile": primary["uncertainty_profile"].model_dump(),
+                    "reasoning": primary["advice"].model_dump(),
                 },
             )
 

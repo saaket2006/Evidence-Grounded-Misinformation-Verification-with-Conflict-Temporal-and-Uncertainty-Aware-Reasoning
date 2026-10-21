@@ -111,10 +111,11 @@ When evidence is weak, absent, or irreconcilably contradictory, the system expli
 
 ## 4. Primary Data Stores & Artifacts
 
-- **Raw Data (`data/raw/`)**: Downloaded datasets (e.g., FEVER claim-evidence corpus).
-- **Processed Corpus (`data/processed/`)**: Normalized passages, train/dev/test splits, claims with ground-truth evidence annotations.
-- **Index Store (`data/indexes/`)**: Serialized BM25 token indices and dense embedding matrices / vector indices.
-- **Results (`results/`)**: Machine-readable JSON/CSV logs of experimental benchmarks, calibration evaluations, and ablation studies.
+- **Raw Data (`data/raw/`)**: Downloaded datasets (e.g., official FEVER 1.0 shared task development set).
+- **Processed Corpus (`data/processed/`)**: Authentic FEVER evaluation splits (`dev.jsonl`, `test.jsonl`), authentic Wikipedia corpus (`corpus.jsonl`), and index metadata.
+- **Controlled Scenarios (`data/controlled/`)**: Controlled functional suites with explicit enterprise reports, conflicting audits, and temporal evolutions for edge-case validation.
+- **Index Store (`data/indexes/`)**: Serialized Okapi BM25 indices (`bm25.pkl`) and dense PyTorch tensor embeddings (`dense_index.pt`).
+- **Results (`results/`)**: Machine-readable JSON/CSV logs of experimental benchmarks, calibration evaluations, and ablation studies across both authentic FEVER and controlled suites.
 
 ---
 

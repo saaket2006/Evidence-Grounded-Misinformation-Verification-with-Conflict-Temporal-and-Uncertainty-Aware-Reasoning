@@ -1,150 +1,738 @@
 {
   "experiment_key": "full_system",
   "name": "Experiment D: Full Proposed System (with Uncertainty & Abstention)",
-  "num_claims": 9,
+  "num_claims": 60,
+  "llm_status": "N/A",
+  "llm_calls_succeeded": 0,
   "verification_metrics": {
-    "accuracy": 0.8889,
-    "macro_f1": 0.8857,
-    "macro_precision": 0.9167,
-    "macro_recall": 0.8889,
+    "accuracy": 0.5667,
+    "macro_f1": 0.5248,
+    "macro_precision": 0.6407,
+    "macro_recall": 0.5667,
+    "confusion_matrix": [
+      [
+        5,
+        7,
+        8
+      ],
+      [
+        1,
+        9,
+        10
+      ],
+      [
+        0,
+        0,
+        20
+      ]
+    ],
+    "labels": [
+      "SUPPORTED",
+      "CONTRADICTED",
+      "INSUFFICIENT_EVIDENCE"
+    ],
     "per_class": {
       "SUPPORTED": {
-        "precision": 0.75,
-        "recall": 1.0,
-        "f1": 0.8571,
-        "support": 3
+        "precision": 0.8333,
+        "recall": 0.25,
+        "f1": 0.3846,
+        "support": 20
       },
       "CONTRADICTED": {
-        "precision": 1.0,
-        "recall": 1.0,
-        "f1": 1.0,
-        "support": 3
+        "precision": 0.5625,
+        "recall": 0.45,
+        "f1": 0.5,
+        "support": 20
       },
       "INSUFFICIENT_EVIDENCE": {
-        "precision": 1.0,
-        "recall": 0.6667,
-        "f1": 0.8,
-        "support": 3
+        "precision": 0.5263,
+        "recall": 1.0,
+        "f1": 0.6897,
+        "support": 20
       }
     },
-    "total_evaluated": 9
+    "total_evaluated": 60
   },
   "retrieval_metrics": {
     "recall@5": 1.0,
-    "precision@5": 0.3,
-    "mrr": 0.9375
+    "precision@5": 0.2308,
+    "mrr": 1.0
   },
   "calibration_metrics": {
-    "ece": 0.2275,
-    "brier_score": 0.2487
+    "ece": 0.5907,
+    "brier_score": 0.6585,
+    "multiclass_brier": 0.6585,
+    "normalized_brier": 0.3293
   },
   "abstention_metrics": {
-    "coverage": 0.7778,
-    "selective_accuracy": 0.8571,
-    "overall_accuracy": 0.8889,
-    "covered_count": 7,
-    "abstained_count": 2,
-    "total_count": 9
+    "coverage": 0.3667,
+    "selective_accuracy": 0.6364,
+    "selective_risk": 0.3636,
+    "overall_accuracy": 0.5667,
+    "covered_count": 22,
+    "abstained_count": 38,
+    "total_count": 60
   },
   "claims_evaluated": [
     {
-      "id": "claim_001",
-      "claim": "Roman Atwood is an American YouTube personality.",
-      "true_label": "SUPPORTED",
-      "pred_label": "SUPPORTED",
-      "correct": true,
-      "confidence": 0.7621,
-      "uncertainty": 0.2379,
-      "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'Roman Atwood is an American YouTube personality.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 55.2% Support, 1.3% Contradict, 43.5% Neutral.\n- Final Grounded Verdict: SUPPORTED."
-    },
-    {
-      "id": "claim_002",
-      "claim": "Roman Atwood was born in London, England.",
-      "true_label": "CONTRADICTED",
-      "pred_label": "CONTRADICTED",
-      "correct": true,
-      "confidence": 0.754,
-      "uncertainty": 0.246,
-      "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'Roman Atwood was born in London, England.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 0.9% Support, 44.9% Contradict, 54.1% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
-    },
-    {
-      "id": "claim_005",
-      "claim": "The Earth has experienced its hottest year on record in 2023.",
-      "true_label": "SUPPORTED",
-      "pred_label": "SUPPORTED",
-      "correct": true,
-      "confidence": 0.9414,
-      "uncertainty": 0.0586,
-      "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'The Earth has experienced its hottest year on record in 2023.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Chronology Note: Timeline gap: evidence refers to 2021, while claim specifies 2023.; Timeline gap: evidence refers to 2025, while claim specifies 2023.\n- Aggregate Evidence Signal: 99.8% Support, 0.0% Contradict, 0.2% Neutral.\n- Final Grounded Verdict: SUPPORTED."
-    },
-    {
-      "id": "claim_006",
-      "claim": "Acme Corporation is currently the market leader in autonomous delivery drones.",
-      "true_label": "CONTRADICTED",
-      "pred_label": "CONTRADICTED",
-      "correct": true,
-      "confidence": 0.7799,
-      "uncertainty": 0.2201,
-      "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'Acme Corporation is currently the market leader in autonomous delivery drones.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Chronology Note: Potentially outdated (2016) relative to newer evidence (2025).; Potentially outdated (2022) relative to newer evidence (2025).; Potentially outdated (2019) relative to newer evidence (2025).\n- Aggregate Evidence Signal: 15.8% Support, 80.2% Contradict, 4.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
-    },
-    {
-      "id": "claim_007",
-      "claim": "Vaccine-X is 92% effective with absolutely zero reported cases of severe adverse reactions.",
-      "true_label": "INSUFFICIENT_EVIDENCE",
-      "pred_label": "SUPPORTED",
-      "correct": false,
-      "confidence": 0.7764,
-      "uncertainty": 0.2236,
-      "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'Vaccine-X is 92% effective with absolutely zero reported cases of severe adverse reactions.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 49.5% Support, 0.1% Contradict, 50.4% Neutral.\n- Final Grounded Verdict: SUPPORTED."
-    },
-    {
-      "id": "claim_008",
-      "claim": "NovaTech launched its product in 2024 and generated $10 million in revenue that year.",
-      "true_label": "INSUFFICIENT_EVIDENCE",
-      "pred_label": "INSUFFICIENT_EVIDENCE",
-      "correct": true,
-      "confidence": 0.4006,
-      "uncertainty": 0.5994,
-      "conflict_detected": true,
-      "reasoning": "Compound claim has INSUFFICIENT_EVIDENCE because one or more subclaims could not be definitively verified."
-    },
-    {
-      "id": "claim_012",
-      "claim": "The Great Wall of China is easily visible from the Moon with the naked eye.",
-      "true_label": "CONTRADICTED",
-      "pred_label": "CONTRADICTED",
-      "correct": true,
-      "confidence": 0.7835,
-      "uncertainty": 0.2165,
-      "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'The Great Wall of China is easily visible from the Moon with the naked eye.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 1.3% Support, 68.1% Contradict, 30.6% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
-    },
-    {
-      "id": "claim_014",
-      "claim": "Python was first released in 1991.",
-      "true_label": "SUPPORTED",
-      "pred_label": "SUPPORTED",
-      "correct": true,
-      "confidence": 0.7542,
-      "uncertainty": 0.2458,
-      "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'Python was first released in 1991.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Chronology Note: Timeline gap: evidence refers to 2019, while claim specifies 1991.; Timeline gap: evidence refers to 2021, while claim specifies 1991.; Timeline gap: evidence refers to 2024, while claim specifies 1991.; Timeline gap: evidence refers to 2022, while claim specifies 1991.\n- Aggregate Evidence Signal: 75.6% Support, 1.6% Contradict, 22.8% Neutral.\n- Final Grounded Verdict: SUPPORTED."
-    },
-    {
-      "id": "claim_015",
-      "claim": "The mysterious civilization of Atlantis built a crystal pyramid on Europa in 1492.",
+      "id": "fever_32266",
+      "claim": "Colin Kaepernick became a starter during the 49ers 63rd season in the Republican Party.",
       "true_label": "INSUFFICIENT_EVIDENCE",
       "pred_label": "INSUFFICIENT_EVIDENCE",
       "correct": true,
       "confidence": 0.0,
       "uncertainty": 1.0,
       "conflict_detected": false,
-      "reasoning": "Claim verification analysis for: 'The mysterious civilization of Atlantis built a crystal pyramid on Europa in 1492.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+      "reasoning": "Claim verification analysis for: 'Colin Kaepernick became a starter during the 49ers 63rd season in the Republican Party.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_102702",
+      "claim": "Ashton Kutcher was directed by George Clooney.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Ashton Kutcher was directed by George Clooney.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_223766",
+      "claim": "Ralph Fults was born January 23 1911 and died in prison.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Compound claim has INSUFFICIENT_EVIDENCE because one or more subclaims could not be definitively verified."
+    },
+    {
+      "id": "fever_228344",
+      "claim": "Island Records is a music school.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.3974,
+      "uncertainty": 0.6026,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Island Records is a music school.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 10.0% Support, 20.0% Contradict, 70.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_121113",
+      "claim": "Billboard Dad is a genre of music.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": true,
+      "reasoning": "Claim verification analysis for: 'Billboard Dad is a genre of music.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 0.90). 1 passage(s) support while 1 passage(s) contradict.\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_76289",
+      "claim": "Raees (film) stars a Buddhist.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Raees (film) stars a Buddhist.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_194462",
+      "claim": "Tilda Swinton is a vegan.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Tilda Swinton is a vegan.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_71126",
+      "claim": "A View to a Kill is an action movie.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'A View to a Kill is an action movie.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_63502",
+      "claim": "Viola Davis appeared in Kate & Leopold as Darth Maul.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Viola Davis appeared in Kate & Leopold as Darth Maul.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_166626",
+      "claim": "Anne Rice was born in New Jersey.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Anne Rice was born in New Jersey.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_112988",
+      "claim": "Men in Black II stars eight children.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Men in Black II stars eight children.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_148988",
+      "claim": "John Dolmayan was born in northern Lebanon.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'John Dolmayan was born in northern Lebanon.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_140846",
+      "claim": "Shooter is about an expert marksman who tries to stop the assassination of the president.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": true,
+      "reasoning": "Claim verification analysis for: 'Shooter is about an expert marksman who tries to stop the assassination of the president.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 0.72). 1 passage(s) support while 1 passage(s) contradict.\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_88464",
+      "claim": "The Road to El Dorado stars Tim Allen.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'The Road to El Dorado stars Tim Allen.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_150773",
+      "claim": "L.A. Reid has served as the CEO of Arista Records for four years.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.7276,
+      "uncertainty": 0.2724,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'L.A. Reid has served as the CEO of Arista Records for four years.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 11.1% Support, 22.8% Contradict, 66.1% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_71182",
+      "claim": "Annette Badland was in the 2015 NBA Finals.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": true,
+      "reasoning": "Claim verification analysis for: 'Annette Badland was in the 2015 NBA Finals.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 0.41). 1 passage(s) support while 2 passage(s) contradict.\n- Chronology Note: Timeline gap: evidence refers to [1933, 1976, 1983, 1984, 1988, 1990, 1991, 1994, 1995, 2006, 2026], while claim specifies 2015.; Timeline gap: evidence refers to [2002, 2005, 2007, 2013], while claim specifies 2015.; Timeline gap: evidence refers to [1959, 1979, 1991, 1992, 1996, 2002, 2010, 2021, 2025, 2026], while claim specifies 2015.; Timeline gap: evidence refers to [1927, 1947, 1948, 1949, 1951, 1952, 1953, 1954, 1955, 1956, 1958, 1960, 1962, 1963, 1966, 1972, 1975, 1979, 1980, 1984, 1998, 2002, 2004], while claim specifies 2015.\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_56669",
+      "claim": "Ron Weasley is a President.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Ron Weasley is a President.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_91198",
+      "claim": "Colin Kaepernick became a starting quarterback during the 49ers 63rd season in the National Football League.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Colin Kaepernick became a starting quarterback during the 49ers 63rd season in the National Football League.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_194372",
+      "claim": "Happiness in Slavery is a gospel song by Nine Inch Nails.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Happiness in Slavery is a gospel song by Nine Inch Nails.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_101555",
+      "claim": "XHamster's The Sex Factor forces eight men and eight women to battle to become a porn star.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Compound claim has INSUFFICIENT_EVIDENCE because one or more subclaims could not be definitively verified."
+    },
+    {
+      "id": "fever_55658",
+      "claim": "James VI and I was a major advocate of a single parliament for Scotland and England.",
+      "true_label": "SUPPORTED",
+      "pred_label": "CONTRADICTED",
+      "correct": false,
+      "confidence": 0.9254,
+      "uncertainty": 0.0746,
+      "conflict_detected": false,
+      "reasoning": "Compound claim is CONTRADICTED because at least one constitutive subclaim was refuted by evidence."
+    },
+    {
+      "id": "fever_31963",
+      "claim": "Shane Black was born in 1961.",
+      "true_label": "SUPPORTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.6027,
+      "uncertainty": 0.3973,
+      "conflict_detected": true,
+      "reasoning": "Claim verification analysis for: 'Shane Black was born in 1961.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 0.41). 1 passage(s) support while 3 passage(s) contradict.\n- Chronology Note: Timeline gap: evidence refers to [1958, 1981, 1987, 1989, 1993, 2003], while claim specifies 1961.; Timeline gap: evidence refers to [1994, 2011, 2018, 2019], while claim specifies 1961.; Timeline gap: evidence refers to [1959, 1979, 1991, 1992, 1996, 2002, 2010, 2021, 2025, 2026], while claim specifies 1961.\n- Aggregate Evidence Signal: 79.7% Support, 11.0% Contradict, 9.3% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_145446",
+      "claim": "Topman has clothing outlets in six Irish cities and towns.",
+      "true_label": "SUPPORTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.7814,
+      "uncertainty": 0.2186,
+      "conflict_detected": false,
+      "reasoning": "Compound claim has INSUFFICIENT_EVIDENCE because one or more subclaims could not be definitively verified."
+    },
+    {
+      "id": "fever_181634",
+      "claim": "There is a capital called Mogadishu.",
+      "true_label": "SUPPORTED",
+      "pred_label": "SUPPORTED",
+      "correct": true,
+      "confidence": 0.9829,
+      "uncertainty": 0.0171,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'There is a capital called Mogadishu.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 99.1% Support, 0.1% Contradict, 0.8% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+    },
+    {
+      "id": "fever_194904",
+      "claim": "Stripes had Conrad Dunn featured in it.",
+      "true_label": "SUPPORTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.3979,
+      "uncertainty": 0.6021,
+      "conflict_detected": true,
+      "reasoning": "Claim verification analysis for: 'Stripes had Conrad Dunn featured in it.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 0.99). 2 passage(s) support while 1 passage(s) contradict.\n- Aggregate Evidence Signal: 49.0% Support, 48.2% Contradict, 2.8% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_204361",
+      "claim": "The Cretaceous ended.",
+      "true_label": "SUPPORTED",
+      "pred_label": "CONTRADICTED",
+      "correct": false,
+      "confidence": 0.9256,
+      "uncertainty": 0.0744,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'The Cretaceous ended.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "fever_105095",
+      "claim": "Nicholas Brody is a character on Homeland.",
+      "true_label": "SUPPORTED",
+      "pred_label": "SUPPORTED",
+      "correct": true,
+      "confidence": 0.926,
+      "uncertainty": 0.074,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Nicholas Brody is a character on Homeland.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 95.0% Support, 2.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+    },
+    {
+      "id": "fever_71853",
+      "claim": "L.A. Reid has served as the president of a record label.",
+      "true_label": "SUPPORTED",
+      "pred_label": "SUPPORTED",
+      "correct": true,
+      "confidence": 0.926,
+      "uncertainty": 0.074,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'L.A. Reid has served as the president of a record label.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 95.0% Support, 2.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+    },
+    {
+      "id": "fever_107786",
+      "claim": "Ann Richards was professionally involved in politics.",
+      "true_label": "SUPPORTED",
+      "pred_label": "CONTRADICTED",
+      "correct": false,
+      "confidence": 0.9251,
+      "uncertainty": 0.0749,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Ann Richards was professionally involved in politics.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "fever_192714",
+      "claim": "CBS is the network that aired The Millers.",
+      "true_label": "SUPPORTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.7445,
+      "uncertainty": 0.2555,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'CBS is the network that aired The Millers.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 10.0% Support, 20.0% Contradict, 70.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_68084",
+      "claim": "Wales' population changed.",
+      "true_label": "SUPPORTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.8302,
+      "uncertainty": 0.1698,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Wales' population changed.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.9% Support, 18.5% Contradict, 80.6% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_201090",
+      "claim": "Marcus Bentley is a broadcaster.",
+      "true_label": "SUPPORTED",
+      "pred_label": "SUPPORTED",
+      "correct": true,
+      "confidence": 0.926,
+      "uncertainty": 0.074,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Marcus Bentley is a broadcaster.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 95.0% Support, 2.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+    },
+    {
+      "id": "fever_71959",
+      "claim": "Jennifer Lopez made a single.",
+      "true_label": "SUPPORTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.5694,
+      "uncertainty": 0.4306,
+      "conflict_detected": true,
+      "reasoning": "Claim verification analysis for: 'Jennifer Lopez made a single.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 0.42). 2 passage(s) support while 1 passage(s) contradict.\n- Aggregate Evidence Signal: 64.5% Support, 21.4% Contradict, 14.1% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_185193",
+      "claim": "Home for the Holidays stars an American actress.",
+      "true_label": "SUPPORTED",
+      "pred_label": "SUPPORTED",
+      "correct": true,
+      "confidence": 0.8485,
+      "uncertainty": 0.1515,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Home for the Holidays stars an American actress.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 87.7% Support, 1.9% Contradict, 10.5% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+    },
+    {
+      "id": "fever_159706",
+      "claim": "Edgar Wright is a person.",
+      "true_label": "SUPPORTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.8427,
+      "uncertainty": 0.1573,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Edgar Wright is a person.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.3% Support, 18.2% Contradict, 81.6% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_159944",
+      "claim": "Christa McAuliffe taught social studies at Concord High School.",
+      "true_label": "SUPPORTED",
+      "pred_label": "CONTRADICTED",
+      "correct": false,
+      "confidence": 0.926,
+      "uncertainty": 0.074,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Christa McAuliffe taught social studies at Concord High School.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "fever_137334",
+      "claim": "Fox 2000 Pictures released the film Soul Food.",
+      "true_label": "SUPPORTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.6791,
+      "uncertainty": 0.3209,
+      "conflict_detected": true,
+      "reasoning": "Claim verification analysis for: 'Fox 2000 Pictures released the film Soul Food.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 0.45). 1 passage(s) support while 3 passage(s) contradict.\n- Chronology Note: Timeline gap: evidence refers to [2010, 2012], while claim specifies 2000.; Timeline gap: evidence refers to [1995], while claim specifies 2000.; Timeline gap: evidence refers to [2002], while claim specifies 2000.\n- Aggregate Evidence Signal: 1.7% Support, 7.5% Contradict, 90.8% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_26300",
+      "claim": "Heavy Metal music was developed in the early 1970's.",
+      "true_label": "SUPPORTED",
+      "pred_label": "CONTRADICTED",
+      "correct": false,
+      "confidence": 0.876,
+      "uncertainty": 0.124,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Heavy Metal music was developed in the early 1970's.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Chronology Note: Timeline gap: evidence refers to [1994, 2000, 2003, 2006, 2012, 2013, 2014, 2018, 2024], while claim specifies 1970.; Timeline gap: evidence refers to [1968, 1988, 1991, 1993, 1994, 1995, 1997, 1998, 1999, 2001, 2003, 2007, 2011, 2014, 2015, 2016, 2021, 2023], while claim specifies 1970.; Timeline gap: evidence refers to [1968], while claim specifies 1970.\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "fever_64721",
+      "claim": "Aristotle spent time in Athens.",
+      "true_label": "SUPPORTED",
+      "pred_label": "CONTRADICTED",
+      "correct": false,
+      "confidence": 0.9207,
+      "uncertainty": 0.0793,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Aristotle spent time in Athens.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "fever_226877",
+      "claim": "Jenna Jameson worked as a glamor model and a stripper.",
+      "true_label": "SUPPORTED",
+      "pred_label": "CONTRADICTED",
+      "correct": false,
+      "confidence": 0.9254,
+      "uncertainty": 0.0746,
+      "conflict_detected": false,
+      "reasoning": "Compound claim is CONTRADICTED because at least one constitutive subclaim was refuted by evidence."
+    },
+    {
+      "id": "fever_66638",
+      "claim": "The Adventures of Pluto Nash was reviewed by Ron Underwood.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.926,
+      "uncertainty": 0.074,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'The Adventures of Pluto Nash was reviewed by Ron Underwood.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "fever_18708",
+      "claim": "Charles Manson has been proven innocent of all crimes.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.9165,
+      "uncertainty": 0.0835,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Charles Manson has been proven innocent of all crimes.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "fever_187000",
+      "claim": "Bermuda Triangle is in the western part of the Himalayas.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.4313,
+      "uncertainty": 0.5687,
+      "conflict_detected": true,
+      "reasoning": "Claim verification analysis for: 'Bermuda Triangle is in the western part of the Himalayas.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 0.72). 1 passage(s) support while 1 passage(s) contradict.\n- Aggregate Evidence Signal: 10.0% Support, 20.0% Contradict, 70.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_104386",
+      "claim": "Tenacious D started in 1997.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.8756,
+      "uncertainty": 0.1244,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Tenacious D started in 1997.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Chronology Note: Timeline gap: evidence refers to [1994, 2000, 2003, 2006, 2012, 2013, 2014, 2018, 2024], while claim specifies 1997.\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "fever_54168",
+      "claim": "Murda Beatz's real name is Marshall Mathers.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.9221,
+      "uncertainty": 0.0779,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Murda Beatz's real name is Marshall Mathers.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "fever_147411",
+      "claim": "Hot Right Now is mistakenly attributed to DJ Fresh.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.7435,
+      "uncertainty": 0.2565,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Hot Right Now is mistakenly attributed to DJ Fresh.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 10.0% Support, 20.0% Contradict, 70.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_108281",
+      "claim": "Andrew Kevin Walker is only Chinese.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.7418,
+      "uncertainty": 0.2582,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Andrew Kevin Walker is only Chinese.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 10.0% Support, 20.0% Contradict, 70.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_227130",
+      "claim": "New Orleans Pelicans compete in the National Football Association.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.6186,
+      "uncertainty": 0.3814,
+      "conflict_detected": true,
+      "reasoning": "Claim verification analysis for: 'New Orleans Pelicans compete in the National Football Association.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 0.98). 1 passage(s) support while 1 passage(s) contradict.\n- Aggregate Evidence Signal: 0.2% Support, 2.2% Contradict, 97.6% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_21775",
+      "claim": "Vedam was written and directed by Christopher Nolan.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.8084,
+      "uncertainty": 0.1916,
+      "conflict_detected": false,
+      "reasoning": "Compound claim is CONTRADICTED because at least one constitutive subclaim was refuted by evidence."
+    },
+    {
+      "id": "fever_197381",
+      "claim": "Sim\u00f3n Bol\u00edvar is only known as Sim\u00f3n Bol\u00edvar.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.9259,
+      "uncertainty": 0.0741,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Sim\u00f3n Bol\u00edvar is only known as Sim\u00f3n Bol\u00edvar.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "fever_204443",
+      "claim": "Brad Wilk helped co-found Rage in 1962.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.8757,
+      "uncertainty": 0.1243,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Brad Wilk helped co-found Rage in 1962.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Chronology Note: Timeline gap: evidence refers to [1968, 1988, 1991, 1993, 1994, 1995, 1997, 1998, 1999, 2001, 2003, 2007, 2011, 2014, 2015, 2016, 2021, 2023], while claim specifies 1962.; Timeline gap: evidence refers to [1959, 1979, 1991, 1992, 1996, 2002, 2010, 2021, 2025, 2026], while claim specifies 1962.; Timeline gap: evidence refers to [1968], while claim specifies 1962.; Timeline gap: evidence refers to [1968, 1990, 1991, 2000, 2001, 2007, 2011, 2013, 2016, 2017, 2019, 2024], while claim specifies 1962.\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "fever_89891",
+      "claim": "Damon Albarn's debut album was released in 2011.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "SUPPORTED",
+      "correct": false,
+      "confidence": 0.795,
+      "uncertainty": 0.205,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Damon Albarn's debut album was released in 2011.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Chronology Note: Timeline gap: evidence refers to [1999, 2000, 2001], while claim specifies 2011.\n- Aggregate Evidence Signal: 90.3% Support, 6.7% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+    },
+    {
+      "id": "fever_219028",
+      "claim": "Savages was exclusively a German film.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.9761,
+      "uncertainty": 0.0239,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Savages was exclusively a German film.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.3% Contradict, 99.7% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_41665",
+      "claim": "There are not rumors that Augustus' wife, Livia, poisoned him.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'There are not rumors that Augustus' wife, Livia, poisoned him.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_90809",
+      "claim": "Sean Penn is only ever a stage actor.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.9216,
+      "uncertainty": 0.0784,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Sean Penn is only ever a stage actor.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "fever_129441",
+      "claim": "Saxony is in Ireland.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.7329,
+      "uncertainty": 0.2671,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Saxony is in Ireland.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 10.0% Support, 20.0% Contradict, 70.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_142454",
+      "claim": "Advertising is a personal message.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.7244,
+      "uncertainty": 0.2756,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Advertising is a personal message.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 18.9% Support, 11.9% Contradict, 69.2% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_132134",
+      "claim": "Noah Cyrus is a younger sister of Macy Grey.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.7414,
+      "uncertainty": 0.2586,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Noah Cyrus is a younger sister of Macy Grey.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 10.0% Support, 20.0% Contradict, 70.0% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_128123",
+      "claim": "Mohra is a truck.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.8268,
+      "uncertainty": 0.1732,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Mohra is a truck.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.1% Support, 0.3% Contradict, 99.7% Neutral.\n- Final Grounded Verdict: INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "fever_26839",
+      "claim": "Hedda Gabler's world premiere took place at the Battle of Hastings.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.921,
+      "uncertainty": 0.079,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Hedda Gabler's world premiere took place at the Battle of Hastings.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
     }
   ]
 }

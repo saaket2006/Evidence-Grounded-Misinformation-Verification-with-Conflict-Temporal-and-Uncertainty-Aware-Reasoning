@@ -78,22 +78,28 @@ class TemporalAnalyzer:
         for p, ref_year in evidence_dates:
             validity = 1.0
             note = "Temporally aligned."
+            text_years = self.extract_years(p.text)
+            pub_year = self.extract_date(p.published_date)
 
             # Case 1: Claim is about current state, but older evidence contradicts newer evidence
-            if is_present and ref_year and max_evidence_year and (max_evidence_year - ref_year >= 3):
+            if is_present and pub_year and max_evidence_year and (max_evidence_year - pub_year >= 3):
                 validity = max(0.2, 1.0 - self.outdated_penalty)
-                note = f"Potentially outdated ({ref_year}) relative to newer evidence ({max_evidence_year})."
+                note = f"Potentially outdated publication ({pub_year}) relative to newer evidence ({max_evidence_year})."
                 has_mismatch = True
                 discrepancy_reasons.append(note)
 
-            # Case 2: Claim specifies a year, but evidence contradicts that timeline
-            elif claim_years and ref_year:
-                if ref_year not in claim_years:
-                    # If evidence describes events years apart
-                    diff = abs(claim_years[0] - ref_year)
+            # Case 2: Claim specifies a year
+            elif claim_years:
+                # If passage text explicitly confirms/discusses the claimed year, it is temporally aligned
+                if any(yr in text_years for yr in claim_years):
+                    validity = 1.0
+                    note = f"Temporally aligned: evidence explicitly describes events in {claim_years}."
+                # If passage text specifies different event years (and does NOT contain the claim year)
+                elif text_years:
+                    diff = min(abs(claim_years[0] - yr) for yr in text_years)
                     if diff >= 2:
                         validity = max(0.3, 1.0 - (self.mismatch_penalty * min(1.0, diff / 10.0)))
-                        note = f"Timeline gap: evidence refers to {ref_year}, while claim specifies {claim_years[0]}."
+                        note = f"Timeline gap: evidence refers to {text_years}, while claim specifies {claim_years[0]}."
                         has_mismatch = True
                         discrepancy_reasons.append(note)
 

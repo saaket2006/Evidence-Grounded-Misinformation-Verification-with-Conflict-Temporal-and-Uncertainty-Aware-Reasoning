@@ -1,0 +1,29 @@
+{
+  "dataset_name": "Official FEVER Paper Dev Benchmark Subset",
+  "provenance_url": "https://fever.ai/download/fever/paper_dev.jsonl",
+  "num_claims_total": 90,
+  "dev_count": 30,
+  "test_count": 60,
+  "corpus_passages_count": 89,
+  "label_counts": {
+    "dev": {
+      "SUPPORTED": 10,
+      "CONTRADICTED": 10,
+      "INSUFFICIENT_EVIDENCE": 10
+    },
+    "test": {
+      "SUPPORTED": 20,
+      "CONTRADICTED": 20,
+      "INSUFFICIENT_EVIDENCE": 20
+    }
+  },
+  "label_mapping": {
+    "SUPPORTS": "SUPPORTED",
+    "REFUTES": "CONTRADICTED",
+    "NOT ENOUGH INFO": "INSUFFICIENT_EVIDENCE",
+    "SUPPORTED": "SUPPORTED",
+    "CONTRADICTED": "CONTRADICTED",
+    "INSUFFICIENT_EVIDENCE": "INSUFFICIENT_EVIDENCE"
+  },
+  "seed": 42
+}

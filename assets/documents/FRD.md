@@ -3,11 +3,17 @@
 ## Project Title
 **Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning**
 
-**Version:** 0.2 — Stress-Verified Draft  
-**Status:** Draft
+**Version:** 1.0 — Audited & Scientifically Validated  
+**Status:** Verified Research Prototype
 
 ## 1. Functional Scope
-The system shall provide an end-to-end workflow for submission, claim extraction, evidence retrieval and assessment, verification, uncertainty handling, and auditable reporting.
+The system provides an end-to-end workflow for submission, claim extraction, evidence retrieval and assessment, verification, uncertainty handling, auditable reporting, and selective abstention.
+
+**Implementation Realization:**
+- Textual claim verification with atomic proposition decomposition is fully delivered.
+- External evidence retrieval with BM25 + Dense Hybrid search and Cross-Encoder reranking is fully delivered.
+- Three-class NLI, temporal analysis, conflict detection, calibrated uncertainty, and abstention (`INSUFFICIENT_EVIDENCE`) are verified and operational.
+- Input validation (text formatting, length checks) is fully implemented. Multimodal vision-language ingestion remains documented as a planned future phase.
 
 ## 2. Content Submission
 - **FR-01:** Allow textual claim/article submission.

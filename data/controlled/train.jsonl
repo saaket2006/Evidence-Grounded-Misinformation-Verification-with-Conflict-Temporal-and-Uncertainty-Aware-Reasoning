@@ -1,0 +1,4 @@
+{"id": "ctrl_claim_001", "claim": "Alan Turing was an English mathematician.", "label": "SUPPORTED", "evidence_ids": ["wiki_alan_turing_1"], "category": "simple", "split": "train"}
+{"id": "ctrl_claim_002", "claim": "Alan Turing was born in Australia.", "label": "CONTRADICTED", "evidence_ids": ["wiki_alan_turing_1"], "category": "simple", "split": "train"}
+{"id": "ctrl_claim_003", "claim": "Python 3.0 was released in 1980.", "label": "CONTRADICTED", "evidence_ids": ["wiki_python_lang_2"], "category": "temporal", "split": "train"}
+{"id": "ctrl_claim_004", "claim": "Roman Atwood is an astronaut who walked on Mars.", "label": "CONTRADICTED", "evidence_ids": ["wiki_roman_atwood_1"], "category": "simple", "split": "train"}

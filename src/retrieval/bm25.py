@@ -73,15 +73,15 @@ class BM25Retriever(BaseRetriever):
         ranked_indices = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:top_k]
 
         results = []
-        max_score = max(scores) if len(scores) > 0 and max(scores) > 0 else 1.0
-
         for idx in ranked_indices:
             score = float(scores[idx])
             if score <= 0.0:
                 continue
-            normalized_score = min(score / max_score, 1.0)
+            # Rational saturation normalization: maps raw BM25 [0, inf) to [0, 1)
+            # A raw score of 10.0 maps to 0.5, while weak incidental hits (<6.0) stay < 0.4
+            normalized_score = min(score / (score + 10.0), 1.0)
             doc_id = self.doc_ids[idx]
-            passage = self.corpus_manager.to_evidence_passage(doc_id, score=normalized_score)
+            passage = self.corpus_manager.to_evidence_passage(doc_id, score=round(normalized_score, 4))
             if passage:
                 results.append(passage)
 

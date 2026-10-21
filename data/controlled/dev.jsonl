@@ -1,0 +1,5 @@
+{"id": "ctrl_claim_005", "claim": "NASA's Perseverance rover landed in Jezero crater on Mars.", "label": "SUPPORTED", "evidence_ids": ["wiki_mars_perseverance_1"], "category": "simple", "split": "dev"}
+{"id": "ctrl_claim_006", "claim": "The Eiffel Tower was designed by Leonardo da Vinci.", "label": "CONTRADICTED", "evidence_ids": ["wiki_eiffel_tower_2"], "category": "simple", "split": "dev"}
+{"id": "ctrl_claim_007", "claim": "Python was created by James Gosling.", "label": "CONTRADICTED", "evidence_ids": ["wiki_python_lang_1"], "category": "simple", "split": "dev"}
+{"id": "ctrl_claim_008", "claim": "A secret submarine base was discovered under Lake Titicaca in 2025.", "label": "INSUFFICIENT_EVIDENCE", "evidence_ids": [], "category": "insufficient", "split": "dev"}
+{"id": "ctrl_claim_009", "claim": "The Eiffel Tower was built in the 15th century.", "label": "CONTRADICTED", "evidence_ids": ["wiki_eiffel_tower_2"], "category": "temporal", "split": "dev"}

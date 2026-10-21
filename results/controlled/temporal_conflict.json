@@ -1,0 +1,177 @@
+{
+  "experiment_key": "temporal_conflict",
+  "name": "Experiment C: Conflict- & Temporal-Aware",
+  "num_claims": 9,
+  "llm_status": "N/A",
+  "llm_calls_succeeded": 0,
+  "verification_metrics": {
+    "accuracy": 0.6667,
+    "macro_f1": 0.5357,
+    "macro_precision": 0.45,
+    "macro_recall": 0.6667,
+    "confusion_matrix": [
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        0
+      ],
+      [
+        2,
+        1,
+        0
+      ]
+    ],
+    "labels": [
+      "SUPPORTED",
+      "CONTRADICTED",
+      "INSUFFICIENT_EVIDENCE"
+    ],
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1": 0.75,
+        "support": 3
+      },
+      "CONTRADICTED": {
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571,
+        "support": 3
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3
+      }
+    },
+    "total_evaluated": 9
+  },
+  "retrieval_metrics": {
+    "recall@5": 1.0,
+    "precision@5": 0.25,
+    "mrr": 0.9375
+  },
+  "calibration_metrics": {
+    "ece": 0.0736,
+    "brier_score": 0.5254,
+    "multiclass_brier": 0.5254,
+    "normalized_brier": 0.2627
+  },
+  "abstention_metrics": {
+    "coverage": 1.0,
+    "selective_accuracy": 0.6667,
+    "selective_risk": 0.3333,
+    "overall_accuracy": 0.6667,
+    "covered_count": 9,
+    "abstained_count": 0,
+    "total_count": 9
+  },
+  "claims_evaluated": [
+    {
+      "id": "ctrl_claim_010",
+      "claim": "Roman Atwood is an American YouTube personality.",
+      "true_label": "SUPPORTED",
+      "pred_label": "SUPPORTED",
+      "correct": true,
+      "confidence": 0.7502,
+      "uncertainty": 0.2498,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Roman Atwood is an American YouTube personality.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 55.2% Support, 1.3% Contradict, 43.5% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+    },
+    {
+      "id": "ctrl_claim_011",
+      "claim": "The Eiffel Tower is in Paris.",
+      "true_label": "SUPPORTED",
+      "pred_label": "SUPPORTED",
+      "correct": true,
+      "confidence": 0.6801,
+      "uncertainty": 0.3199,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'The Eiffel Tower is in Paris.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 51.1% Support, 16.3% Contradict, 32.6% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+    },
+    {
+      "id": "ctrl_claim_012",
+      "claim": "Roman Atwood was born in London, England.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.754,
+      "uncertainty": 0.246,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Roman Atwood was born in London, England.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 0.9% Support, 44.9% Contradict, 54.1% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "ctrl_claim_013",
+      "claim": "Alan Turing died in 1980.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.8727,
+      "uncertainty": 0.1273,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Alan Turing died in 1980.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Chronology Note: Timeline gap: evidence refers to [1954], while claim specifies 1980.; Timeline gap: evidence refers to [1948, 1970, 1978, 1983, 1985, 1986, 2004, 2024], while claim specifies 1980.; Timeline gap: evidence refers to [1934, 1968, 1969, 2017], while claim specifies 1980.\n- Aggregate Evidence Signal: 2.0% Support, 95.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "ctrl_claim_014",
+      "claim": "Acme Corporation is currently the global market leader in autonomous delivery drones.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "CONTRADICTED",
+      "correct": false,
+      "confidence": 0.7656,
+      "uncertainty": 0.2344,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Acme Corporation is currently the global market leader in autonomous delivery drones.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Chronology Note: Potentially outdated publication (2021) relative to newer evidence (2024).; Potentially outdated publication (2019) relative to newer evidence (2024).\n- Aggregate Evidence Signal: 20.3% Support, 76.4% Contradict, 3.3% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "ctrl_claim_015",
+      "claim": "NovaTech achieved $10 million in enterprise revenue in 2024.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "SUPPORTED",
+      "correct": false,
+      "confidence": 0.3446,
+      "uncertainty": 0.6554,
+      "conflict_detected": true,
+      "reasoning": "Claim verification analysis for: 'NovaTech achieved $10 million in enterprise revenue in 2024.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 1.00). 1 passage(s) support while 2 passage(s) contradict.\n- Chronology Note: Timeline gap: evidence refers to [1982, 2005, 2006, 2007, 2016], while claim specifies 2024.\n- Aggregate Evidence Signal: 48.5% Support, 48.5% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+    },
+    {
+      "id": "ctrl_claim_016",
+      "claim": "The Great Wall of China is easily visible from the Moon with the naked eye.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "CONTRADICTED",
+      "correct": true,
+      "confidence": 0.7798,
+      "uncertainty": 0.2202,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'The Great Wall of China is easily visible from the Moon with the naked eye.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Aggregate Evidence Signal: 1.3% Support, 68.1% Contradict, 30.6% Neutral.\n- Final Grounded Verdict: CONTRADICTED."
+    },
+    {
+      "id": "ctrl_claim_017",
+      "claim": "Python was first released in 1991.",
+      "true_label": "SUPPORTED",
+      "pred_label": "SUPPORTED",
+      "correct": true,
+      "confidence": 0.3903,
+      "uncertainty": 0.6097,
+      "conflict_detected": true,
+      "reasoning": "Claim verification analysis for: 'Python was first released in 1991.'\n- Evaluated 5 external evidence passage(s) across 4 source(s).\n- Conflict Warning: Detected opposing evidence pools (conflict score: 0.93). 1 passage(s) support while 2 passage(s) contradict.\n- Chronology Note: Timeline gap: evidence refers to [2008], while claim specifies 1991.\n- Aggregate Evidence Signal: 67.0% Support, 30.0% Contradict, 3.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+    },
+    {
+      "id": "ctrl_claim_018",
+      "claim": "The mysterious civilization of Atlantis built a crystal pyramid on Europa in 1492.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "SUPPORTED",
+      "correct": false,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'The mysterious civilization of Atlantis built a crystal pyramid on Europa in 1492.'\n- Evaluated 5 external evidence passage(s) across 5 source(s).\n- Aggregate Evidence Signal: 0.0% Support, 0.0% Contradict, 100.0% Neutral.\n- Final Grounded Verdict: SUPPORTED."
+    }
+  ]
+}

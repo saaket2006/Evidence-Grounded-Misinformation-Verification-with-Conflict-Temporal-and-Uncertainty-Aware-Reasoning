@@ -1,0 +1,9 @@
+{"id": "ctrl_claim_010", "claim": "Roman Atwood is an American YouTube personality.", "label": "SUPPORTED", "evidence_ids": ["wiki_roman_atwood_1"], "category": "simple", "split": "test"}
+{"id": "ctrl_claim_011", "claim": "The Eiffel Tower is in Paris.", "label": "SUPPORTED", "evidence_ids": ["wiki_eiffel_tower_1"], "category": "simple", "split": "test"}
+{"id": "ctrl_claim_012", "claim": "Roman Atwood was born in London, England.", "label": "CONTRADICTED", "evidence_ids": ["wiki_roman_atwood_2"], "category": "simple", "split": "test"}
+{"id": "ctrl_claim_013", "claim": "Alan Turing died in 1980.", "label": "CONTRADICTED", "evidence_ids": ["wiki_alan_turing_2"], "category": "temporal", "split": "test"}
+{"id": "ctrl_claim_014", "claim": "Acme Corporation is currently the global market leader in autonomous delivery drones.", "label": "INSUFFICIENT_EVIDENCE", "evidence_ids": ["wiki_acme_corp_2019", "wiki_acme_corp_2024"], "category": "temporal_shift", "split": "test"}
+{"id": "ctrl_claim_015", "claim": "NovaTech achieved $10 million in enterprise revenue in 2024.", "label": "INSUFFICIENT_EVIDENCE", "evidence_ids": ["wiki_novatech_launch", "wiki_novatech_dispute"], "category": "conflict", "split": "test"}
+{"id": "ctrl_claim_016", "claim": "The Great Wall of China is easily visible from the Moon with the naked eye.", "label": "CONTRADICTED", "evidence_ids": ["wiki_great_wall_2"], "category": "simple", "split": "test"}
+{"id": "ctrl_claim_017", "claim": "Python was first released in 1991.", "label": "SUPPORTED", "evidence_ids": ["wiki_python_lang_1"], "category": "simple", "split": "test"}
+{"id": "ctrl_claim_018", "claim": "The mysterious civilization of Atlantis built a crystal pyramid on Europa in 1492.", "label": "INSUFFICIENT_EVIDENCE", "evidence_ids": [], "category": "insufficient", "split": "test"}
