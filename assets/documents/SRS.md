@@ -296,3 +296,52 @@ The principal comparison target is an M-RAV-like retrieve-align-verify pipeline.
 8. evaluate these mechanisms through controlled ablations.
 
 The implementation and paper must report whether these additions actually improve the chosen metrics. They must not be assumed to be improvements merely because they are architecturally different.
+
+---
+
+# 13. BERT-Based Evidence Analysis Module
+
+## 13.1 Purpose
+
+The BERT module provides a lightweight, specialized first-level analysis of relationships between claims and retrieved evidence before deeper LLM-based reasoning.
+
+## 13.2 Functional Requirements
+
+- **SRS-BERT-01:** The module shall accept a claim-evidence pair.
+- **SRS-BERT-02:** The module shall produce an evidence relationship classification.
+- **SRS-BERT-03:** Supported relationship categories should include Supporting, Contradicting, and Neutral/Irrelevant.
+- **SRS-BERT-04:** The module shall return a confidence or equivalent score suitable for downstream decision logic.
+- **SRS-BERT-05:** The module shall associate its result with the corresponding Claim ID and Evidence ID.
+- **SRS-BERT-06:** The module should support batch analysis of multiple evidence passages for a claim.
+- **SRS-BERT-07:** The module should support escalation signals when evidence is ambiguous or conflicting.
+- **SRS-BERT-08:** The module shall not independently determine the final truth status of a claim without the broader verification process.
+
+## 13.3 Interaction with the LLM
+
+The intended division of responsibility is:
+
+**BERT → fast evidence relationship analysis**
+
+**LLM → deeper evidence synthesis and contextual verification**
+
+The LLM may receive structured BERT outputs, such as supporting/contradicting evidence groups and confidence information, as part of the broader verification context.
+
+## 13.4 Adaptive Verification
+
+A possible implementation flow is:
+
+**Retrieval → BERT Analysis → Conflict/Uncertainty Check → Additional Retrieval and/or LLM Reasoning**
+
+The exact escalation criteria shall be determined during implementation and evaluation.
+
+## 13.5 BERT Ablation
+
+The system should support experimental configurations including Retrieval + LLM, Retrieval + BERT + LLM, and adaptive BERT → LLM verification. The objective is to determine whether BERT provides measurable benefit rather than assuming that adding another model improves the system.
+
+## 13.6 Model Selection
+
+The exact BERT variant, fine-tuning dataset, training procedure, and thresholding strategy are open design decisions. They shall be selected based on the verification task, available datasets, computational constraints, and experimental results.
+
+## 13.7 Research Boundary
+
+BERT is an established model family. The project's contribution is not the invention of BERT or a novel BERT architecture. Its role is to be evaluated as a specialized evidence-analysis layer within the broader conflict-, temporal-, and uncertainty-aware verification methodology.

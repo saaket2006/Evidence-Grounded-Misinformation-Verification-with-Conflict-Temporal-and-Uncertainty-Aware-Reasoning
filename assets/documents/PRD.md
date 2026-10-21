@@ -189,3 +189,33 @@ Therefore, M-RAV should be treated as a **major baseline/inspiration**, not as t
 ### Research validation principle
 
 The project should not claim “we solved the limitations of existing systems.” Instead, each claimed contribution should be tied to an ablation or baseline comparison demonstrating whether that mechanism actually improves reliability, evidence quality, calibration, or auditability.
+
+---
+
+# 24. BERT-Based Evidence Analysis
+
+BERT will serve as a **lightweight, specialized evidence-analysis component** within the verification pipeline.
+
+The intended conceptual flow is:
+
+> **Claim + Retrieved Evidence → BERT Evidence Relationship Analysis → Deeper LLM Verification when Required**
+
+BERT may be fine-tuned to classify a claim-evidence pair as **Supporting**, **Contradicting**, or **Neutral / Irrelevant**. This allows the system to construct an explicit evidence structure before deeper reasoning.
+
+### Role Separation
+
+| Component | Primary role |
+|---|---|
+| **BERT** | Fast claim-evidence relationship analysis and evidence filtering |
+| **LLM** | Deeper evidence synthesis, contextual reasoning, conflict interpretation, and verification support |
+| **Verification framework** | Temporal validation, multimodal consistency, uncertainty/abstention, adaptive verification, and auditability |
+
+BERT is **not intended to replace the LLM or act as the sole final classifier**.
+
+### Adaptive Use
+
+BERT can support adaptive verification by identifying evidence that is clearly supportive/contradicting versus ambiguous or conflicting. Cases requiring deeper reasoning can then be escalated to the LLM and/or additional retrieval.
+
+### Research Differentiation
+
+BERT itself is not claimed as novel. The research question is whether adding a specialized BERT-based evidence-analysis stage to the broader verification framework can improve claim-evidence relationship classification, conflict detection, verification reliability, and efficiency by reducing unnecessary LLM calls. This must be evaluated through controlled ablations rather than assumed.

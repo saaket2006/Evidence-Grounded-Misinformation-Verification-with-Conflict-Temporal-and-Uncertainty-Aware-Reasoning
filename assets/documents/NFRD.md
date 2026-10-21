@@ -85,3 +85,15 @@ Exact latency/resource targets shall be established by benchmarking.
 - **NFR-46 — Ablation Attribution:** Claimed improvements should be attributable to specific mechanisms through controlled ablations where practical.
 - **NFR-47 — No Component-Level Novelty Claim:** Documentation shall not describe established components such as retrieval, multimodal alignment, LLM reasoning, or claim extraction as individually novel.
 - **NFR-48 — Evidence Quality Sensitivity:** Evaluation should include cases with noisy, weak, incomplete, and conflicting evidence where the chosen benchmark permits.
+
+---
+
+# 13. BERT Component Quality Requirements
+
+- **NFR-49 — Lightweight Analysis:** The BERT stage should provide a computationally lighter evidence-analysis path than invoking a large reasoning model for every evidence item.
+- **NFR-50 — Relationship Classification Quality:** BERT-based claim-evidence classification shall be evaluated independently using appropriate classification metrics.
+- **NFR-51 — Calibration:** Where BERT confidence scores are exposed to downstream decision logic, their calibration should be evaluated.
+- **NFR-52 — Escalation Reliability:** BERT-based triage should not prevent difficult cases from reaching deeper verification when evidence is ambiguous or conflicting.
+- **NFR-53 — Model Independence:** The system should permit the BERT component to be replaced or re-evaluated without redesigning the entire verification pipeline.
+- **NFR-54 — Ablation Support:** The contribution of the BERT stage shall be measurable through controlled experiments.
+- **NFR-55 — No Novelty Misclaim:** BERT is an established model family and shall not be presented as a novel algorithmic contribution by itself.

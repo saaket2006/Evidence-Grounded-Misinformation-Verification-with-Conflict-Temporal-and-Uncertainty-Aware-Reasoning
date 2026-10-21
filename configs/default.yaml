@@ -1,0 +1,59 @@
+# Default Configuration for Misinformation Verification Pipeline
+seed: 42
+
+claim_processing:
+  enable_decomposition: true
+  min_tokens_for_split: 8
+
+retrieval:
+  corpus_path: "data/processed/corpus.jsonl"
+  bm25_index_path: "data/indexes/bm25.pkl"
+  dense_index_path: "data/indexes/dense_index.pt"
+  dense_model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  retrieval_mode: "hybrid"  # "bm25", "dense", or "hybrid"
+  top_k_candidates: 20
+  hybrid_weight_bm25: 0.5
+  hybrid_weight_dense: 0.5
+  device: "auto"
+
+reranking:
+  enabled: true
+  model_name: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  top_k: 5
+  device: "auto"
+
+nli:
+  model_name: "models/distilbert-base-uncased-mnli"  # DistilBERT MNLI model
+  batch_size: 16
+  device: "auto"
+
+temporal:
+  enabled: true
+  outdated_penalty: 0.3
+  future_mismatch_penalty: 0.5
+
+conflict:
+  enabled: true
+  balance_threshold: 0.3  # ratio of minority class to detect conflict
+  conflict_uncertainty_scale: 0.4
+
+aggregation:
+  method: "relevance_weighted"  # "relevance_weighted" or "simple_average"
+  relevance_temperature: 1.0
+
+uncertainty:
+  entropy_weight: 0.35
+  conflict_weight: 0.35
+  retrieval_deficit_weight: 0.20
+  temporal_penalty_weight: 0.10
+
+thresholds:
+  support_threshold: 0.55
+  contradict_threshold: 0.55
+  max_uncertainty_threshold: 0.60
+  min_evidence_count: 1
+  min_relevance_score: 0.10
+
+reasoning:
+  llm_enabled: false
+  provider: "heuristic_rule_advisor"

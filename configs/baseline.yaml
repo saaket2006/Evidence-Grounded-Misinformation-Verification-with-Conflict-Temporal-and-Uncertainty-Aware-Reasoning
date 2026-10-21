@@ -1,0 +1,36 @@
+# Experiment A: Baseline Direct Claim Classifier Configuration
+seed: 42
+
+claim_processing:
+  enable_decomposition: false
+
+retrieval:
+  enabled: false
+
+reranking:
+  enabled: false
+
+nli:
+  model_name: "models/distilbert-base-uncased-mnli"
+  batch_size: 16
+  device: "auto"
+
+temporal:
+  enabled: false
+
+conflict:
+  enabled: false
+
+aggregation:
+  method: "direct_prior"
+
+uncertainty:
+  enabled: false
+
+thresholds:
+  support_threshold: 0.5
+  contradict_threshold: 0.5
+  max_uncertainty_threshold: 1.0
+
+reasoning:
+  llm_enabled: false

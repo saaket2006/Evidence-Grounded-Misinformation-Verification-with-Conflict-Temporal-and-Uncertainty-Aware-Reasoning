@@ -1,0 +1,57 @@
+[
+  {
+    "Experiment": "Experiment A: Baseline Direct Classifier",
+    "Accuracy": 0.3333,
+    "Macro-F1": 0.1667,
+    "Recall@5": 0.0,
+    "MRR": 0.0,
+    "ECE": 0.3333,
+    "Brier": 0.3333,
+    "Coverage": 0.0,
+    "Selective Acc": 0.0
+  },
+  {
+    "Experiment": "Experiment B: Evidence-Aware (Retrieval + NLI)",
+    "Accuracy": 0.6667,
+    "Macro-F1": 0.5556,
+    "Recall@5": 1.0,
+    "MRR": 0.9375,
+    "ECE": 0.092,
+    "Brier": 0.1579,
+    "Coverage": 1.0,
+    "Selective Acc": 0.6667
+  },
+  {
+    "Experiment": "Experiment C: Conflict- & Temporal-Aware",
+    "Accuracy": 0.6667,
+    "Macro-F1": 0.5556,
+    "Recall@5": 1.0,
+    "MRR": 0.9375,
+    "ECE": 0.0943,
+    "Brier": 0.1155,
+    "Coverage": 1.0,
+    "Selective Acc": 0.6667
+  },
+  {
+    "Experiment": "Experiment D: Full Proposed System (with Uncertainty & Abstention)",
+    "Accuracy": 0.8889,
+    "Macro-F1": 0.8857,
+    "Recall@5": 1.0,
+    "MRR": 0.9375,
+    "ECE": 0.2275,
+    "Brier": 0.2487,
+    "Coverage": 0.7778,
+    "Selective Acc": 0.8571
+  },
+  {
+    "Experiment": "Experiment E: Full System + LLM Reasoning Advisor",
+    "Accuracy": 0.8889,
+    "Macro-F1": 0.8857,
+    "Recall@5": 1.0,
+    "MRR": 0.9375,
+    "ECE": 0.2275,
+    "Brier": 0.2487,
+    "Coverage": 0.7778,
+    "Selective Acc": 0.8571
+  }
+]

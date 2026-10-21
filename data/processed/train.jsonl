@@ -1,0 +1,4 @@
+{"id": "claim_004", "claim": "The Eiffel Tower was designed by Leonardo da Vinci.", "label": "CONTRADICTED", "evidence_ids": ["wiki_eiffel_tower_2"], "category": "simple", "split": "train"}
+{"id": "claim_009", "claim": "NASA's Perseverance rover landed in Jezero crater on Mars in 2021.", "label": "SUPPORTED", "evidence_ids": ["wiki_mars_rover_1"], "category": "simple", "split": "train"}
+{"id": "claim_011", "claim": "Alan Turing died in 1980.", "label": "CONTRADICTED", "evidence_ids": ["wiki_alan_turing_2"], "category": "simple", "split": "train"}
+{"id": "claim_017", "claim": "Roman Atwood is an astronaut who walked on Mars.", "label": "CONTRADICTED", "evidence_ids": ["wiki_roman_atwood_1"], "category": "simple", "split": "train"}

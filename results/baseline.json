@@ -1,0 +1,150 @@
+{
+  "experiment_key": "baseline",
+  "name": "Experiment A: Baseline Direct Classifier",
+  "num_claims": 9,
+  "verification_metrics": {
+    "accuracy": 0.3333,
+    "macro_f1": 0.1667,
+    "macro_precision": 0.1111,
+    "macro_recall": 0.3333,
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3
+      },
+      "CONTRADICTED": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "precision": 0.3333,
+        "recall": 1.0,
+        "f1": 0.5,
+        "support": 3
+      }
+    },
+    "total_evaluated": 9
+  },
+  "retrieval_metrics": {
+    "recall@5": 0.0,
+    "precision@5": 0.0,
+    "mrr": 0.0
+  },
+  "calibration_metrics": {
+    "ece": 0.3333,
+    "brier_score": 0.3333
+  },
+  "abstention_metrics": {
+    "coverage": 0.0,
+    "selective_accuracy": 0.0,
+    "overall_accuracy": 0.3333,
+    "covered_count": 0,
+    "abstained_count": 9,
+    "total_count": 9
+  },
+  "claims_evaluated": [
+    {
+      "id": "claim_001",
+      "claim": "Roman Atwood is an American YouTube personality.",
+      "true_label": "SUPPORTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Roman Atwood is an American YouTube personality.'\n- External corpus search returned no verifiable evidence."
+    },
+    {
+      "id": "claim_002",
+      "claim": "Roman Atwood was born in London, England.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Roman Atwood was born in London, England.'\n- External corpus search returned no verifiable evidence."
+    },
+    {
+      "id": "claim_005",
+      "claim": "The Earth has experienced its hottest year on record in 2023.",
+      "true_label": "SUPPORTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'The Earth has experienced its hottest year on record in 2023.'\n- External corpus search returned no verifiable evidence."
+    },
+    {
+      "id": "claim_006",
+      "claim": "Acme Corporation is currently the market leader in autonomous delivery drones.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Acme Corporation is currently the market leader in autonomous delivery drones.'\n- External corpus search returned no verifiable evidence."
+    },
+    {
+      "id": "claim_007",
+      "claim": "Vaccine-X is 92% effective with absolutely zero reported cases of severe adverse reactions.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Vaccine-X is 92% effective with absolutely zero reported cases of severe adverse reactions.'\n- External corpus search returned no verifiable evidence."
+    },
+    {
+      "id": "claim_008",
+      "claim": "NovaTech launched its product in 2024 and generated $10 million in revenue that year.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'NovaTech launched its product in 2024 and generated $10 million in revenue that year.'\n- External corpus search returned no verifiable evidence."
+    },
+    {
+      "id": "claim_012",
+      "claim": "The Great Wall of China is easily visible from the Moon with the naked eye.",
+      "true_label": "CONTRADICTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'The Great Wall of China is easily visible from the Moon with the naked eye.'\n- External corpus search returned no verifiable evidence."
+    },
+    {
+      "id": "claim_014",
+      "claim": "Python was first released in 1991.",
+      "true_label": "SUPPORTED",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": false,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'Python was first released in 1991.'\n- External corpus search returned no verifiable evidence."
+    },
+    {
+      "id": "claim_015",
+      "claim": "The mysterious civilization of Atlantis built a crystal pyramid on Europa in 1492.",
+      "true_label": "INSUFFICIENT_EVIDENCE",
+      "pred_label": "INSUFFICIENT_EVIDENCE",
+      "correct": true,
+      "confidence": 0.0,
+      "uncertainty": 1.0,
+      "conflict_detected": false,
+      "reasoning": "Claim verification analysis for: 'The mysterious civilization of Atlantis built a crystal pyramid on Europa in 1492.'\n- External corpus search returned no verifiable evidence."
+    }
+  ]
+}

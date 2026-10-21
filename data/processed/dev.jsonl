@@ -1,0 +1,5 @@
+{"id": "claim_003", "claim": "The Eiffel Tower is located in Paris, France.", "label": "SUPPORTED", "evidence_ids": ["wiki_eiffel_tower_1"], "category": "simple", "split": "dev"}
+{"id": "claim_010", "claim": "Alan Turing was an English cryptanalyst who broke the Enigma code.", "label": "SUPPORTED", "evidence_ids": ["wiki_alan_turing_1"], "category": "simple", "split": "dev"}
+{"id": "claim_013", "claim": "Python was created by James Gosling.", "label": "CONTRADICTED", "evidence_ids": ["wiki_python_lang_1"], "category": "simple", "split": "dev"}
+{"id": "claim_016", "claim": "A secret submarine base was discovered under Lake Titicaca in 2025.", "label": "INSUFFICIENT_EVIDENCE", "evidence_ids": [], "category": "insufficient", "split": "dev"}
+{"id": "claim_018", "claim": "The Eiffel Tower was built in the 15th century.", "label": "CONTRADICTED", "evidence_ids": ["wiki_eiffel_tower_2"], "category": "simple", "split": "dev"}

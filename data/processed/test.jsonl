@@ -1,0 +1,9 @@
+{"id": "claim_001", "claim": "Roman Atwood is an American YouTube personality.", "label": "SUPPORTED", "evidence_ids": ["wiki_roman_atwood_1"], "category": "simple", "split": "test"}
+{"id": "claim_002", "claim": "Roman Atwood was born in London, England.", "label": "CONTRADICTED", "evidence_ids": ["wiki_roman_atwood_2"], "category": "simple", "split": "test"}
+{"id": "claim_005", "claim": "The Earth has experienced its hottest year on record in 2023.", "label": "SUPPORTED", "evidence_ids": ["wiki_earth_climate_1", "wiki_earth_climate_2"], "category": "simple", "split": "test"}
+{"id": "claim_006", "claim": "Acme Corporation is currently the market leader in autonomous delivery drones.", "label": "CONTRADICTED", "evidence_ids": ["wiki_acme_corp_2019", "wiki_acme_corp_2024"], "category": "temporal", "split": "test"}
+{"id": "claim_007", "claim": "Vaccine-X is 92% effective with absolutely zero reported cases of severe adverse reactions.", "label": "INSUFFICIENT_EVIDENCE", "evidence_ids": ["wiki_vaccine_study_a", "wiki_vaccine_study_b"], "category": "conflicting", "split": "test"}
+{"id": "claim_008", "claim": "NovaTech launched its product in 2024 and generated $10 million in revenue that year.", "label": "INSUFFICIENT_EVIDENCE", "evidence_ids": ["wiki_novatech_launch", "wiki_novatech_dispute"], "category": "compound", "split": "test"}
+{"id": "claim_012", "claim": "The Great Wall of China is easily visible from the Moon with the naked eye.", "label": "CONTRADICTED", "evidence_ids": ["wiki_great_wall_2"], "category": "simple", "split": "test"}
+{"id": "claim_014", "claim": "Python was first released in 1991.", "label": "SUPPORTED", "evidence_ids": ["wiki_python_lang_1"], "category": "simple", "split": "test"}
+{"id": "claim_015", "claim": "The mysterious civilization of Atlantis built a crystal pyramid on Europa in 1492.", "label": "INSUFFICIENT_EVIDENCE", "evidence_ids": [], "category": "insufficient", "split": "test"}

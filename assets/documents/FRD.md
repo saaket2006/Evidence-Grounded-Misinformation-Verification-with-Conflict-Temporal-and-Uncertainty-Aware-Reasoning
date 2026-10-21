@@ -102,3 +102,16 @@ The system shall provide an end-to-end workflow for submission, claim extraction
 - **FR-60:** The system shall treat multimodal consistency as a verification signal rather than requiring simple feature concatenation.
 - **FR-61:** The system shall support evaluation on paraphrased or perturbed claims where the selected benchmark permits such evaluation.
 - **FR-62:** The system shall not rely on an LLM's generated conclusion as the sole authoritative source of truth.
+
+---
+
+# 15. BERT-Based Evidence Analysis Requirements
+
+- **FR-63:** The system shall support a BERT-based claim-evidence analysis component.
+- **FR-64:** The BERT component shall accept a claim and retrieved evidence passage as an analysis pair.
+- **FR-65:** The BERT component should support evidence relationship categories such as Supporting, Contradicting, and Neutral/Irrelevant.
+- **FR-66:** The system shall preserve the BERT assessment as structured evidence metadata.
+- **FR-67:** The BERT component shall not be treated as the sole authoritative source for the final verification verdict.
+- **FR-68:** The system should be able to escalate ambiguous, conflicting, temporally uncertain, or multimodally inconsistent cases from lightweight BERT analysis to deeper LLM-based verification.
+- **FR-69:** The system should support disabling the BERT stage for ablation experiments.
+- **FR-70:** The system should record sufficient metadata to compare verification behavior with and without BERT-based evidence analysis.

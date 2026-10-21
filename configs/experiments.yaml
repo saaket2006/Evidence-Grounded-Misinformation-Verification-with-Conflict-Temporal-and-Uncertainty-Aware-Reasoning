@@ -1,0 +1,51 @@
+# Experiment Suite Configuration Matrix
+experiments:
+  experiment_a_baseline:
+    name: "Baseline Direct Classifier"
+    use_retrieval: false
+    use_reranking: false
+    use_conflict: false
+    use_temporal: false
+    use_uncertainty: false
+    use_abstention: false
+    use_llm: false
+
+  experiment_b_evidence_aware:
+    name: "Evidence-Aware Retriever + NLI"
+    use_retrieval: true
+    use_reranking: true
+    use_conflict: false
+    use_temporal: false
+    use_uncertainty: false
+    use_abstention: false
+    use_llm: false
+
+  experiment_c_conflict_temporal:
+    name: "Evidence + Conflict & Temporal Aware"
+    use_retrieval: true
+    use_reranking: true
+    use_conflict: true
+    use_temporal: true
+    use_uncertainty: false
+    use_abstention: false
+    use_llm: false
+
+  experiment_d_full_system:
+    name: "Full Proposed System (with Uncertainty & Abstention)"
+    use_retrieval: true
+    use_reranking: true
+    use_conflict: true
+    use_temporal: true
+    use_uncertainty: true
+    use_abstention: true
+    use_llm: false
+
+  experiment_e_llm_assisted:
+    name: "Full Proposed System + LLM Reasoning Advisor"
+    use_retrieval: true
+    use_reranking: true
+    use_conflict: true
+    use_temporal: true
+    use_uncertainty: true
+    use_abstention: true
+    use_llm: true

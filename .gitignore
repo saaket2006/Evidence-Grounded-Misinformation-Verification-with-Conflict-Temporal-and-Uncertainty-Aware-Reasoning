@@ -218,3 +218,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Pretrained ML models (download locally, do not commit)
+models/*
+
+# Model and ML framework caches
+.cache/
+**/.cache/
+huggingface/
+**/huggingface/
+
