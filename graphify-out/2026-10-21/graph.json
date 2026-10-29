@@ -6614,18 +6614,18 @@
       "_origin": "ast",
       "id": "readme",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "readme.md"
     },
     {
-      "label": "Evidence-Grounded Misinformation Verification with Conflict, Temporal and Uncertainty-Aware Reasoning",
+      "label": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L1",
       "_origin": "ast",
       "id": "readme_evidence_grounded_misinformation_verification_with_conflict_temporal_and_uncertainty_aware_reasoning",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "evidence-grounded misinformation verification with conflict, temporal and uncertainty-aware reasoning"
     },
     {
@@ -6636,7 +6636,7 @@
       "_origin": "ast",
       "id": "readme_1_problem_statement",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "1. problem statement"
     },
     {
@@ -6647,7 +6647,7 @@
       "_origin": "ast",
       "id": "readme_2_proposed_solution",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "2. proposed solution"
     },
     {
@@ -6658,7 +6658,7 @@
       "_origin": "ast",
       "id": "readme_3_high_level_architecture",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "3. high-level architecture"
     },
     {
@@ -6669,7 +6669,7 @@
       "_origin": "ast",
       "id": "readme_4_dataset",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "4. dataset"
     },
     {
@@ -6680,7 +6680,7 @@
       "_origin": "ast",
       "id": "readme_5_installation_requirements",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "5. installation & requirements"
     },
     {
@@ -6691,7 +6691,7 @@
       "_origin": "ast",
       "id": "readme_system_requirements",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "system requirements"
     },
     {
@@ -6702,7 +6702,7 @@
       "_origin": "ast",
       "id": "readme_setup",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "setup"
     },
     {
@@ -6713,7 +6713,7 @@
       "_origin": "ast",
       "id": "readme_6_data_preparation_indexing",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "6. data preparation & indexing"
     },
     {
@@ -6724,7 +6724,7 @@
       "_origin": "ast",
       "id": "readme_7_model_selection_assumptions",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "7. model selection & assumptions"
     },
     {
@@ -6735,7 +6735,7 @@
       "_origin": "ast",
       "id": "readme_8_running_the_system",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "8. running the system"
     },
     {
@@ -6746,7 +6746,7 @@
       "_origin": "ast",
       "id": "readme_single_claim_verification_cli",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "single claim verification (cli)"
     },
     {
@@ -6757,7 +6757,7 @@
       "_origin": "ast",
       "id": "readme_interactive_web_ui_streamlit",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "interactive web ui (streamlit)"
     },
     {
@@ -6768,7 +6768,7 @@
       "_origin": "ast",
       "id": "readme_9_experimental_benchmarks_scientific_validation",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "9. experimental benchmarks & scientific validation"
     },
     {
@@ -6779,7 +6779,7 @@
       "_origin": "ast",
       "id": "readme_benchmark_results_on_authentic_fever_held_out_test_split_n_60",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "benchmark results on authentic fever held-out test split ($n=60$)"
     },
     {
@@ -6790,7 +6790,7 @@
       "_origin": "ast",
       "id": "readme_10_audit_documentation_suite",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "10. audit documentation suite"
     },
     {
@@ -6801,7 +6801,7 @@
       "_origin": "ast",
       "id": "readme_10_evaluation_metrics",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "10. evaluation metrics"
     },
     {
@@ -6812,7 +6812,7 @@
       "_origin": "ast",
       "id": "readme_11_configuration_guide",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "11. configuration guide"
     },
     {
@@ -6823,7 +6823,7 @@
       "_origin": "ast",
       "id": "readme_12_running_tests",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "12. running tests"
     },
     {
@@ -6834,7 +6834,7 @@
       "_origin": "ast",
       "id": "readme_13_limitations_future_work",
       "community": 15,
-      "community_name": "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning",
+      "community_name": "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning",
       "norm_label": "13. limitations & future work"
     },
     {

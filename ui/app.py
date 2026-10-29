@@ -3,6 +3,7 @@
 Run with: streamlit run ui/app.py
 """
 
+import html
 import json
 from pathlib import Path
 import sys
@@ -83,6 +84,35 @@ st.markdown(
 @st.cache_resource
 def get_verifier(config_path: str = "configs/default.yaml"):
     return MisinformationVerifier(config_path=config_path)
+
+
+def format_passage_html(p, card_class: str) -> str:
+    """Safely format an EvidencePassage into an HTML card with all dynamic fields escaped."""
+    safe_source = html.escape(str(p.source if p.source is not None else "Corpus"), quote=True)
+    safe_date = html.escape(str(p.published_date if p.published_date is not None else "N/A"), quote=True)
+    relation_val = (
+        p.nli_label.value
+        if (p.nli_label and hasattr(p.nli_label, "value"))
+        else (str(p.nli_label) if p.nli_label else "N/A")
+    )
+    safe_relation = html.escape(str(relation_val), quote=True)
+    nli_score_str = f"{p.nli_score:.1%}" if p.nli_score is not None else "N/A"
+    rel_score_str = f"{p.relevance_score:.2f}" if p.relevance_score is not None else "N/A"
+    temp_valid_str = f"{p.temporal_validity:.2f}" if p.temporal_validity is not None else "N/A"
+    safe_text = html.escape(str(p.text if p.text is not None else ""), quote=True)
+    safe_notes = html.escape(str(p.temporal_notes if p.temporal_notes is not None else ""), quote=True)
+    safe_card_class = html.escape(str(card_class), quote=True)
+
+    notes_block = f"\n                    <small><i>{safe_notes}</i></small>" if safe_notes else ""
+
+    return f"""
+                <div class="evidence-card {safe_card_class}">
+                    <b>Source:</b> {safe_source} &nbsp;|&nbsp; <b>Date:</b> {safe_date} &nbsp;|&nbsp; 
+                    <b>NLI Relation:</b> <code>{safe_relation}</code> ({nli_score_str}) &nbsp;|&nbsp;
+                    <b>Relevance:</b> {rel_score_str} &nbsp;|&nbsp; <b>Temporal Validity:</b> {temp_valid_str}<br>
+                    <p style="margin-top: 8px;">{safe_text}</p>{notes_block}
+                </div>
+                """
 
 
 # Sidebar controls
@@ -169,18 +199,7 @@ if verify_clicked and claim_input.strip():
         ])
 
         def render_passage(p, card_class):
-            st.markdown(
-                f"""
-                <div class="evidence-card {card_class}">
-                    <b>Source:</b> {p.source} &nbsp;|&nbsp; <b>Date:</b> {p.published_date or 'N/A'} &nbsp;|&nbsp; 
-                    <b>NLI Relation:</b> <code>{p.nli_label.value if p.nli_label else 'N/A'}</code> ({p.nli_score:.1%}) &nbsp;|&nbsp;
-                    <b>Relevance:</b> {p.relevance_score:.2f} &nbsp;|&nbsp; <b>Temporal Validity:</b> {p.temporal_validity:.2f}<br>
-                    <p style="margin-top: 8px;">{p.text}</p>
-                    <small><i>{p.temporal_notes or ''}</i></small>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
+            st.markdown(format_passage_html(p, card_class), unsafe_allow_html=True)
 
         with tab_all:
             for p in result.evidence:

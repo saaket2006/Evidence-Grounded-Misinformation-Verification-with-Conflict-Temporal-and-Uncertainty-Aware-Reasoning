@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "misinfo-verification"
 version = "0.1.0"
-description = "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning"
+description = "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

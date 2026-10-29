@@ -1,7 +1,7 @@
 # Functional Requirements Document (FRD)
 
 ## Project Title
-**Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning**
+**Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning**
 
 **Version:** 1.0 — Audited & Scientifically Validated  
 **Status:** Verified Research Prototype

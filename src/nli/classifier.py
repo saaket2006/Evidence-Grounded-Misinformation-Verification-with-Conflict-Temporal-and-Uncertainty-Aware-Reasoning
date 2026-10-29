@@ -2,7 +2,6 @@
 
 import logging
 from pathlib import Path
-import re
 from typing import Dict, List, Optional, Tuple
 import torch
 import torch.nn.functional as F
@@ -22,9 +21,11 @@ class TransformerNLIClassifier(BaseNLIClassifier):
         model_name: str = "typeform/distilbert-base-uncased-mnli",
         device: str = "auto",
         batch_size: int = 16,
+        max_length: int = 256,
     ):
         self.model_name = model_name
         self.batch_size = batch_size
+        self.max_length = max_length
         if device == "auto":
             self.device = "cuda" if torch.cuda.is_available() else "cpu"
         else:
@@ -33,6 +34,39 @@ class TransformerNLIClassifier(BaseNLIClassifier):
         self.tokenizer = None
         self.model = None
         self._label_index_map: Dict[int, NLILabel] = {}
+
+    def _setup_label_mapping(self) -> None:
+        """Infer canonical NLILabel mapping from model configuration."""
+        if self.model is None or not hasattr(self.model, "config"):
+            raise ValueError(f"Cannot configure label mapping: model is not loaded for '{self.model_name}'")
+
+        id2label = getattr(self.model.config, "id2label", None) or {}
+        if not id2label and hasattr(self.model.config, "label2id") and self.model.config.label2id:
+            id2label = {v: k for k, v in self.model.config.label2id.items()}
+
+        self._label_index_map = {}
+
+        for idx, label_name in id2label.items():
+            try:
+                idx_int = int(idx)
+            except (ValueError, TypeError):
+                continue
+            label_str = str(label_name).upper()
+            if "ENTAIL" in label_str or "SUPPORT" in label_str:
+                self._label_index_map[idx_int] = NLILabel.SUPPORT
+            elif "CONTRADICT" in label_str or "REFUT" in label_str:
+                self._label_index_map[idx_int] = NLILabel.CONTRADICT
+            elif "NEUTRAL" in label_str:
+                self._label_index_map[idx_int] = NLILabel.NEUTRAL
+
+        # Verify that all 3 canonical classes are present and distinct
+        mapped_classes = set(self._label_index_map.values())
+        expected_classes = {NLILabel.SUPPORT, NLILabel.CONTRADICT, NLILabel.NEUTRAL}
+        if mapped_classes != expected_classes or len(self._label_index_map) != 3:
+            raise ValueError(
+                f"Invalid or unsupported label configuration for model '{self.model_name}'. "
+                f"Expected mappings for {expected_classes}, got {self._label_index_map} from id2label: {id2label}"
+            )
 
     def _ensure_model(self) -> None:
         """Lazy load tokenizer and model and infer label index mapping."""
@@ -44,37 +78,19 @@ class TransformerNLIClassifier(BaseNLIClassifier):
             self.model.to(self.device)
             self.model.eval()
 
-            # Map model output logits indices to canonical NLILabel
-            id2label = self.model.config.id2label or {}
-            self._label_index_map = {}
-
-            for idx, label_name in id2label.items():
-                idx_int = int(idx)
-                label_str = str(label_name).upper()
-                if "ENTAIL" in label_str or "SUPPORT" in label_str:
-                    self._label_index_map[idx_int] = NLILabel.SUPPORT
-                elif "CONTRADICT" in label_str or "REFUT" in label_str:
-                    self._label_index_map[idx_int] = NLILabel.CONTRADICT
-                elif "NEUTRAL" in label_str:
-                    self._label_index_map[idx_int] = NLILabel.NEUTRAL
-
-            # Default fallback mapping if id2label does not contain descriptive names
-            if len(self._label_index_map) < 3:
-                # Standard BERT/GLUE MNLI mapping: 0=contradiction, 1=entailment, 2=neutral
-                self._label_index_map = {
-                    0: NLILabel.CONTRADICT,
-                    1: NLILabel.SUPPORT,
-                    2: NLILabel.NEUTRAL,
-                }
+        if not self._label_index_map:
+            self._setup_label_mapping()
 
     def classify_pairs(
         self,
         pairs: List[Tuple[str, str]],
     ) -> List[dict]:
-        """Classify pairs of (premise/evidence, hypothesis/claim).
+        """Classify pairs into NLI distributions.
 
-        Note: Standard NLI semantics treats evidence passage as premise
-        and claim as hypothesis.
+        Args:
+            pairs: List of (claim, evidence_text) tuples, consistent with BaseNLIClassifier.
+                   Under standard NLI semantics, evidence_text is tokenized as Premise
+                   (Sequence A) and claim is tokenized as Hypothesis (Sequence B).
         """
         if not pairs:
             return []
@@ -84,99 +100,41 @@ class TransformerNLIClassifier(BaseNLIClassifier):
 
         for i in range(0, len(pairs), self.batch_size):
             batch_pairs = pairs[i : i + self.batch_size]
-            premises = [p[1] for p in batch_pairs]  # evidence passage is premise
-            hypotheses = [p[0] for p in batch_pairs]  # claim is hypothesis
+            premises = [p[1] for p in batch_pairs]  # evidence passage is premise (Sequence A)
+            hypotheses = [p[0] for p in batch_pairs]  # claim is hypothesis (Sequence B)
 
             inputs = self.tokenizer(
                 premises,
                 hypotheses,
                 padding=True,
                 truncation=True,
-                max_length=256,
+                max_length=self.max_length,
                 return_tensors="pt",
-            ).to(self.device)
+            )
+            if hasattr(inputs, "to"):
+                inputs = inputs.to(self.device)
+            elif isinstance(inputs, dict):
+                inputs = {k: v.to(self.device) if hasattr(v, "to") else v for k, v in inputs.items()}
 
             with torch.no_grad():
                 outputs = self.model(**inputs)
                 probs = F.softmax(outputs.logits, dim=-1).cpu()
 
-            for p_idx, prob_tensor in enumerate(probs):
+            for prob_tensor in probs:
                 prob_map = {
                     NLILabel.SUPPORT.value: 0.0,
                     NLILabel.CONTRADICT.value: 0.0,
                     NLILabel.NEUTRAL.value: 0.0,
                 }
                 for idx, val in enumerate(prob_tensor.tolist()):
-                    canonical_label = self._label_index_map.get(idx, NLILabel.NEUTRAL)
-                    prob_map[canonical_label.value] = round(val, 4)
+                    canonical_label = self._label_index_map.get(idx)
+                    if canonical_label is not None:
+                        prob_map[canonical_label.value] = float(val)
 
-                premise_text = premises[p_idx].lower()
-                hypo_text = hypotheses[p_idx].lower()
-
-                # Extract content words (length >= 3, excluding common stop words)
-                stop_words = {"the", "and", "is", "was", "are", "were", "in", "on", "at", "to", "for", "of", "with", "a", "an", "its", "that", "this", "from", "by"}
-                hypo_words = [w for w in re.findall(r"\b\w+\b", hypo_text) if len(w) >= 3 and w not in stop_words]
-                premise_words = set(re.findall(r"\b\w+\b", premise_text))
-
-                shared_words = [w for w in hypo_words if w in premise_words]
-
-                # Check for explicit refutation / contradiction markers
-                hypo_negations = {"not", "never", "no", "false", "dispute", "refute", "denied"}
-                premise_refutations = {"dispute", "disputing", "refute", "refuting", "fell short", "denied", "false", "cannot be seen"}
-
-                has_hypo_negation = any(re.search(r"\b" + re.escape(m) + r"\b", hypo_text) for m in hypo_negations) and len(shared_words) >= 2
-                has_premise_negation = any(re.search(r"\b" + re.escape(m) + r"\b", premise_text) for m in premise_refutations) and len(shared_words) >= 2
-                has_negation = has_hypo_negation or has_premise_negation
-
-                # Check for entity / numerical conflicts
-                premise_years = set(re.findall(r"\b(18\d\d|19\d\d|20\d\d)\b", premise_text))
-                hypo_years = set(re.findall(r"\b(18\d\d|19\d\d|20\d\d)\b", hypo_text))
-                has_year_conflict = bool(premise_years and hypo_years and not (premise_years & hypo_years)) and len(shared_words) >= 1
-
-                # Check known conflicting attributes (e.g. London vs Ohio, Gosling vs Guido)
-                has_known_conflict = (
-                    ("london" in hypo_text and ("ohio" in premise_text or "millersport" in premise_text))
-                    or ("gosling" in hypo_text and "rossum" in premise_text)
-                    or ("1980" in hypo_text and "1954" in premise_text)
-                    or ("leonardo" in hypo_text and "gustave" in premise_text)
-                    or has_year_conflict
-                    or has_negation
-                )
-
-                claim_words_to_match = [w for w in hypo_words if w not in hypo_negations]
-
-                # If there is no entity/content overlap at all, the passage is completely unrelated (NEUTRAL)
-                if not shared_words:
-                    prob_map = {
-                        NLILabel.SUPPORT.value: 0.05,
-                        NLILabel.CONTRADICT.value: 0.05,
-                        NLILabel.NEUTRAL.value: 0.90,
-                    }
-                # Case 1: Factual Entailment (all key claim words contained affirmatively in premise)
-                elif len(claim_words_to_match) > 0 and all(w in premise_words for w in claim_words_to_match) and not has_known_conflict:
-                    prob_map = {
-                        NLILabel.SUPPORT.value: 0.95,
-                        NLILabel.CONTRADICT.value: 0.02,
-                        NLILabel.NEUTRAL.value: 0.03,
-                    }
-                # Case 2: Explicit Factual Contradiction
-                elif has_known_conflict and prob_map[NLILabel.SUPPORT.value] < 0.8:
-                    prob_map = {
-                        NLILabel.SUPPORT.value: 0.02,
-                        NLILabel.CONTRADICT.value: 0.95,
-                        NLILabel.NEUTRAL.value: 0.03,
-                    }
-                # Case 3: Neutral Preservation (compatible topic without refutation)
-                elif prob_map[NLILabel.CONTRADICT.value] > 0.6 and not has_known_conflict:
-                    prob_map = {
-                        NLILabel.SUPPORT.value: 0.10,
-                        NLILabel.CONTRADICT.value: 0.20,
-                        NLILabel.NEUTRAL.value: 0.70,
-                    }
-
-                # Normalize probabilities
+                # Normalize probabilities to sum to 1.0 (with 4 decimal places)
                 s = sum(prob_map.values())
-                prob_map = {k: round(v / s, 4) for k, v in prob_map.items()}
+                if s > 0:
+                    prob_map = {k: round(v / s, 4) for k, v in prob_map.items()}
 
                 # Determine argmax label
                 best_label_str = max(prob_map, key=prob_map.get)
@@ -209,3 +167,18 @@ class TransformerNLIClassifier(BaseNLIClassifier):
             p.nli_probs = res["probs"]
 
         return passages
+
+    def classify_premise_hypothesis(
+        self,
+        premise: str,
+        hypothesis: str,
+    ) -> dict:
+        """Classify an explicit premise-hypothesis pair into an NLI distribution.
+
+        Args:
+            premise: Grounding evidence statement (Sequence A).
+            hypothesis: Asserted claim proposition to test (Sequence B).
+        """
+        results = self.classify_pairs([(hypothesis, premise)])
+        return results[0]
+

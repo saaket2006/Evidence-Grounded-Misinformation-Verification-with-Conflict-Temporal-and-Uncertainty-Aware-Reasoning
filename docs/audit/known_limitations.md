@@ -1,6 +1,6 @@
 # Known System Limitations and Research Bounds
 
-**Project:** Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning  
+**Project:** Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning  
 **Date:** October 2026  
 **Auditor:** Senior Research Engineer & Software Auditor  
 **Status:** Documented for Scientific Rigor

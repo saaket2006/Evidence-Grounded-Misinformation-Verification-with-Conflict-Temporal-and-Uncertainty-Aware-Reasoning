@@ -24,28 +24,35 @@ When evidence is weak, absent, or irreconcilably contradictory, the system expli
    - **Dense Semantic Retriever**: Embedding-based similarity search using sentence transformers.
    - **Hybrid Fusion**: Combines lexical and semantic candidate pools with reciprocal rank fusion or linear score combination.
 
-3. **Re-Ranking Module (`src/reranking/`)**:
-   - Cross-encoder re-ranking model scoring (claim, passage) relevance pairs to select top-k candidate evidence passages.
+3. **Evidence Granularity Segmentation (`src/retrieval/segmenter.py`)**:
+   - Decomposes retrieved candidate documents into bounded evidence units or individual sentences.
+   - Preserves parent document ID (`doc_id`), passage ID (`{doc_id}#s{idx}`), source attribution, and temporal metadata.
+   - Protects abbreviations and sentence boundaries, avoiding cross-attention dilution and false contradiction on long documents.
 
-4. **Claim–Evidence NLI Classifier (`src/nli/`)**:
+4. **Re-Ranking Module (`src/reranking/`)**:
+   - Cross-encoder re-ranking model scoring (claim, passage) relevance pairs to select top-k candidate evidence passages across all granular units.
+
+5. **Claim–Evidence NLI Classifier (`src/nli/`)**:
    - Pretrained transformer NLI model classifying evidence relationship into `SUPPORT`, `CONTRADICT`, or `NEUTRAL` with calibrated class probabilities.
+   - Uses genuine model softmax probabilities with explicit premise/hypothesis ordering (Sequence A: Premise/Evidence, Sequence B: Hypothesis/Claim).
 
-5. **Temporal Reasoning Engine (`src/temporal/`)**:
+6. **Temporal Reasoning Engine (`src/temporal/`)**:
    - Extracts temporal anchors, publication dates, and explicit time expressions from claims and evidence.
    - Evaluates temporal consistency (e.g., outdated evidence, postdated events).
 
-6. **Conflict Detection Module (`src/conflict/`)**:
+7. **Conflict Detection Module (`src/conflict/`)**:
    - Analyzes distribution and balance of supporting vs. contradicting evidence passages.
    - Computes conflict scores and partitions evidence into distinct consensus sets.
 
-7. **Evidence Aggregation & Uncertainty Module (`src/aggregation/`, `src/uncertainty/`)**:
-   - Aggregates multi-passage NLI probabilities weighted by retrieval relevance, temporal validity, and conflict penalties.
+8. **Evidence Aggregation & Uncertainty Module (`src/aggregation/`, `src/uncertainty/`)**:
+   - Performs document-aware evidence pooling across passages originating from the same source document to prevent neutral background dilution and duplicate mass inflation.
+   - Aggregates multi-document NLI probabilities weighted by peak document relevance, temporal validity, and conflict penalties.
    - Multi-signal uncertainty estimation (NLI entropy, evidence disagreement, retrieval quality, temporal mismatch).
    - Calibrated confidence estimation.
 
-8. **Decision & Abstention Engine (`src/decision/`)**:
+9. **Decision & Abstention Engine (`src/decision/`)**:
    - Evaluates verification thresholds on aggregated support/contradiction scores and uncertainty.
-   - Emits final verdict: `SUPPORTED`, `CONTRADICTED`, or abstains as `INSUFFICIENT_EVIDENCE`.
+   - Emits final verdict: `SUPPORTED`, `CONTRADICTED`, or abstains as `INSUFFICIENT_EVIDENCE`. Authoritative over advisory reasoning.
 
 9. **Auditable Explanation & Output (`src/pipeline/`)**:
    - Generates structured, transparent JSON verification reports detailing sub-claims, evidence passages, sources, dates, NLI scores, conflict flags, and reasoning steps.
@@ -78,6 +85,10 @@ When evidence is weak, absent, or irreconcilably contradictory, the system expli
           └──────────────┬──────────────┘
                          ▼
              [Candidate Fusion Pool]
+                         │ (Document Candidates)
+                         ▼
+           [Evidence Granularity Segmenter]
+                (Sentence/Bounded Units)
                          │
                          ▼
              [Cross-Encoder Re-ranker]

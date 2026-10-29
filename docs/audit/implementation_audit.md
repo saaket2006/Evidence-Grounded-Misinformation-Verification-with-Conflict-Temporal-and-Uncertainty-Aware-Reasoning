@@ -1,6 +1,6 @@
 # Implementation Audit Report
 
-**Project:** Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning  
+**Project:** Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning  
 **Audit Date:** October 2026  
 **Auditor:** Senior ML Engineer & Software Auditor  
 **Repository State:** Verified, Corrected, and Fully Tested

@@ -1,4 +1,4 @@
-# Evidence-Grounded Misinformation Verification with Conflict, Temporal and Uncertainty-Aware Reasoning
+# Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.9.1-orange.svg)](https://pytorch.org/)

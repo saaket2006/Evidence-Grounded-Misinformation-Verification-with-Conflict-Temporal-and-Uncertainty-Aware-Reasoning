@@ -1,6 +1,6 @@
 # Experimental Validation Report
 
-**Project:** Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning  
+**Project:** Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning  
 **Date:** October 2026  
 **Auditor:** Senior Research Engineer & Software Auditor  
 **Evaluation Target:** Authentic FEVER Benchmark (Held-out Test Split, $N=60$) & Controlled Scenario Suite ($N=9$)

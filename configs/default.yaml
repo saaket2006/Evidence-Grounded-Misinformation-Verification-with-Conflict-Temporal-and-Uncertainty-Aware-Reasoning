@@ -16,6 +16,13 @@ retrieval:
   hybrid_weight_dense: 0.5
   device: "auto"
 
+evidence_granularity:
+  enabled: true
+  unit: "sentence"  # "sentence", "bounded_passage", or "document"
+  max_sentences_per_passage: 1
+  max_characters: 400
+  min_characters: 15
+
 reranking:
   enabled: true
   model_name: "cross-encoder/ms-marco-MiniLM-L-6-v2"
@@ -25,6 +32,7 @@ reranking:
 nli:
   model_name: "models/distilbert-base-uncased-mnli"  # DistilBERT MNLI model
   batch_size: 16
+  max_length: 256
   device: "auto"
 
 temporal:
@@ -39,6 +47,7 @@ conflict:
 
 aggregation:
   method: "relevance_weighted"  # "relevance_weighted" or "simple_average"
+  pooling_mode: "document_aware"  # "document_aware" or "passage_flat"
   relevance_temperature: 1.0
 
 uncertainty:

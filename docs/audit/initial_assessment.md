@@ -1,6 +1,6 @@
 # Phase One Initial Audit Assessment
 
-**Project:** Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning  
+**Project:** Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning  
 **Date of Audit:** October 2026  
 **Auditor:** Senior ML Research Engineer & Software Auditor  
 **Repository Root:** `G:\Projects\Misinformation Verification\Project\Evidence-Grounded-Misinformation-Verification-with-Conflict-Temporal-and-Uncertainty-Aware-Reasoning`

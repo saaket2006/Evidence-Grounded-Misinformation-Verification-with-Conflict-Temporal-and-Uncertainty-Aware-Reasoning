@@ -1,7 +1,7 @@
 # Software Requirements Specification (SRS)
 
 ## Project Title
-**Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning**
+**Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning**
 
 **Version:** 1.0 — Audited & Scientifically Validated  
 **Status:** Verified Research Prototype
@@ -344,4 +344,4 @@ The exact BERT variant, fine-tuning dataset, training procedure, and thresholdin
 
 ## 13.7 Research Boundary
 
-BERT is an established model family. The project's contribution is not the invention of BERT or a novel BERT architecture. Its role is to be evaluated as a specialized evidence-analysis layer within the broader conflict-, temporal-, and uncertainty-aware verification methodology.
+BERT is an established model family. The project's contribution is not the invention of BERT or a novel BERT architecture. Its role is to be evaluated as a specialized evidence-analysis layer within the broader conflict, temporal, and uncertainty-aware verification methodology.

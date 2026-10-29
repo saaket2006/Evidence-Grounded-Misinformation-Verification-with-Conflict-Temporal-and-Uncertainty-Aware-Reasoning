@@ -30,7 +30,7 @@
 - RuleBasedClaimDecomposer
 - Functional Requirements Document (FRD)
 - CrossEncoderReranker
-- Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning
+- Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning
 - Non-Functional Requirements Document (NFRD)
 - EvidencePassage
 - DenseRetriever
@@ -152,7 +152,7 @@ Nodes (18): 10. Audit Trail, 11. Verification Report, 12. Adaptive Verification,
 Cohesion: 0.15
 Nodes (12): CrossEncoder, BaseReranker, ABC, Base interface for evidence re-ranking., Re-rank candidate evidence passages relative to the query. Args: query: Claim…, Abstract interface for passage re-ranking., CrossEncoderReranker, Cross-encoder re-ranking engine for candidate evidence passages. (+4 more)
 
-### Community 15 - "Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning"
+### Community 15 - "Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning"
 Cohesion: 0.10
 Nodes (20): 10. Audit Documentation Suite, 10. Evaluation Metrics, 11. Configuration Guide, 12. Running Tests, 13. Limitations & Future Work, 1. Problem Statement, 2. Proposed Solution, 3. High-Level Architecture (+12 more)
 

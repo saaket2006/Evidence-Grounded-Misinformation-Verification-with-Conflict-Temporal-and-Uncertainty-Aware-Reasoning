@@ -19,6 +19,7 @@ class NLILabel(str, Enum):
 
 class EvidencePassage(BaseModel):
     id: str = Field(..., description="Unique passage or document ID")
+    doc_id: Optional[str] = Field(default=None, description="Identifier of the source document")
     text: str = Field(..., description="Passage content")
     source: Optional[str] = Field(default="corpus", description="Origin source or title")
     published_date: Optional[str] = Field(default=None, description="ISO date or extracted year")

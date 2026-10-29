@@ -16,6 +16,7 @@ from src.retrieval.bm25 import BM25Retriever
 from src.retrieval.corpus import CorpusManager
 from src.retrieval.dense import DenseRetriever
 from src.retrieval.hybrid import HybridRetriever
+from src.retrieval.segmenter import EvidenceSegmenter
 from src.temporal.analyzer import TemporalAnalyzer
 from src.uncertainty.estimator import UncertaintyEstimator
 from src.utils.config import load_config
@@ -75,6 +76,17 @@ class MisinformationVerifier:
             self.dense = None
             self.hybrid = None
 
+        # 2.5 Evidence Granularity Segmenter
+        gran_cfg = self.config.get("evidence_granularity", {})
+        self.evidence_segmenter = EvidenceSegmenter(
+            enabled=gran_cfg.get("enabled", True),
+            unit=gran_cfg.get("unit", "sentence"),
+            max_sentences_per_passage=gran_cfg.get("max_sentences_per_passage", 1),
+            max_characters=gran_cfg.get("max_characters", 400),
+            min_characters=gran_cfg.get("min_characters", 15),
+            overlap_sentences=gran_cfg.get("overlap_sentences", 0),
+        )
+
         # 3. Re-ranking
         rerank_cfg = self.config.get("reranking", {})
         self.use_reranking = rerank_cfg.get("enabled", True)
@@ -93,6 +105,7 @@ class MisinformationVerifier:
             model_name=nli_cfg.get("model_name", "typeform/distilbert-base-uncased-mnli"),
             device=nli_cfg.get("device", "auto"),
             batch_size=nli_cfg.get("batch_size", 16),
+            max_length=nli_cfg.get("max_length", 256),
         )
 
         # 5. Temporal
@@ -113,7 +126,8 @@ class MisinformationVerifier:
         # 7. Aggregator
         agg_cfg = self.config.get("aggregation", {})
         self.aggregator = EvidenceAggregator(
-            temperature=agg_cfg.get("relevance_temperature", 1.0)
+            temperature=agg_cfg.get("relevance_temperature", 1.0),
+            pooling_mode=agg_cfg.get("pooling_mode", "document_aware"),
         )
 
         # 8. Uncertainty
@@ -162,6 +176,13 @@ class MisinformationVerifier:
         candidates = self._retrieve_candidates(claim_text)
         log_stage("RETRIEVAL", f"Retrieved {len(candidates)} candidate passage(s)")
 
+        # Stage 1.5: Evidence Granularity Segmentation
+        segmenter = getattr(self, "evidence_segmenter", None)
+        if segmenter and segmenter.enabled:
+            log_stage("GRANULARITY", f"Segmenting candidate documents into bounded units (unit={segmenter.unit})")
+            candidates = segmenter.segment_passages(candidates)
+            log_stage("GRANULARITY", f"Extracted {len(candidates)} granular candidate passage(s)")
+
         # Stage 2: Re-ranking
         if self.use_reranking and self.reranker and candidates:
             log_stage("RERANKING", f"Re-ranking top-{self.top_k_evidence} evidence passages")
@@ -203,12 +224,40 @@ class MisinformationVerifier:
         log_stage("VERDICT", "Evaluating verification thresholds and abstention criteria")
         verdict, explanation = self.decider.decide(aggregation, conflict_report, uncertainty_profile)
 
-        # Stage 9: Reasoning Engine Synthesis
-        advice = self.reasoning_engine.reason(
-            claim_text, passages, aggregation, conflict_report, temporal_report, verdict
+        # Stage 9: Reasoning Engine Synthesis (Advisory only)
+        try:
+            if self.reasoning_engine:
+                advice = self.reasoning_engine.reason(
+                    claim_text, passages, aggregation, conflict_report, temporal_report, verdict
+                )
+            else:
+                from src.reasoning.engine import ReasoningAdvice
+                advice = ReasoningAdvice(
+                    synthesized_explanation=explanation,
+                    suggested_verdict=verdict,
+                    flags=["NO_ADVISOR"],
+                    llm_executed=False,
+                )
+        except Exception as e:
+            logger.warning(
+                f"Reasoning engine failed or returned malformed output: {e}. Falling back to decision explanation."
+            )
+            from src.reasoning.engine import ReasoningAdvice
+            advice = ReasoningAdvice(
+                synthesized_explanation=explanation,
+                suggested_verdict=verdict,
+                flags=["ADVISOR_ERROR"],
+                llm_executed=False,
+            )
+
+        # Fix B: Decider's evidence-based verdict remains authoritative.
+        # The advisor's suggested_verdict is kept as advisory metadata only (in advice / metadata)
+        # and MUST NOT overwrite the evidence decider's verdict or abstention decisions.
+        final_explanation = (
+            advice.synthesized_explanation
+            if (advice and getattr(advice, "synthesized_explanation", None))
+            else explanation
         )
-        if advice.suggested_verdict:
-            verdict = advice.suggested_verdict
 
         return {
             "claim": claim_text,
@@ -221,7 +270,7 @@ class MisinformationVerifier:
             "conflict_report": conflict_report,
             "temporal_report": temporal_report,
             "uncertainty_profile": uncertainty_profile,
-            "explanation": advice.synthesized_explanation,
+            "explanation": final_explanation,
             "advice": advice,
         }
 
@@ -263,6 +312,12 @@ class MisinformationVerifier:
         # If single claim proposition
         if len(subclaims) == 1:
             primary = subclaim_results[0]
+            advice_obj = primary.get("advice")
+            advice_meta = (
+                advice_obj.model_dump()
+                if (advice_obj and hasattr(advice_obj, "model_dump"))
+                else {}
+            )
             return VerificationResult(
                 claim=claim,
                 verdict=primary["verdict"],
@@ -273,11 +328,11 @@ class MisinformationVerifier:
                 evidence=primary["evidence"],
                 reasoning=primary["explanation"],
                 metadata={
-                    "aggregation": primary["aggregation"].model_dump(),
-                    "conflict_report": primary["conflict_report"].model_dump(),
-                    "temporal_report": primary["temporal_report"].model_dump(),
-                    "uncertainty_profile": primary["uncertainty_profile"].model_dump(),
-                    "reasoning": primary["advice"].model_dump(),
+                    "aggregation": primary["aggregation"].model_dump() if hasattr(primary["aggregation"], "model_dump") else {},
+                    "conflict_report": primary["conflict_report"].model_dump() if hasattr(primary["conflict_report"], "model_dump") else {},
+                    "temporal_report": primary["temporal_report"].model_dump() if hasattr(primary["temporal_report"], "model_dump") else {},
+                    "uncertainty_profile": primary["uncertainty_profile"].model_dump() if hasattr(primary["uncertainty_profile"], "model_dump") else {},
+                    "reasoning": advice_meta,
                 },
             )
 

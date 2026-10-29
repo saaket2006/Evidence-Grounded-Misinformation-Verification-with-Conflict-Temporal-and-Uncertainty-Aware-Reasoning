@@ -1,6 +1,6 @@
 # Dataset Audit and Provenance Report
 
-**Project:** Evidence-Grounded Misinformation Verification with Conflict-, Temporal-, and Uncertainty-Aware Reasoning  
+**Project:** Evidence-Grounded Misinformation Verification with Conflict, Temporal, and Uncertainty-Aware Reasoning  
 **Date:** October 2026  
 **Auditor:** Senior Research Engineer & Software Auditor  
 **Status:** Defensible Methodology, Partitioned Provenance, and Fully Verified

@@ -40,6 +40,7 @@ class CorpusManager:
             return None
         return EvidencePassage(
             id=doc["id"],
+            doc_id=doc["id"],
             text=doc.get("text", ""),
             source=doc.get("title", "Corpus"),
             published_date=doc.get("published_date"),
